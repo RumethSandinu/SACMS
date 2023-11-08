@@ -14,13 +14,25 @@
                <graphic>
                   <FontIcon iconLiteral="fltfmz-people-community-24" iconSize="90" />
                </graphic>
+               <stylesheets>
+                  <URL value="@../../../Styles/Buttons.css" />
+                  <URL value="@../../../Styles/MainPage.css" />
+               </stylesheets>
             </Button>
             <Button mnemonicParsing="false" onMouseClicked="#advisorRegister" prefHeight="150.0" prefWidth="150.0">
                <graphic>
                   <FontIcon iconLiteral="fltfmz-person-20" iconSize="80" />
                </graphic>
+               <stylesheets>
+                  <URL value="@../../../Styles/Buttons.css" />
+                  <URL value="@../../../Styles/MainPage.css" />
+               </stylesheets>
             </Button>
          </children>
       </FlowPane>
    </children>
+   <stylesheets>
+      <URL value="@../../../Styles/MainPage.css" />
+      <URL value="@../../../Styles/Buttons.css" />
+   </stylesheets>
 </AnchorPane>
