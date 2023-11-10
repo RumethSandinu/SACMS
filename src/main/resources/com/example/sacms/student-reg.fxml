@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.UserRegMainController">
+<AnchorPane fx:id="studentAnchor" prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.UserRegMainController">
    <stylesheets>
       <URL value="@../../../Styles/MainPage.css" />
       <URL value="@../../../Styles/Buttons.css" />
    </stylesheets>
    <children>
-      <Button layoutX="57.0" layoutY="46.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="35.0" styleClass="buttonBorder">
+      <Button layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#backButton" prefHeight="27.0" prefWidth="35.0" styleClass="buttonBorder">
          <graphic>
             <FontIcon iconLiteral="ion4-ios-arrow-round-back" iconSize="40" />
          </graphic>

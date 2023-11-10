@@ -25,5 +25,5 @@ Button:hover FontIcon {
 }
 
 .buttonBorder {
-    -fx-border-style:none ;
+    -fx-border-color:transparent ;
 }
