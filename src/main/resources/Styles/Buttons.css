@@ -23,3 +23,7 @@ Button:hover FontIcon {
 .menuLabel:hover font{
     -fx-text-fill: white;
 }
+
+.buttonBorder {
+    -fx-border-style:none ;
+}
