@@ -39,6 +39,10 @@ public class UserRegMainController {
     private TextField studentIdBox;
     @FXML
     private ImageView advisorLogImage;
+    @FXML
+    private Label StudentRegLabel;
+    @FXML
+    private Label advisorRegLabel;
 
     @FXML
     private void studentRegister() throws IOException {

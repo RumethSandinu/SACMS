@@ -4,11 +4,13 @@ public class Student {
     private String studentId;
     private String studentName;
     private String studentEmail;
+    private String studentPassword;
 
-    public Student(String studentId, String studentName, String studentEmail) {
+    public Student(String studentId, String studentName, String studentEmail, String studentPassword) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentEmail = studentEmail;
+        this.studentPassword = studentPassword;
     }
 
     public Student() {
@@ -36,5 +38,13 @@ public class Student {
 
     public void setStudentEmail(String studentEmail) {
         this.studentEmail = studentEmail;
+    }
+
+    public String getStudentPassword() {
+        return studentPassword;
+    }
+
+    public void setStudentPassword(String studentPassword) {
+        this.studentPassword = studentPassword;
     }
 }
