@@ -1,19 +1,21 @@
 package com.example.sacms;
 
-public class Advisor {
+public class Advisor implements Member {
     private String advisorId;
-    private String advisorName;
+    private String advisorFirstName;
+    private String advisorLastName;
     private String advisorEmail;
     private String advisorPassword;
 
-    public Advisor(String advisorId, String advisorName, String advisorEmail, String advisorPassword) {
-        this.advisorId = advisorId;
-        this.advisorName = advisorName;
-        this.advisorEmail = advisorEmail;
-        this.advisorPassword = advisorPassword;
+    public Advisor() {
     }
 
-    public Advisor() {
+    public Advisor(String advisorId, String advisorFirstName, String advisorLastName, String advisorEmail, String advisorPassword) {
+        this.advisorId = advisorId;
+        this.advisorFirstName = advisorFirstName;
+        this.advisorLastName = advisorLastName;
+        this.advisorEmail = advisorEmail;
+        this.advisorPassword = advisorPassword;
     }
 
     public String getAdvisorId() {
@@ -24,12 +26,20 @@ public class Advisor {
         this.advisorId = advisorId;
     }
 
-    public String getAdvisorName() {
-        return advisorName;
+    public String getAdvisorFirstName() {
+        return advisorFirstName;
     }
 
-    public void setAdvisorName(String advisorName) {
-        this.advisorName = advisorName;
+    public void setAdvisorFirstName(String advisorFirstName) {
+        this.advisorFirstName = advisorFirstName;
+    }
+
+    public String getAdvisorLastName() {
+        return advisorLastName;
+    }
+
+    public void setAdvisorLastName(String advisorLastName) {
+        this.advisorLastName = advisorLastName;
     }
 
     public String getAdvisorEmail() {
