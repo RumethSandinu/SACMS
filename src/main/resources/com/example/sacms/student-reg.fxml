@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -20,25 +22,31 @@
             <FontIcon iconLiteral="ion4-ios-arrow-round-back" iconSize="40" />
          </graphic>
       </Button>
-      <TextField fx:id="studentIdBox" layoutX="100.0" layoutY="153.0" prefHeight="35.0" prefWidth="200.0" promptText="Student ID..." />
-      <TextField fx:id="studentPassBox" layoutX="100.0" layoutY="224.0" prefHeight="35.0" prefWidth="200.0" promptText="Password..." />
-      <ImageView fx:id="studentLogImage" fitHeight="500.0" fitWidth="400.0" layoutX="400.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="studentIdBox" layoutX="100.0" layoutY="192.0" prefHeight="35.0" prefWidth="200.0" promptText="Student ID..." />
+      <TextField fx:id="studentPassBox" layoutX="100.0" layoutY="263.0" prefHeight="35.0" prefWidth="200.0" promptText="Password..." />
+      <ImageView fx:id="studentLogImage" fitHeight="500.0" fitWidth="400.0" layoutX="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/StudentLoginPicturecrop.png" />
+         </image></ImageView>
       <Label layoutX="100.0" layoutY="90.0" text="Student Login" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="studentLoginButton" layoutX="100.0" layoutY="321.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="Login" textFill="#00a7c5">
+      <Button fx:id="studentLoginButton" layoutX="100.0" layoutY="352.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="Login" textFill="#00a7c5">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Label layoutX="100.0" layoutY="286.0" text="Don't have an account yet?" textFill="WHITE">
+      <Label layoutX="100.0" layoutY="151.0" text="Don't have an account yet?" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <Button layoutX="239.0" layoutY="281.0" mnemonicParsing="false" styleClass="buttonBorder" text="Register" textFill="#00a7c5" underline="true">
+      <Button layoutX="238.0" layoutY="143.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" styleClass="buttonBorder" text="Register" textFill="#00a7c5" underline="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
