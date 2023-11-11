@@ -22,7 +22,9 @@ public class UserRegMainController {
     @FXML
     private TextField advisorIdBox;
     @FXML
-    private TextField advisorPassBox;
+    private TextField advisorPassBox1;
+    @FXML
+    private TextField advisorPassBox2;
     @FXML
     private ImageView studentLogImage;
     @FXML
@@ -30,7 +32,9 @@ public class UserRegMainController {
     @FXML
     private Button studentLoginButton;
     @FXML
-    private TextField studentPassBox;
+    private TextField studentPassBox1;
+    @FXML
+    private TextField studentPassBox2;
     @FXML
     private TextField studentIdBox;
     @FXML
