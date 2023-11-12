@@ -3,9 +3,9 @@ package com.example.sacms;
 public class Club {
     private String clubId;
     private String clubName;
-    private String clubAdvisor;
+    private Advisor clubAdvisor;
 
-    public Club(String clubId, String clubName, String clubAdvisor) {
+    public Club(String clubId, String clubName, Advisor clubAdvisor) {
         this.clubId = clubId;
         this.clubName = clubName;
         this.clubAdvisor = clubAdvisor;
@@ -30,11 +30,11 @@ public class Club {
         this.clubName = clubName;
     }
 
-    public String getClubAdvisor() {
+    public Advisor getClubAdvisor() {
         return clubAdvisor;
     }
 
-    public void setClubAdvisor(String clubAdvisor) {
+    public void setClubAdvisor(Advisor clubAdvisor) {
         this.clubAdvisor = clubAdvisor;
     }
 }
