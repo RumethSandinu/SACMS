@@ -23,7 +23,11 @@
          </graphic>
       </Button>
       <TextField fx:id="studentIdBox" layoutX="100.0" layoutY="117.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Student ID..." />
+      <TextField fx:id="studentFnameBox" layoutX="100.0" layoutY="158.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter First Name..." />
+      <TextField fx:id="studentLnameBox" layoutX="100.0" layoutY="199.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Last Name..." />
+      <TextField fx:id="studentEmailBox" layoutX="100.0" layoutY="241.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Email..." />
       <TextField fx:id="studentPassBox1" layoutX="100.0" layoutY="283.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Password..." />
+      <TextField fx:id="studentPassBox2" layoutX="100.0" layoutY="325.0" prefHeight="30.0" prefWidth="200.0" promptText="Re-enter Password..." />
       <ImageView fx:id="studentLogImage" fitHeight="500.0" fitWidth="400.0" layoutX="400.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Images/StudentLoginPicturecrop.png" />
@@ -41,14 +45,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="studentPassBox2" layoutX="100.0" layoutY="325.0" prefHeight="30.0" prefWidth="200.0" promptText="Re-enter Password..." />
       <Label fx:id="studentRegLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="381.0" prefHeight="18.0" prefWidth="200.0" text="Enter Credentials" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="studentFnameBox" layoutX="100.0" layoutY="158.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter First Name..." />
-      <TextField fx:id="studentLnameBox" layoutX="100.0" layoutY="199.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Last Name..." />
-      <TextField fx:id="studentEmailBox" layoutX="100.0" layoutY="241.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Email..." />
+
    </children>
 </AnchorPane>

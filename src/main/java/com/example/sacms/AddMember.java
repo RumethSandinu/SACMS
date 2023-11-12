@@ -173,7 +173,7 @@ public class AddMember {
                     System.out.println(student.getStudentPassword());
                 }
 
-                clearFields();
+                clearStudentFields();
                 studentRegLabel.setText("Registration Complete");
             }catch (Exception e7){
                 System.out.println(e7.getMessage());
@@ -187,7 +187,7 @@ public class AddMember {
     private void onAdvisorRegButtonClicked(ActionEvent actionEvent) {
     }
 
-    private void clearFields(){
+    private void clearStudentFields(){
         studentIdBox.clear();
         studentFnameBox.clear();
         studentLnameBox.clear();

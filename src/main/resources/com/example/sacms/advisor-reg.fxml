@@ -23,7 +23,11 @@
             </graphic>
         </Button>
         <TextField fx:id="advisorIdBox" layoutX="100.0" layoutY="117.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Advisor ID..." />
+        <TextField fx:id="advisorFnameBox" layoutX="100.0" layoutY="158.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter First Name..." />
+        <TextField fx:id="advisorLnameBox" layoutX="100.0" layoutY="199.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Last Name..." />
+        <TextField fx:id="advisorEmailBox" layoutX="100.0" layoutY="241.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Email..." />
         <TextField fx:id="advisorPassBox1" layoutX="100.0" layoutY="283.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Password..." />
+        <TextField fx:id="advisorPassBox2" layoutX="100.0" layoutY="325.0" prefHeight="30.0" prefWidth="200.0" promptText="Re-enter Password..." />
         <ImageView fx:id="advisorLogImage" fitHeight="500.0" fitWidth="400.0" layoutX="400.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../Images/RGULecturerscrop.png" />
@@ -41,14 +45,10 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <TextField fx:id="advisorPassBox2" layoutX="100.0" layoutY="325.0" prefHeight="30.0" prefWidth="200.0" promptText="Re-enter Password..." />
         <Label fx:id="advisorRegLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="381.0" prefHeight="18.0" prefWidth="200.0" text="Enter Credentials" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-      <TextField fx:id="advisorFnameBox" layoutX="100.0" layoutY="158.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter First Name..." />
-      <TextField fx:id="advisorLnameBox" layoutX="100.0" layoutY="199.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Last Name..." />
-      <TextField fx:id="advisorEmailBox" layoutX="100.0" layoutY="241.0" prefHeight="30.0" prefWidth="200.0" promptText="Enter Email..." />
     </children>
 </AnchorPane>
