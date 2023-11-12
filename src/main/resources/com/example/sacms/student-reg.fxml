@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane fx:id="studentAnchor" prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.UserRegMainController">
+<AnchorPane fx:id="studentAnchor" prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.AddMember">
    <stylesheets>
       <URL value="@../../../Styles/MainPage.css" />
       <URL value="@../../../Styles/Buttons.css" />
@@ -28,12 +28,12 @@
          <image>
             <Image url="@../../../Images/StudentLoginPicturecrop.png" />
          </image></ImageView>
-      <Label layoutX="100.0" layoutY="60.0" text="Advisor Register" textFill="WHITE">
+      <Label layoutX="100.0" layoutY="60.0" text="Student Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="studentLoginButton" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#onStudentLoginButtonClicked" prefHeight="35.0" prefWidth="200.0" text="Login" textFill="#00a7c5">
+      <Button fx:id="studentRegButton" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#onStudentRegButtonClicked" prefHeight="35.0" prefWidth="200.0" text="Register" textFill="#00a7c5">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

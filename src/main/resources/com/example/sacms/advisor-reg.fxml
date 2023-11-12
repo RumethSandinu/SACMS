@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane fx:id="advisorAnchor" prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.UserRegMainController">
+<AnchorPane fx:id="advisorAnchor" prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.AddMember">
     <stylesheets>
         <URL value="@../../../Styles/MainPage.css" />
         <URL value="@../../../Styles/Buttons.css" />
@@ -33,7 +33,7 @@
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Button fx:id="advisorLoginButton" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#onAdvisorLoginButtonClicked" prefHeight="35.0" prefWidth="200.0" text="Login" textFill="#00a7c5">
+        <Button fx:id="advisorRegButton" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#onAdvisorRegButtonClicked" prefHeight="35.0" prefWidth="200.0" text="Register" textFill="#00a7c5">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
