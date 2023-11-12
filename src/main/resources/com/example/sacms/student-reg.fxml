@@ -17,7 +17,7 @@
       <URL value="@../../../Styles/Buttons.css" />
    </stylesheets>
    <children>
-      <Button layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#backButton" prefHeight="27.0" prefWidth="35.0" styleClass="buttonBorder">
+      <Button fx:id="backButton" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#backButton" prefHeight="27.0" prefWidth="35.0" styleClass="buttonBorder">
          <graphic>
             <FontIcon iconLiteral="ion4-ios-arrow-round-back" iconSize="40" />
          </graphic>

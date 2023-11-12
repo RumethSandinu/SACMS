@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -19,6 +20,8 @@ import java.util.Objects;
 
 public class AddMember {
 
+    @FXML
+    private Button backButton;
     @FXML
     private AnchorPane studentAnchor;
     @FXML
@@ -65,9 +68,18 @@ public class AddMember {
     private String studentEmail;
     private String studentPassword;
     private String studentPassTemp;
+    private String advisorId;
+    private String advisorFirstName;
+    private String advisorLastName;
+    private String advisorEmail;
+    private String advisorPassword;
+    private String advisorPassTemp;
+
     protected static List<Student> studentList = new ArrayList<>();
+    protected static List<Advisor> advisorList = new ArrayList<>();
 
-
+    public AddMember() {
+    }
 
     @FXML
     private void backButton() throws IOException {
@@ -77,7 +89,7 @@ public class AddMember {
         mainStage.setTitle("Registration");
         mainStage.setScene(scene);
         mainStage.show();
-        Stage prevStage = (Stage) studentAnchor.getScene().getWindow();
+        Stage prevStage = (Stage) backButton.getScene().getWindow();
         prevStage.close();
     }
 
@@ -185,6 +197,104 @@ public class AddMember {
 
     @FXML
     private void onAdvisorRegButtonClicked(ActionEvent actionEvent) {
+        if (Objects.equals(advisorIdBox.getText(), "") || Objects.equals(advisorFnameBox.getText(), "") ||
+                Objects.equals(advisorLnameBox.getText(), "") || Objects.equals(advisorEmailBox.getText(), "") ||
+                Objects.equals(advisorPassBox1.getText(), "") || Objects.equals(advisorPassBox2.getText(), "")){
+            studentRegLabel.setText("Please fill the above credentials");
+        }
+        else {
+            System.out.println("test");
+
+            try {
+                if (!Objects.equals(advisorIdBox.getText(), "")){
+                    advisorId = advisorIdBox.getText();
+                }else{
+                    advisorRegLabel.setText("Enter your Advisor ID");
+                }
+            }catch (InputMismatchException | NumberFormatException | NullPointerException e1){
+                advisorRegLabel.setText("Invalid Advisor ID");
+                return;
+            }
+
+            try {
+                if (!Objects.equals(advisorFnameBox.getText(), "")){
+                    advisorFirstName = advisorFnameBox.getText();
+                }else{
+                    advisorRegLabel.setText("Enter your First Name");
+                }
+            }catch (NullPointerException e2){
+                advisorRegLabel.setText("Invalid First Name");
+                return;
+            }
+
+            try {
+                if (!Objects.equals(advisorLnameBox.getText(), "")){
+                    advisorLastName = advisorLnameBox.getText();
+                }else{
+                    advisorRegLabel.setText("Enter your Last Name");
+                }
+            }catch (NullPointerException e3){
+                advisorRegLabel.setText("Invalid Last Name");
+                return;
+            }
+
+            try {
+                if (!Objects.equals(advisorEmailBox.getText(), "")){
+                    advisorEmail = advisorEmailBox.getText();
+                }else{
+                    advisorRegLabel.setText("Enter your Email");
+                }
+            }catch (NullPointerException e4){
+                advisorRegLabel.setText("Invalid Email");
+                return;
+            }
+
+            try {
+                if (!Objects.equals(advisorPassBox1.getText(), "")){
+                    advisorPassTemp = advisorPassBox1.getText();
+                }else{
+                    advisorRegLabel.setText("Enter a password");
+                }
+            }catch (NullPointerException e5){
+                advisorRegLabel.setText("Password must not be empty!");
+                return;
+            }
+
+            try {
+                if (!Objects.equals(advisorPassBox2.getText(), "")){
+                    if (!Objects.equals(advisorPassTemp, advisorPassBox2.getText())){
+                        advisorRegLabel.setText("Password Mismatch");
+                    }else {
+                        advisorPassword = advisorPassTemp;
+                    }
+                }else{
+                    advisorRegLabel.setText("Re-Enter your password");
+                }
+            }catch (NullPointerException e6){
+                advisorRegLabel.setText("Password must not be empty!");
+                return;
+            }
+
+            try {
+                Advisor advisor = new Advisor(advisorId, advisorFirstName, advisorLastName, advisorEmail, advisorPassword);
+                advisorList.add(advisor);
+
+                for (Object i: advisorList){
+                    System.out.println(advisor.getAdvisorId());
+                    System.out.println(advisor.getAdvisorFirstName());
+                    System.out.println(advisor.getAdvisorLastName());
+                    System.out.println(advisor.getAdvisorEmail());
+                    System.out.println(advisor.getAdvisorPassword());
+                }
+
+                clearAdvisorFields();
+                advisorRegLabel.setText("Registration Complete");
+            }catch (Exception e7){
+                System.out.println(e7.getMessage());
+                advisorRegLabel.setText("Error Encountered");
+            }
+
+        }
     }
 
     private void clearStudentFields(){
@@ -195,5 +305,14 @@ public class AddMember {
         studentPassBox1.clear();
         studentPassBox2.clear();
 
+    }
+
+    private void clearAdvisorFields() {
+        advisorIdBox.clear();
+        advisorFnameBox.clear();
+        advisorLnameBox.clear();
+        advisorEmailBox.clear();
+        advisorPassBox1.clear();
+        advisorPassBox2.clear();
     }
 }
