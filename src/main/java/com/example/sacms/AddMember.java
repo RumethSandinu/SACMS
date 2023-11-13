@@ -73,7 +73,8 @@ public class AddMember {
     private String advisorLastName;
     private String advisorEmail;
     private String advisorPassword;
-    private String advisorPassTemp;
+    private String PassTemp1;
+    private String PassTemp2;
 
     protected static List<Student> studentList = new ArrayList<>();
     protected static List<Advisor> advisorList = new ArrayList<>();
@@ -251,7 +252,7 @@ public class AddMember {
 
             try {
                 if (!Objects.equals(advisorPassBox1.getText(), "")){
-                    advisorPassTemp = advisorPassBox1.getText();
+                    PassTemp1 = advisorPassBox1.getText();
                 }else{
                     advisorRegLabel.setText("Enter a password");
                 }
@@ -262,17 +263,19 @@ public class AddMember {
 
             try {
                 if (!Objects.equals(advisorPassBox2.getText(), "")){
-                    if (!Objects.equals(advisorPassTemp, advisorPassBox2.getText())){
-                        advisorRegLabel.setText("Password Mismatch");
-                    }else {
-                        advisorPassword = advisorPassTemp;
-                    }
+                    PassTemp2 = advisorPassBox2.getText();
                 }else{
                     advisorRegLabel.setText("Re-Enter your password");
                 }
             }catch (NullPointerException e6){
                 advisorRegLabel.setText("Password must not be empty!");
                 return;
+            }
+
+            if (!(Objects.equals(PassTemp1, PassTemp2))){
+                System.out.println("Password Mismatch");
+            }else{
+                advisorPassword = PassTemp1;
             }
 
             try {
