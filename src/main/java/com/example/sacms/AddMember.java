@@ -150,7 +150,7 @@ public class AddMember {
 
             try {
                 if (!Objects.equals(studentPassBox1.getText(), "")){
-                    studentPassTemp = studentPassBox1.getText();
+                    PassTemp1 = studentPassBox1.getText();
                 }else{
                     studentRegLabel.setText("Enter a password");
                 }
@@ -161,17 +161,21 @@ public class AddMember {
 
             try {
                 if (!Objects.equals(studentPassBox2.getText(), "")){
-                    if (!Objects.equals(studentPassTemp, studentPassBox2.getText())){
-                        studentRegLabel.setText("Password Mismatch");
-                    }else {
-                        studentPassword = studentPassTemp;
-                    }
+                    PassTemp2 = studentPassBox2.getText();
                 }else{
                     studentRegLabel.setText("Re-Enter your password");
                 }
             }catch (NullPointerException e6){
                 studentRegLabel.setText("Password must not be empty!");
                 return;
+            }
+
+            if (!(Objects.equals(PassTemp1, PassTemp2))){
+                System.out.println("Password Mismatch");
+                studentRegLabel.setText("Password Mismatch");
+                return;
+            }else{
+                studentPassword = PassTemp1;
             }
 
             try {
@@ -274,6 +278,8 @@ public class AddMember {
 
             if (!(Objects.equals(PassTemp1, PassTemp2))){
                 System.out.println("Password Mismatch");
+                advisorRegLabel.setText("Password Mismatch");
+                return;
             }else{
                 advisorPassword = PassTemp1;
             }
