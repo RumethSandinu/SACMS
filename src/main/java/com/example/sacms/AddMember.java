@@ -109,6 +109,7 @@ public class AddMember {
                     studentId = studentIdBox.getText();
                 }else{
                     studentRegLabel.setText("Enter your Student ID");
+                    return;
                 }
             }catch (InputMismatchException | NumberFormatException | NullPointerException e1){
                 studentRegLabel.setText("Invalid Student ID");
@@ -120,6 +121,7 @@ public class AddMember {
                     studentFirstName = studentFnameBox.getText();
                 }else{
                     studentRegLabel.setText("Enter your First Name");
+                    return;
                 }
             }catch (NullPointerException e2){
                 studentRegLabel.setText("Invalid First Name");
@@ -131,6 +133,7 @@ public class AddMember {
                     studentLastName = studentLnameBox.getText();
                 }else{
                     studentRegLabel.setText("Enter your Last Name");
+                    return;
                 }
             }catch (NullPointerException e3){
                 studentRegLabel.setText("Invalid Last Name");
@@ -139,9 +142,21 @@ public class AddMember {
 
             try {
                 if (!Objects.equals(studentEmailBox.getText(), "")){
-                    studentEmail = studentEmailBox.getText();
+                    try {
+                        if(Regex.emailPatternMatches(studentEmailBox.getText())){
+                            System.out.println("Valid email");
+                            studentEmail = studentEmailBox.getText();
+                        }else{
+                            System.out.println("Invalid email");
+                            studentRegLabel.setText("Invalid Email");
+                            return;
+                        }
+                    }catch (Exception s){
+                        System.out.println(s.getMessage());
+                    }
                 }else{
                     studentRegLabel.setText("Enter your Email");
+                    return;
                 }
             }catch (NullPointerException e4){
                 studentRegLabel.setText("Invalid Email");
@@ -153,6 +168,7 @@ public class AddMember {
                     PassTemp1 = studentPassBox1.getText();
                 }else{
                     studentRegLabel.setText("Enter a password");
+                    return;
                 }
             }catch (NullPointerException e5){
                 studentRegLabel.setText("Password must not be empty!");
@@ -164,6 +180,7 @@ public class AddMember {
                     PassTemp2 = studentPassBox2.getText();
                 }else{
                     studentRegLabel.setText("Re-Enter your password");
+                    return;
                 }
             }catch (NullPointerException e6){
                 studentRegLabel.setText("Password must not be empty!");
@@ -215,6 +232,7 @@ public class AddMember {
                     advisorId = advisorIdBox.getText();
                 }else{
                     advisorRegLabel.setText("Enter your Advisor ID");
+                    return;
                 }
             }catch (InputMismatchException | NumberFormatException | NullPointerException e1){
                 advisorRegLabel.setText("Invalid Advisor ID");
@@ -226,6 +244,7 @@ public class AddMember {
                     advisorFirstName = advisorFnameBox.getText();
                 }else{
                     advisorRegLabel.setText("Enter your First Name");
+                    return;
                 }
             }catch (NullPointerException e2){
                 advisorRegLabel.setText("Invalid First Name");
@@ -237,6 +256,7 @@ public class AddMember {
                     advisorLastName = advisorLnameBox.getText();
                 }else{
                     advisorRegLabel.setText("Enter your Last Name");
+                    return;
                 }
             }catch (NullPointerException e3){
                 advisorRegLabel.setText("Invalid Last Name");
@@ -248,6 +268,7 @@ public class AddMember {
                     advisorEmail = advisorEmailBox.getText();
                 }else{
                     advisorRegLabel.setText("Enter your Email");
+                    return;
                 }
             }catch (NullPointerException e4){
                 advisorRegLabel.setText("Invalid Email");
@@ -259,6 +280,7 @@ public class AddMember {
                     PassTemp1 = advisorPassBox1.getText();
                 }else{
                     advisorRegLabel.setText("Enter a password");
+                    return;
                 }
             }catch (NullPointerException e5){
                 advisorRegLabel.setText("Password must not be empty!");
@@ -270,6 +292,7 @@ public class AddMember {
                     PassTemp2 = advisorPassBox2.getText();
                 }else{
                     advisorRegLabel.setText("Re-Enter your password");
+                    return;
                 }
             }catch (NullPointerException e6){
                 advisorRegLabel.setText("Password must not be empty!");
