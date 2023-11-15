@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/DateOfBirth.java" afterDir="false" />
+    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/AddMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/AddMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Advisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Advisor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Regex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/MainPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/UserReg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/UserReg.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/advisor-reg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/advisor-reg.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/student-reg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/student-reg.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,15 +22,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Praveen" />
+        <entry key="$PROJECT_DIR$" value="Praveen_User_Reg" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,33 +70,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Praveen__User__Reg&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24385448&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Praveen__User__Reg__New",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.24385448",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JAVA&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IIT Docs\2nd Year\Semester 1\CM 2601 PRO - Object Oriented Development\CW\SACMS\src\Styles" />
@@ -195,7 +189,7 @@
       <workItem from="1700036377674" duration="3162000" />
       <workItem from="1700043001818" duration="46000" />
       <workItem from="1700054935738" duration="1326000" />
-      <workItem from="1700062292713" duration="7092000" />
+      <workItem from="1700062292713" duration="9490000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -348,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699988819161</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling">
+      <option name="closed" value="true" />
+      <created>1700072587740</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700072587740</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +397,8 @@
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test" />
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test" />
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)" />
+    <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

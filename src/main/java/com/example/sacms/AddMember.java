@@ -97,6 +97,22 @@ public class AddMember {
     private Label passLabel;
     @FXML
     private Label passLabel2;
+    @FXML
+    private Label adfNameLabel;
+    @FXML
+    private Label adlNameLabel;
+    @FXML
+    private Label adIdLabel;
+    @FXML
+    private Label ademailLabel;
+    @FXML
+    private Label addoBLabel;
+    @FXML
+    private Label adpassLabel;
+    @FXML
+    private Label adpassLabel2;
+    @FXML
+    private DatePicker adDateOfBirthBox;
 
     public AddMember() {
     }
@@ -278,117 +294,278 @@ public class AddMember {
         }
     }
 
+//    @FXML
+//    private void onAdvisorRegButtonClicked() throws IOException{
+//        if (Objects.equals(advisorIdBox.getText(), "") || Objects.equals(advisorFnameBox.getText(), "") ||
+//                Objects.equals(advisorLnameBox.getText(), "") || Objects.equals(advisorEmailBox.getText(), "") ||
+//                Objects.equals(advisorPassBox1.getText(), "") || Objects.equals(advisorPassBox2.getText(), "")){
+//            studentRegLabel.setText("Please fill the above credentials");
+//        }
+//        else {
+//            System.out.println("test");
+//
+//            try {
+//                if (!Objects.equals(advisorIdBox.getText(), "")){
+//                    advisorId = advisorIdBox.getText();
+//                }else{
+//                    advisorRegLabel.setText("Enter your Advisor ID");
+//                    return;
+//                }
+//            }catch (InputMismatchException | NumberFormatException | NullPointerException e1){
+//                advisorRegLabel.setText("Invalid Advisor ID");
+//                return;
+//            }
+//
+//            try {
+//                if (!Objects.equals(advisorFnameBox.getText(), "")){
+//                    advisorFirstName = advisorFnameBox.getText();
+//                }else{
+//                    advisorRegLabel.setText("Enter your First Name");
+//                    return;
+//                }
+//            }catch (NullPointerException e2){
+//                advisorRegLabel.setText("Invalid First Name");
+//                return;
+//            }
+//
+//            try {
+//                if (!Objects.equals(advisorLnameBox.getText(), "")){
+//                    advisorLastName = advisorLnameBox.getText();
+//                }else{
+//                    advisorRegLabel.setText("Enter your Last Name");
+//                    return;
+//                }
+//            }catch (NullPointerException e3){
+//                advisorRegLabel.setText("Invalid Last Name");
+//                return;
+//            }
+//
+//            try {
+//                if (!Objects.equals(advisorEmailBox.getText(), "")){
+//                    advisorEmail = advisorEmailBox.getText();
+//                }else{
+//                    advisorRegLabel.setText("Enter your Email");
+//                    return;
+//                }
+//            }catch (NullPointerException e4){
+//                advisorRegLabel.setText("Invalid Email");
+//                return;
+//            }
+//
+//            try {
+//                if (!Objects.equals(advisorPassBox1.getText(), "")){
+//                    PassTemp1 = advisorPassBox1.getText();
+//                }else{
+//                    advisorRegLabel.setText("Enter a password");
+//                    return;
+//                }
+//            }catch (NullPointerException e5){
+//                advisorRegLabel.setText("Password must not be empty!");
+//                return;
+//            }
+//
+//            try {
+//                if (!Objects.equals(advisorPassBox2.getText(), "")){
+//                    PassTemp2 = advisorPassBox2.getText();
+//                }else{
+//                    advisorRegLabel.setText("Re-Enter your password");
+//                    return;
+//                }
+//            }catch (NullPointerException e6){
+//                advisorRegLabel.setText("Password must not be empty!");
+//                return;
+//            }
+//
+//            if (!(Objects.equals(PassTemp1, PassTemp2))){
+//                System.out.println("Password Mismatch");
+//                advisorRegLabel.setText("Password Mismatch");
+//                return;
+//            }else{
+//                advisorPassword = PassTemp1;
+//            }
+//
+//            try {
+//                Advisor advisor = new Advisor(advisorId, advisorFirstName, advisorLastName, advisorEmail, advisorPassword);
+//                advisorList.add(advisor);
+//
+//                for (Object i: advisorList){
+//                    System.out.println(advisor.getAdvisorId());
+//                    System.out.println(advisor.getAdvisorFirstName());
+//                    System.out.println(advisor.getAdvisorLastName());
+//                    System.out.println(advisor.getAdvisorEmail());
+//                    System.out.println(advisor.getAdvisorPassword());
+//                }
+//
+//                clearAdvisorFields();
+//                advisorRegLabel.setText("Registration Complete");
+//            }catch (Exception e7){
+//                System.out.println(e7.getMessage());
+//                advisorRegLabel.setText("Error Encountered");
+//            }
+//
+//        }
+//    }
+
     @FXML
-    private void onAdvisorRegButtonClicked(ActionEvent actionEvent) {
+    private void onAdvisorRegButtonClicked() throws IOException{
         if (Objects.equals(advisorIdBox.getText(), "") || Objects.equals(advisorFnameBox.getText(), "") ||
                 Objects.equals(advisorLnameBox.getText(), "") || Objects.equals(advisorEmailBox.getText(), "") ||
-                Objects.equals(advisorPassBox1.getText(), "") || Objects.equals(advisorPassBox2.getText(), "")){
-            studentRegLabel.setText("Please fill the above credentials");
-        }
-        else {
+                Objects.equals(advisorPassBox1.getText(), "") || Objects.equals(advisorPassBox2.getText(), "")) {
+            advisorRegLabel.setText("Please fill the above credentials");
+        } else {
             System.out.println("test");
 
             try {
-                if (!Objects.equals(advisorIdBox.getText(), "")){
+                if (!Objects.equals(advisorIdBox.getText(), "")) {
                     advisorId = advisorIdBox.getText();
-                }else{
+                } else {
                     advisorRegLabel.setText("Enter your Advisor ID");
+                    adIdLabel.setText("*required");
                     return;
                 }
-            }catch (InputMismatchException | NumberFormatException | NullPointerException e1){
+            } catch (InputMismatchException | NumberFormatException | NullPointerException e1) {
                 advisorRegLabel.setText("Invalid Advisor ID");
+                adIdLabel.setText("invalid");
                 return;
             }
 
             try {
-                if (!Objects.equals(advisorFnameBox.getText(), "")){
-                    advisorFirstName = advisorFnameBox.getText();
-                }else{
+                if (!Objects.equals(advisorFnameBox.getText(), "")) {
+                    if (Regex.namePatternMatches(advisorFnameBox.getText())) {
+                        advisorFirstName = advisorFnameBox.getText();
+                    } else {
+                        advisorRegLabel.setText("Name cannot contain special characters/numbers");
+                        adfNameLabel.setText("*invalid");
+                        return;
+                    }
+                } else {
                     advisorRegLabel.setText("Enter your First Name");
+                    adfNameLabel.setText("*required");
                     return;
                 }
-            }catch (NullPointerException e2){
+            } catch (NullPointerException e2) {
                 advisorRegLabel.setText("Invalid First Name");
                 return;
             }
 
             try {
-                if (!Objects.equals(advisorLnameBox.getText(), "")){
-                    advisorLastName = advisorLnameBox.getText();
-                }else{
+                if (!Objects.equals(advisorLnameBox.getText(), "")) {
+                    if (Regex.namePatternMatches(advisorLnameBox.getText())) {
+                        advisorLastName = advisorLnameBox.getText();
+                    } else {
+                        advisorRegLabel.setText("Name cannot contain special characters/numbers");
+                        adlNameLabel.setText("*invalid");
+                        return;
+                    }
+                } else {
                     advisorRegLabel.setText("Enter your Last Name");
+                    adlNameLabel.setText("*required");
                     return;
                 }
-            }catch (NullPointerException e3){
+            } catch (NullPointerException e3) {
                 advisorRegLabel.setText("Invalid Last Name");
                 return;
             }
 
             try {
-                if (!Objects.equals(advisorEmailBox.getText(), "")){
-                    advisorEmail = advisorEmailBox.getText();
-                }else{
+                if (!Objects.equals(advisorEmailBox.getText(), "")) {
+                    try {
+                        if (Regex.emailPatternMatches(advisorEmailBox.getText())) {
+                            System.out.println("Valid email");
+                            advisorEmail = advisorEmailBox.getText();
+                        } else {
+                            System.out.println("Invalid email");
+                            advisorRegLabel.setText("Invalid Email");
+                            ademailLabel.setText("*invalid");
+                            return;
+                        }
+                    } catch (Exception s) {
+                        System.out.println(s.getMessage());
+                    }
+                } else {
                     advisorRegLabel.setText("Enter your Email");
+                    ademailLabel.setText("*required");
                     return;
                 }
-            }catch (NullPointerException e4){
+            } catch (NullPointerException e4) {
                 advisorRegLabel.setText("Invalid Email");
                 return;
             }
 
             try {
-                if (!Objects.equals(advisorPassBox1.getText(), "")){
+                if (!Objects.equals(advisorPassBox1.getText(), "")) {
                     PassTemp1 = advisorPassBox1.getText();
-                }else{
+                } else {
                     advisorRegLabel.setText("Enter a password");
+                    adpassLabel.setText("*required");
                     return;
                 }
-            }catch (NullPointerException e5){
+            } catch (NullPointerException e5) {
                 advisorRegLabel.setText("Password must not be empty!");
                 return;
             }
 
             try {
-                if (!Objects.equals(advisorPassBox2.getText(), "")){
+                if (!Objects.equals(advisorPassBox2.getText(), "")) {
                     PassTemp2 = advisorPassBox2.getText();
-                }else{
+                } else {
                     advisorRegLabel.setText("Re-Enter your password");
+                    adpassLabel.setText("*re-enter");
                     return;
                 }
-            }catch (NullPointerException e6){
+            } catch (NullPointerException e6) {
                 advisorRegLabel.setText("Password must not be empty!");
                 return;
             }
 
-            if (!(Objects.equals(PassTemp1, PassTemp2))){
+            if (!(Objects.equals(PassTemp1, PassTemp2))) {
                 System.out.println("Password Mismatch");
                 advisorRegLabel.setText("Password Mismatch");
+                adpassLabel2.setText("*make sure your passwords match");
                 return;
-            }else{
+            } else {
                 advisorPassword = PassTemp1;
             }
 
+            try{
+                LocalDate doB = adDateOfBirthBox.getValue();
+                if(!Objects.equals(doB.getDayOfMonth(),0) || !Objects.equals(doB.getMonthValue(), 0)
+                        || !Objects.equals(doB.getYear(), 0)){
+                    date = doB.getMonthValue();
+                    month = doB.getMonthValue();
+                    year = doB.getYear();
+                }else {
+                    advisorRegLabel.setText("Enter your Date of Birth");
+                    return;
+                }
+            }catch(Exception e7){
+                advisorRegLabel.setText("Date of Birth must not be empty");
+                return;
+            }
+
             try {
-                Advisor advisor = new Advisor(advisorId, advisorFirstName, advisorLastName, advisorEmail, advisorPassword);
+                DateOfBirth dateOfBirth = new DateOfBirth(date, month, year);
+                Advisor advisor = new Advisor(advisorId, advisorFirstName, advisorLastName, advisorEmail, dateOfBirth, advisorPassword);
                 advisorList.add(advisor);
 
-                for (Object i: advisorList){
+                for (Object i : advisorList) {
                     System.out.println(advisor.getAdvisorId());
                     System.out.println(advisor.getAdvisorFirstName());
                     System.out.println(advisor.getAdvisorLastName());
                     System.out.println(advisor.getAdvisorEmail());
+                    System.out.println(advisor.getDateOfBirth().toString());
                     System.out.println(advisor.getAdvisorPassword());
                 }
 
                 clearAdvisorFields();
                 advisorRegLabel.setText("Registration Complete");
-            }catch (Exception e7){
+            } catch (Exception e7) {
                 System.out.println(e7.getMessage());
                 advisorRegLabel.setText("Error Encountered");
             }
-
         }
     }
+
 
     private void clearStudentFields(){
         studentIdBox.clear();
@@ -416,5 +593,13 @@ public class AddMember {
         advisorEmailBox.clear();
         advisorPassBox1.clear();
         advisorPassBox2.clear();
+
+        adfNameLabel.setText("");
+        adlNameLabel.setText("");
+        adIdLabel.setText("");
+        ademailLabel.setText("");
+        addoBLabel.setText("");
+        adpassLabel.setText("");
+        adpassLabel2.setText("");
     }
 }

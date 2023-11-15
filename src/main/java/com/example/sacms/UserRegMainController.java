@@ -28,7 +28,7 @@ public class UserRegMainController {
     private void advisorRegister() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("advisor-reg.fxml"));
         Stage newStage = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600);
         newStage.setTitle("Advisor Sign In");
         newStage.setScene(scene);
         newStage.show();

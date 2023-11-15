@@ -5,16 +5,18 @@ public class Advisor implements Member {
     private String advisorFirstName;
     private String advisorLastName;
     private String advisorEmail;
+    private DateOfBirth dateOfBirth;
     private String advisorPassword;
 
     public Advisor() {
     }
 
-    public Advisor(String advisorId, String advisorFirstName, String advisorLastName, String advisorEmail, String advisorPassword) {
+    public Advisor(String advisorId, String advisorFirstName, String advisorLastName, String advisorEmail, DateOfBirth dateOfBirth, String advisorPassword) {
         this.advisorId = advisorId;
         this.advisorFirstName = advisorFirstName;
         this.advisorLastName = advisorLastName;
         this.advisorEmail = advisorEmail;
+        this.dateOfBirth = dateOfBirth;
         this.advisorPassword = advisorPassword;
     }
 
@@ -58,4 +60,11 @@ public class Advisor implements Member {
         this.advisorPassword = advisorPassword;
     }
 
+    public DateOfBirth getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(DateOfBirth dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 }
