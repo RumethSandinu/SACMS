@@ -16,7 +16,7 @@ public class UserRegMainController {
     private void studentRegister() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("student-reg.fxml"));
         Stage newStage = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600);
         newStage.setTitle("Student Sign In");
         newStage.setScene(scene);
         newStage.show();

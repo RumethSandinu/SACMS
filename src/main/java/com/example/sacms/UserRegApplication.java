@@ -11,7 +11,7 @@ public class UserRegApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("UserReg.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600);
         stage.setTitle("Registration");
         stage.setScene(scene);
         stage.show();

@@ -5,16 +5,18 @@ public class Student implements Member{
     private String studentFirstName;
     private String studentLastName;
     private String studentEmail;
+    private DateOfBirth dateOfBirth;
     private String studentPassword;
 
     public Student() {
     }
 
-    public Student(String studentId, String studentFirstName, String studentLastName, String studentEmail, String studentPassword) {
+    public Student(String studentId, String studentFirstName, String studentLastName, String studentEmail, DateOfBirth dateOfBirth, String studentPassword) {
         this.studentId = studentId;
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
         this.studentEmail = studentEmail;
+        this.dateOfBirth = dateOfBirth;
         this.studentPassword = studentPassword;
     }
 
@@ -58,8 +60,11 @@ public class Student implements Member{
         this.studentPassword = studentPassword;
     }
 
-    @Override
-    public void showMembers() {
+    public DateOfBirth getDateOfBirth() {
+        return dateOfBirth;
+    }
 
+    public void setDateOfBirth(DateOfBirth dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }

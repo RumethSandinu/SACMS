@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test">
+    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/DateOfBirth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/AddMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/AddMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Advisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Advisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegMainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/MainPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/UserReg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/UserReg.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/student-reg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/student-reg.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +112,7 @@
       <recent name="D:\IIT Docs\2nd Year\Semester 1\CM 2601 PRO - Object Oriented Development\CW\SACMS\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Regex">
+  <component name="RunManager" selected="Application.UserRegApplication">
     <configuration name="Regex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sacms.Regex" />
       <module name="SACMS" />
@@ -139,8 +148,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Regex" />
         <item itemvalue="Application.UserRegApplication" />
+        <item itemvalue="Application.Regex" />
         <item itemvalue="Java Scratch.Scratch" />
       </list>
     </recent_temporary>
@@ -181,7 +190,12 @@
       <workItem from="1699930315696" duration="1857000" />
       <workItem from="1699935830837" duration="594000" />
       <workItem from="1699961352292" duration="832000" />
-      <workItem from="1699973370095" duration="3514000" />
+      <workItem from="1699973370095" duration="3836000" />
+      <workItem from="1700020192607" duration="936000" />
+      <workItem from="1700036377674" duration="3162000" />
+      <workItem from="1700043001818" duration="46000" />
+      <workItem from="1700054935738" duration="1326000" />
+      <workItem from="1700062292713" duration="7092000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -326,11 +340,24 @@
       <option name="project" value="LOCAL" />
       <updated>1699899648916</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)">
+      <option name="closed" value="true" />
+      <created>1699988819161</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699988819161</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:org.openjfx:javafx-base" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -367,7 +394,8 @@
     <MESSAGE value="UI Design &amp; Classes" />
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test" />
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test" />
+    <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

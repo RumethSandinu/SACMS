@@ -5,18 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Objects;
+import java.time.LocalDate;
 
 public class AddMember {
 
@@ -78,6 +78,25 @@ public class AddMember {
 
     protected static List<Student> studentList = new ArrayList<>();
     protected static List<Advisor> advisorList = new ArrayList<>();
+    @FXML
+    private DatePicker dateOfBirthBox;
+    private int date;
+    private int month;
+    private int year;
+    @FXML
+    private Label fNameLabel;
+    @FXML
+    private Label lNameLabel;
+    @FXML
+    private Label stIdLabel;
+    @FXML
+    private Label emailLabel;
+    @FXML
+    private Label doBLabel;
+    @FXML
+    private Label passLabel;
+    @FXML
+    private Label passLabel2;
 
     public AddMember() {
     }
@@ -108,19 +127,29 @@ public class AddMember {
                 if (!Objects.equals(studentIdBox.getText(), "")){
                     studentId = studentIdBox.getText();
                 }else{
-                    studentRegLabel.setText("Enter your Student ID");
+//                    studentRegLabel.setText("Enter your Student ID");
+                    stIdLabel.setText("*required");
                     return;
                 }
             }catch (InputMismatchException | NumberFormatException | NullPointerException e1){
                 studentRegLabel.setText("Invalid Student ID");
+                stIdLabel.setText("invalid");
                 return;
             }
 
             try {
                 if (!Objects.equals(studentFnameBox.getText(), "")){
-                    studentFirstName = studentFnameBox.getText();
+                    if(Regex.namePatternMatches(studentFnameBox.getText())){
+                        studentFirstName = studentFnameBox.getText();
+                    }else{
+                        studentRegLabel.setText("Name cannot contain special characters/numbers");
+                        fNameLabel.setText("*invalid");
+                        return;
+                    }
+
                 }else{
                     studentRegLabel.setText("Enter your First Name");
+                    fNameLabel.setText("*required");
                     return;
                 }
             }catch (NullPointerException e2){
@@ -130,9 +159,17 @@ public class AddMember {
 
             try {
                 if (!Objects.equals(studentLnameBox.getText(), "")){
-                    studentLastName = studentLnameBox.getText();
+                    if (Regex.namePatternMatches(studentLnameBox.getText())){
+                        studentLastName = studentLnameBox.getText();
+                    }else{
+                        studentRegLabel.setText("Name cannot contain special characters/numbers");
+                        lNameLabel.setText("*invalid");
+                        return;
+                    }
+
                 }else{
                     studentRegLabel.setText("Enter your Last Name");
+                    lNameLabel.setText("*required");
                     return;
                 }
             }catch (NullPointerException e3){
@@ -149,6 +186,7 @@ public class AddMember {
                         }else{
                             System.out.println("Invalid email");
                             studentRegLabel.setText("Invalid Email");
+                            emailLabel.setText("*invalid");
                             return;
                         }
                     }catch (Exception s){
@@ -156,6 +194,7 @@ public class AddMember {
                     }
                 }else{
                     studentRegLabel.setText("Enter your Email");
+                    emailLabel.setText("*required");
                     return;
                 }
             }catch (NullPointerException e4){
@@ -168,6 +207,7 @@ public class AddMember {
                     PassTemp1 = studentPassBox1.getText();
                 }else{
                     studentRegLabel.setText("Enter a password");
+                    passLabel.setText("*required");
                     return;
                 }
             }catch (NullPointerException e5){
@@ -180,6 +220,7 @@ public class AddMember {
                     PassTemp2 = studentPassBox2.getText();
                 }else{
                     studentRegLabel.setText("Re-Enter your password");
+                    passLabel.setText("*re-enter");
                     return;
                 }
             }catch (NullPointerException e6){
@@ -190,13 +231,32 @@ public class AddMember {
             if (!(Objects.equals(PassTemp1, PassTemp2))){
                 System.out.println("Password Mismatch");
                 studentRegLabel.setText("Password Mismatch");
+                passLabel2.setText("*make sure your passwords matches");
                 return;
             }else{
                 studentPassword = PassTemp1;
             }
 
+            try{
+                LocalDate doB = dateOfBirthBox.getValue();
+                if(!Objects.equals(doB.getDayOfMonth(),0) || !Objects.equals(doB.getMonthValue(), 0)
+                || !Objects.equals(doB.getYear(), 0)){
+                    date = doB.getMonthValue();
+                    month = doB.getMonthValue();
+                    year = doB.getYear();
+                }else {
+                    studentRegLabel.setText("Enter your Date of Birth");
+                    return;
+                }
+            }catch(Exception e7){
+                studentRegLabel.setText("Date of Birth must not be empty");
+                return;
+            }
+
+
             try {
-                Student student = new Student(studentId, studentFirstName, studentLastName, studentEmail, studentPassword);
+                DateOfBirth dateOfBirth = new DateOfBirth(date, month, year);
+                Student student = new Student(studentId, studentFirstName, studentLastName, studentEmail,dateOfBirth, studentPassword);
                 studentList.add(student);
 
                 for (Object i: studentList){
@@ -204,6 +264,7 @@ public class AddMember {
                     System.out.println(student.getStudentFirstName());
                     System.out.println(student.getStudentLastName());
                     System.out.println(student.getStudentEmail());
+                    System.out.println(student.getDateOfBirth().toString());
                     System.out.println(student.getStudentPassword());
                 }
 
@@ -336,6 +397,15 @@ public class AddMember {
         studentEmailBox.clear();
         studentPassBox1.clear();
         studentPassBox2.clear();
+        dateOfBirthBox.setValue(null);
+
+        fNameLabel.setText("");
+        lNameLabel.setText("");
+        stIdLabel.setText("");
+        emailLabel.setText("");
+        doBLabel.setText("");
+        passLabel.setText("");
+        passLabel2.setText("");
 
     }
 

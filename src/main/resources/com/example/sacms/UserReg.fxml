@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane fx:id="consoleAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.UserRegMainController">
+<AnchorPane fx:id="consoleAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.UserRegMainController">
    <children>
       <FlowPane hgap="258.0" layoutX="150.0" layoutY="208.0" prefHeight="250.0" prefWidth="500.0">
          <children>

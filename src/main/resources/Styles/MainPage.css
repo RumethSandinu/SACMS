@@ -1,6 +1,8 @@
 .mainAnchor {
-    -fx-background-color: #070b14;
+    -fx-background-color: white;
 }
+
+
 
 .menuLabel {
     -fx-text-fill: #00a7c5;

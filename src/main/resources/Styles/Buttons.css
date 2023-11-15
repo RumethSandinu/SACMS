@@ -1,15 +1,16 @@
 Button {
     -fx-background-color: transparent;
-    -fx-border-color: #3a495e;
+    /*-fx-border-color: #3a495e;*/
+    -fx-border-color: transparent;
 }
 
 Button:hover{
-    -fx-background-color: #2c3c5d;
+    -fx-background-color: #712377;
     -fx-effect: dropshadow(three-pass-box,black,30,0,10,10);
 }
 
 FontIcon {
-    -fx-fill: #00a7c5;
+    -fx-fill: #712377;
 }
 
 Button:hover FontIcon {
@@ -26,4 +27,28 @@ Button:hover FontIcon {
 
 .buttonBorder {
     -fx-border-color: transparent;
+}
+
+.text-field{
+    -fx-background-color: white;
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-border-color: #712377;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+.studentRegButton:hover{
+    -fx-text-fill: white;
+    -fx-background-color: #712377;
+}
+
+.studentRegButton{
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-background-color: #3b3b3b;
+}
+
+.fNameLabel {
+    -fx-text-fill: red;
 }
