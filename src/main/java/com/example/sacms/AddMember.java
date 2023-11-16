@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -113,6 +110,10 @@ public class AddMember {
     private Label adpassLabel2;
     @FXML
     private DatePicker adDateOfBirthBox;
+    @FXML
+    private CheckBox passCheckBox;
+    @FXML
+    private PasswordField passField;
 
     public AddMember() {
     }
@@ -121,7 +122,7 @@ public class AddMember {
     private void backButton() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("UserReg.fxml"));
         Stage mainStage = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600);
         mainStage.setTitle("Registration");
         mainStage.setScene(scene);
         mainStage.show();
@@ -601,5 +602,12 @@ public class AddMember {
         addoBLabel.setText("");
         adpassLabel.setText("");
         adpassLabel2.setText("");
+    }
+
+    @FXML
+    private void onPassCheckClicked() throws IOException {
+        if (passCheckBox.isSelected()){
+            passField.setVisible(true);
+        }
     }
 }
