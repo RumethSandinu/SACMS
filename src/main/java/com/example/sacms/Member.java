@@ -1,5 +1,7 @@
 package com.example.sacms;
 
-public interface Member {
+import java.io.Serializable;
+
+public interface Member extends Serializable {
 
 }

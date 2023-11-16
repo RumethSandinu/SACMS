@@ -67,4 +67,32 @@ public class Student implements Member{
     public void setDateOfBirth(DateOfBirth dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public static Student parseStudent(String line) {
+        String[] parts = line.split(",");
+        if (parts.length != 6) {
+            throw new IllegalArgumentException("Invalid data format in the file.");
+        }
+
+        String studentId = parts[0].trim();
+        String studentFirstName = parts[1].trim();
+        String studentLastName = parts[2].trim();
+        String studentEmail = parts[3].trim();
+
+        // Extracting date of birth components
+        String[] dobParts = parts[4].trim().split("/");
+        if (dobParts.length != 3) {
+            throw new IllegalArgumentException("Invalid date of birth format.");
+        }
+
+        int day = Integer.parseInt(dobParts[0]);
+        int month = Integer.parseInt(dobParts[1]);
+        int year = Integer.parseInt(dobParts[2]);
+
+        DateOfBirth dateOfBirth = new DateOfBirth(day, month, year);
+
+        String studentPassword = parts[5].trim();
+
+        return new Student(studentId, studentFirstName, studentLastName, studentEmail, dateOfBirth, studentPassword);
+    }
 }

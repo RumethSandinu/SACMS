@@ -1,6 +1,8 @@
 package com.example.sacms;
 
-public class DateOfBirth {
+import java.io.Serializable;
+
+public class DateOfBirth implements Serializable {
     private int date, month, year;
 
     public DateOfBirth(int date, int month, int year) {

@@ -8,14 +8,15 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Objects;
 import java.time.LocalDate;
 
-public class AddMember {
+public class AddMember implements Member {
 
     @FXML
     private Button backButton;
@@ -119,7 +120,7 @@ public class AddMember {
     }
 
     @FXML
-    private void backButton() throws IOException {
+    protected static void backButton(Button backButton) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("UserReg.fxml"));
         Stage mainStage = new Stage();
         Scene scene = new Scene(fxmlLoader.load(), 950, 600);
@@ -290,6 +291,12 @@ public class AddMember {
             }catch (Exception e7){
                 System.out.println(e7.getMessage());
                 studentRegLabel.setText("Error Encountered");
+            }
+
+            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("StudentDetails.ser"))) {
+                objectOutputStream.writeObject(studentList);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
         }
@@ -564,9 +571,14 @@ public class AddMember {
                 System.out.println(e7.getMessage());
                 advisorRegLabel.setText("Error Encountered");
             }
+
+            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("AdvisorDetails.ser"))) {
+                objectOutputStream.writeObject(advisorList);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
-
 
     private void clearStudentFields(){
         studentIdBox.clear();
@@ -605,9 +617,14 @@ public class AddMember {
     }
 
     @FXML
-    private void onPassCheckClicked() throws IOException {
-        if (passCheckBox.isSelected()){
-            passField.setVisible(true);
-        }
+    private void onPassCheckClicked(ActionEvent actionEvent) {
     }
+
+
+//    @FXML
+//    private void onPassCheckClicked() throws IOException {
+//        if (passCheckBox.isSelected()){
+//            passField.setVisible(true);
+//        }
+//    }
 }
