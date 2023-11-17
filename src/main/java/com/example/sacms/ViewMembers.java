@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class ViewMembers {
 
+    @FXML
     private Button backButton;
     @FXML
     private AnchorPane membersAnchor;

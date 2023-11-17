@@ -8,3 +8,13 @@
     -fx-text-fill: #00a7c5;
     -fx-font-weight: bold;
 }
+
+TableView {
+    -fx-border-color: #712377;
+    -fx-border-radius: 8px;
+}
+
+.tableColumnStyle {
+    -fx-background-color: rgb(230, 132, 255);
+
+}
