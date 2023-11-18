@@ -1,10 +1,6 @@
 package com.example.sacms;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBConnect {
 
@@ -161,6 +157,52 @@ public class DBConnect {
 
                 preparedStatement.executeUpdate();
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }catch (ClassNotFoundException e){
+            System.out.println("Class not found");
+            e.printStackTrace();
+        }
+
+        System.out.println("Driver class registered");
+        Connection sample = null;
+
+        try {
+            sample = DriverManager.getConnection(url, username, password);
+        }catch (SQLException e2) {
+            System.out.println("sql exception found");
+            e2.printStackTrace();
+            return;
+        }
+
+        if (sample != null){
+            System.out.println("success");
+        }else {
+            System.out.println("failed to connect");
+        }
+
+        DateOfBirth date = new DateOfBirth(06,04, 2002);
+        System.out.println(date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
+        try {
+            String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
+            assert sample != null;
+            try (PreparedStatement preparedStatement = sample.prepareStatement(query)) {
+                preparedStatement.setString(1, "ST211");
+                preparedStatement.setString(2, "Praveen");
+                preparedStatement.setString(3, "Peiris");
+                preparedStatement.setString(4, "praveen@abc.com");
+                preparedStatement.setString(5, date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
+                preparedStatement.setString(6, "heloo");
+
+                preparedStatement.executeUpdate();
+            }
+            System.out.println("Data Inserted");
         } catch (SQLException e) {
             e.printStackTrace();
         }

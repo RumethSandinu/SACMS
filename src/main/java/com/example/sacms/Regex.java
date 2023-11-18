@@ -21,13 +21,4 @@ public class Regex {
                 .matches();
     }
 
-//    public static void main(String[] args) {
-//        if (namePatternMatches("ewfsgfv")){
-//            System.out.println("ok");
-//        }else{
-//            System.out.println("no");
-//        }
-//
-//    }
-
 }
