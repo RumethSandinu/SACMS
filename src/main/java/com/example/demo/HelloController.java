@@ -67,6 +67,30 @@ public class HelloController {
     @FXML
     private Button submitButton;
 
+    @FXML
+    private TextField markT_NameTextField;
+
+    @FXML
+    private TextField markTeaIdTextField;
+
+    @FXML
+    private TextField markTeaClubNameTextField;
+
+    @FXML
+    private ComboBox<String> T_Eventlist;
+
+    @FXML
+    private RadioButton T_absentRadioButton;
+
+    @FXML
+    private RadioButton T_presentRadioButton;
+
+    @FXML
+    private TextArea T_note;
+
+    @FXML
+    private Button T_submitButton;
+
     // Event handler for the ADD button
     @FXML
     void AddButton(ActionEvent event) {
@@ -145,7 +169,7 @@ public class HelloController {
     @FXML
     private void handleSubmitButton() {
         try {
-            String markName = markNameTextField.getText();
+            String Name = markNameTextField.getText();
             String markStudentId = markStuIdTextField.getText();
             String markClubName = markClubNameTextField.getText();
             ObservableList<String> list = FXCollections.observableArrayList("Event_01","Event_02","Event_03");
@@ -153,7 +177,7 @@ public class HelloController {
             String selectedEvent = Eventlist.getValue();
             String status = absentRadioButton.isSelected() ? "Absent" : "Present";
             // Perform actions with the input, e.g., update status in a database
-            System.out.println("Marked: Name - " + markName + ", Student ID - " + markStudentId +
+            System.out.println("Marked: Name - " + Name+  ", Student ID - " + markStudentId +
                 ", Club Name - " + markClubName + ", Status - " + status + "," + selectedEvent);
 
             // Display a success alert
@@ -180,4 +204,47 @@ public class HelloController {
             alert.showAndWait();
         }
     }
+
+    // Event handler for the SUBMIT button
+    @FXML
+    private void T_handleSubmitButton() {
+        try {
+            String T_markName = markT_NameTextField.getText();
+            String markTeaId = markTeaIdTextField.getText();
+            String markTeaClubName = markTeaClubNameTextField.getText();
+            ObservableList<String> list_2 = FXCollections.observableArrayList("Event_01","Event_02","Event_03");
+            T_Eventlist.setItems(list_2);
+            String selectedEvent_2 = T_Eventlist.getValue();
+            String T_status = T_absentRadioButton.isSelected() ? "Absent" : "Present";
+            // Perform actions with the input, e.g., update status in a database
+            System.out.println("Marked: Name - " + T_markName + ", Teacher ID - " + markTeaId +
+                    ", Club Name - " + markTeaClubName + ", Status - " + T_status + "," + selectedEvent_2);
+
+            // Display a success alert
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Record Marked");
+            alert.setHeaderText(null);
+            alert.setContentText("The record was marked successfully.");
+            alert.showAndWait();
+
+            // Clear the input fields
+            markT_NameTextField.clear();
+            markTeaIdTextField.clear();
+            markTeaClubNameTextField.clear();
+            T_absentRadioButton.setSelected(false);
+            T_presentRadioButton.setSelected(false);
+            T_Eventlist.getSelectionModel().clearSelection();
+            T_note.clear();
+
+        }catch (NumberFormatException e) {
+            // Display an error alert
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("An error occurred while saving the record.");
+            alert.showAndWait();
+        }
+    }
+
+
 }
