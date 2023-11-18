@@ -13,7 +13,7 @@ public class DBConnect {
     }
 
     // CREATE (INSERT) operation for student
-    public static void insertStudent(String studentId, String firstName, String lastName, String email, String dateOfBirth, String password) {
+    public static void insertStudent(String studentId, String firstName, String lastName, String email, DateOfBirth dateOfBirth, String password) {
         try (Connection connection = getConnection()) {
             String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -21,7 +21,7 @@ public class DBConnect {
                 preparedStatement.setString(2, firstName);
                 preparedStatement.setString(3, lastName);
                 preparedStatement.setString(4, email);
-                preparedStatement.setString(5, dateOfBirth);
+                preparedStatement.setString(5, dateOfBirth.getYear() + "-" + dateOfBirth.getMonth() + "-" + dateOfBirth.getDate());
                 preparedStatement.setString(6, password);
 
                 preparedStatement.executeUpdate();
@@ -31,8 +31,26 @@ public class DBConnect {
         }
     }
 
+//    public static void insertStudent(String studentId, String firstName, String lastName, String email, String dateOfBirth, String password) {
+//        try (Connection connection = getConnection()) {
+//            String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
+//            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+//                preparedStatement.setString(1, studentId);
+//                preparedStatement.setString(2, firstName);
+//                preparedStatement.setString(3, lastName);
+//                preparedStatement.setString(4, email);
+//                preparedStatement.setString(5, dateOfBirth);
+//                preparedStatement.setString(6, password);
+//
+//                preparedStatement.executeUpdate();
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     // CREATE (INSERT) operation for advisor
-    public static void insertAdvisor(String advisorId, String firstName, String lastName, String email, String dateOfBirth, String password) {
+    public static void insertAdvisor(String advisorId, String firstName, String lastName, String email, DateOfBirth dateOfBirth, String password) {
         try (Connection connection = getConnection()) {
             String query = "INSERT INTO advisor (advisor_id, advisor_firstname, advisor_lastname, advisor_email, advisor_dateofbirth, advisor_password) VALUES (?, ?, ?, ?, ?, ?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -40,7 +58,7 @@ public class DBConnect {
                 preparedStatement.setString(2, firstName);
                 preparedStatement.setString(3, lastName);
                 preparedStatement.setString(4, email);
-                preparedStatement.setString(5, dateOfBirth);
+                preparedStatement.setString(5, dateOfBirth.getYear() + "-" + dateOfBirth.getMonth() + "-" + dateOfBirth.getDate());
                 preparedStatement.setString(6, password);
 
                 preparedStatement.executeUpdate();
@@ -97,6 +115,24 @@ public class DBConnect {
     }
 
     // UPDATE operation for student
+//    public static void updateStudent(String studentId, String newFirstName, String newLastName, String newEmail, String newDateOfBirth, String newPassword) {
+//        try (Connection connection = getConnection()) {
+//            String query = "UPDATE student SET student_firstname = ?, student_lastname = ?, student_email = ?, student_dateofbirth = ?, student_password = ? WHERE student_id = ?";
+//            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+//                preparedStatement.setString(1, newFirstName);
+//                preparedStatement.setString(2, newLastName);
+//                preparedStatement.setString(3, newEmail);
+//                preparedStatement.setString(4, newDateOfBirth);
+//                preparedStatement.setString(5, newPassword);
+//                preparedStatement.setString(6, studentId);
+//
+//                preparedStatement.executeUpdate();
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     public static void updateStudent(String studentId, String newFirstName, String newLastName, String newEmail, String newDateOfBirth, String newPassword) {
         try (Connection connection = getConnection()) {
             String query = "UPDATE student SET student_firstname = ?, student_lastname = ?, student_email = ?, student_dateofbirth = ?, student_password = ? WHERE student_id = ?";
@@ -189,22 +225,25 @@ public class DBConnect {
 
         DateOfBirth date = new DateOfBirth(06,04, 2002);
         System.out.println(date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
-        try {
-            String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
-            assert sample != null;
-            try (PreparedStatement preparedStatement = sample.prepareStatement(query)) {
-                preparedStatement.setString(1, "ST211");
-                preparedStatement.setString(2, "Praveen");
-                preparedStatement.setString(3, "Peiris");
-                preparedStatement.setString(4, "praveen@abc.com");
-                preparedStatement.setString(5, date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
-                preparedStatement.setString(6, "heloo");
 
-                preparedStatement.executeUpdate();
-            }
-            System.out.println("Data Inserted");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        insertStudent("ST202", "Tharusha", "Jude", "jude@nude.com", date, "whotto");
+        deleteStudent("ST211");
+//        try {
+//            String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
+//            assert sample != null;
+//            try (PreparedStatement preparedStatement = sample.prepareStatement(query)) {
+//                preparedStatement.setString(1, "ST211");
+//                preparedStatement.setString(2, "Praveen");
+//                preparedStatement.setString(3, "Peiris");
+//                preparedStatement.setString(4, "praveen@abc.com");
+//                preparedStatement.setString(5, date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
+//                preparedStatement.setString(6, "heloo");
+//
+//                preparedStatement.executeUpdate();
+//            }
+//            System.out.println("Data Inserted");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 }
