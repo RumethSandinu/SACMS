@@ -1,19 +1,0 @@
-
-p	java:S116"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É¬­Áøÿÿÿÿ8À±æÒ½1
-H
-java:S1068"+Remove this unused "eventID" private field.(üÛÒ®8Á±æÒ½1
-G
-java:S1068"*Remove this unused "clubID" private field.(Ş»‡Ø8Â±æÒ½1
-J
-java:S1068"(Remove this unused "Name" private field.(É¬­Áøÿÿÿÿ8Â±æÒ½1
-E
-java:S1068"(Remove this unused "year" private field.(¡‚ºğ8Â±æÒ½1
-K
-java:S1068	")Remove this unused "month" private field.(º¶À˜ÿÿÿÿÿ8Â±æÒ½1
-D
-java:S1068
-"'Remove this unused "day" private field.(˜Èòš8Â±æÒ½1
-D
-java:S1068"(Remove this unused "hour" private field.(•ÏÀi8à²çÒ½1
-G
-java:S1068"*Remove this unused "minute" private field.(¤‰üê8à²çÒ½1
