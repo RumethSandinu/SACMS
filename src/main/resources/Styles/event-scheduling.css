@@ -1,0 +1,82 @@
+.main-pane
+{
+    -fx-background-color: #070b14;
+    -fx-border-color: #fff;
+    -fx-border-width: 2px;
+}
+
+.menu-bar
+{
+    -fx-background-color: rgb(169, 106, 205);
+    -fx-font-color: #fff;
+}
+
+.status-pane
+{
+
+}
+
+.controller-pane
+{
+    -fx-border-color: #fff;
+    -fx-border-width: 2px;
+}
+.exit-button {
+    -fx-background-color:  #b22222;
+    -fx-text-fill: white;
+    -fx-background-radius:  28.28;
+    -fx-border-radius:  28.28;
+    -fx-background-insets: 0;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}
+
+.reset-button{
+    -fx-background-color: #004db1;
+    -fx-border-stule :none;
+    -fx-background-radius: 28.28;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius:  28.28;
+}
+
+.main-menu-button{
+    -fx-background-color: #004db1;
+    -fx-background-radius: 28.28;
+    -fx-text-fill: white;
+    -fx-border-radius:  28.28;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-background-insets: 0;
+    
+}
+
+.main-menu-button:hover {
+    -fx-background-color: #19a819;
+}
+.reset-button:hover {
+    -fx-background-color: #19a819;
+}
+.exit-button:hover {
+    -fx-background-color:rgb(230, 77, 50);
+}
+
+.image-view
+{
+    -fx-padding: 20px 20px 20px 20px;
+    -fx-alignment:center;
+}
+
+.menu-item{
+    -fx-background-color: #004db1;
+    -fx-border-color: #fff;
+    -fx-border-width: 2px;
+}
+.menu-item:hover{
+    -fx-background-color: cornflowerblue;
+}
+.menu-item:hover::after{
+    -fx-background-color: cornflowerblue;
+}
