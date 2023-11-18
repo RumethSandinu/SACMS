@@ -1,6 +1,6 @@
 package com.example.sacms;
 
-public class Activity
+public class Activity extends EventParent
 {
-    
+    private String place;
 }
