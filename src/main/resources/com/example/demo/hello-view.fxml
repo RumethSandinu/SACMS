@@ -9,12 +9,13 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
   <tabs>
-    <Tab text="ADD">
+    <Tab text="ADD Student">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -40,7 +41,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab text="DELETE">
+    <Tab text="DELETE Student">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -58,46 +59,105 @@
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab text="MARK">
+      <Tab text="GENERATE Report">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <AnchorPane prefHeight="367.0" prefWidth="600.0">
-                     <children>
-                        <Label layoutX="31.0" layoutY="67.0" prefHeight="18.0" prefWidth="79.0" text="Name" />
-                        <Label layoutX="31.0" layoutY="110.0" prefHeight="18.0" prefWidth="71.0" text="Student ID" />
-                        <Label layoutX="31.0" layoutY="154.0" prefHeight="18.0" prefWidth="71.0" text="Club Name" />
-                        <Label layoutX="31.0" layoutY="245.0" prefHeight="18.0" prefWidth="71.0" text="Status" />
-                        <TextField fx:id="markNameTextField" layoutX="201.0" layoutY="64.0" />
-                        <TextField fx:id="markStuIdTextField" layoutX="202.0" layoutY="107.0" />
-                        <TextField fx:id="markClubNameTextField" layoutX="203.0" layoutY="151.0" />
-                        <RadioButton fx:id="absentRadioButton" layoutX="201.0" layoutY="245.0" mnemonicParsing="false" text="Absent" />
-                        <RadioButton fx:id="presentRadioButton" layoutX="322.0" layoutY="245.0" mnemonicParsing="false" text="Present" />
-                        <Button fx:id="submitButton" layoutX="220.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="26.0" prefWidth="112.0" text="SUBMIT" />
-                        <Label layoutX="31.0" layoutY="199.0" text="Event Name" />
-                        <ComboBox fx:id="Eventlist" layoutX="203.0" layoutY="195.0" prefWidth="150.0" />
-                     </children>
-                  </AnchorPane>
+                  <TabPane prefHeight="372.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Student's Report">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView prefHeight="344.0" prefWidth="600.0">
+                                      <columns>
+                                        <TableColumn prefWidth="132.0" text="Name" />
+                                        <TableColumn prefWidth="64.0" text="Stu_ID" />
+                                          <TableColumn prefWidth="64.79998779296875" text="Grade" />
+                                          <TableColumn prefWidth="83.20001220703125" text="Club_Name" />
+                                          <TableColumn prefWidth="80.00006103515625" text="Joined_Date" />
+                                          <TableColumn prefWidth="103.199951171875" text="Event_Name" />
+                                          <TableColumn prefWidth="76.7999267578125" text="Statues" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Teacher's Report">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView layoutY="2.0" prefHeight="341.0" prefWidth="600.0">
+                                      <columns>
+                                        <TableColumn prefWidth="144.79998779296875" text="Name" />
+                                        <TableColumn minWidth="5.60003662109375" prefWidth="68.0" text="Tea_ID" />
+                                          <TableColumn prefWidth="94.4000244140625" text="Club_Name" />
+                                          <TableColumn prefWidth="95.20001220703125" text="Event_Name" />
+                                          <TableColumn prefWidth="58.39996337890625" text="Statues" />
+                                          <TableColumn prefWidth="140.800048828125" text="Note" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
                </children>
             </AnchorPane>
         </content>
       </Tab>
-      <Tab text="REPORT">
+      <Tab text="MARK Attendance">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView layoutY="15.0" prefHeight="254.0" prefWidth="592.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Name " />
-                      <TableColumn prefWidth="75.0" text="Student_ID" />
-                        <TableColumn prefWidth="75.0" text="DOB" />
-                        <TableColumn prefWidth="55.99993896484375" text="Grade" />
-                        <TableColumn prefWidth="75.199951171875" text="Joined_Date" />
-                        <TableColumn text="Club_name" />
-                        <TableColumn prefWidth="85.5999755859375" text="Event" />
-                        <TableColumn prefWidth="67.2000732421875" text="Statues" />
-                    </columns>
-                  </TableView>
+                  <TabPane prefHeight="368.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Student's Attendance">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="35.0" layoutY="37.0" prefHeight="18.0" prefWidth="79.0" text="Name" />
+                                    <TextField fx:id="markNameTextField" layoutX="156.0" layoutY="34.0" />
+                                    <Label layoutX="35.0" layoutY="82.0" prefHeight="18.0" prefWidth="71.0" text="Student ID" />
+                                    <TextField fx:id="markStuIdTextField" layoutX="156.0" layoutY="78.0" />
+                                    <Label layoutX="35.0" layoutY="128.0" prefHeight="18.0" prefWidth="71.0" text="Club Name" />
+                                    <TextField fx:id="markClubNameTextField" layoutX="156.0" layoutY="124.0" />
+                                    <Label layoutX="35.0" layoutY="170.0" text="Event Name" />
+                                    <ComboBox fx:id="Eventlist" layoutX="155.0" layoutY="166.0" prefWidth="150.0" />
+                                    <Label layoutX="39.0" layoutY="218.0" prefHeight="18.0" prefWidth="71.0" text="Status" />
+                                    <RadioButton fx:id="absentRadioButton" layoutX="155.0" layoutY="218.0" mnemonicParsing="false" text="Absent" />
+                                    <RadioButton fx:id="presentRadioButton" layoutX="255.0" layoutY="218.0" mnemonicParsing="false" text="Present" />
+                                    <Button fx:id="submitButton" layoutX="423.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="26.0" prefWidth="112.0" text="SUBMIT" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Teacher's Attendance">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="36.0" layoutY="42.0" prefHeight="18.0" prefWidth="79.0" text="Name" />
+                                    <Label layoutX="36.0" layoutY="84.0" prefHeight="18.0" prefWidth="71.0" text="Teacher ID" />
+                                    <Label layoutX="36.0" layoutY="126.0" prefHeight="18.0" prefWidth="71.0" text="Club Name" />
+                                    <Label layoutX="36.0" layoutY="170.0" text="Event Name" />
+                                    <Label layoutX="36.0" layoutY="214.0" prefHeight="18.0" prefWidth="71.0" text="Status" />
+                                    <Label layoutX="36.0" layoutY="255.0" text="Note" />
+                                    <TextField fx:id="markT_NameTextField" layoutX="174.0" layoutY="39.0" />
+                                    <TextField fx:id="markTeaIdTextField" layoutX="175.0" layoutY="81.0" />
+                                    <TextField fx:id="markTeaClubNameTextField" layoutX="176.0" layoutY="123.0" />
+                                    <ComboBox fx:id="T_Eventlist" layoutX="177.0" layoutY="166.0" prefWidth="150.0" />
+                                    <RadioButton fx:id="T_absentRadioButton" layoutX="174.0" layoutY="215.0" mnemonicParsing="false" text="Absent" />
+                                    <RadioButton fx:id="T_presentRadioButton" layoutX="269.0" layoutY="215.0" mnemonicParsing="false" text="Present" />
+                                    <Button fx:id="T_submitButton" layoutX="423.0" layoutY="136.0" mnemonicParsing="false" onAction="#T_handleSubmitButton" prefHeight="26.0" prefWidth="98.0" text="SUBMIT" />
+                                    <TextArea fx:id="T_note" layoutX="172.0" layoutY="238.0" prefHeight="68.0" prefWidth="303.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
                </children>
             </AnchorPane>
         </content>
