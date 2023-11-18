@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="$MODULE_DIR$/pom.xml" external.system.module.type="SINGLE_MODULE" external.system.module.version="223-2" org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_21">
-    <output url="file://$MODULE_DIR$/target/classes" />
-    <output-test url="file://$MODULE_DIR$/target/test-classes" />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
-    </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:21-ea+24" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:mac-aarch64:21-ea+24" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:21-ea+24" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:mac-aarch64:21-ea+24" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:21-ea+24" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac-aarch64:21-ea+24" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:21-ea+24" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:mac-aarch64:21-ea+24" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.9.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.9.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.9.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.9.2" level="project" />
-  </component>
+<module version="4">
   <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="faa54c0b-7238-42db-aba4-cfbe492b636f" />
+    <option name="uniqueId" value="f2abd5a1-87c5-4f93-ac86-1f8af3e549b4" />
   </component>
 </module>
