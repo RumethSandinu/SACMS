@@ -223,11 +223,18 @@ public class DBConnect {
             System.out.println("failed to connect");
         }
 
-        DateOfBirth date = new DateOfBirth(06,04, 2002);
-        System.out.println(date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
+        DateOfBirth AdDate = new DateOfBirth(04,9,2002);
+//        insertAdvisor("AD433", "Punde", "Anna", "punde@jp.com", AdDate, "hiAnnaa");
+//        System.out.println("Done");
+
+
+        insertAdvisor("AD433", "Punde", "Anna", "punde@jp.com", AdDate, "hiAnnaa");
+
+        //        DateOfBirth date = new DateOfBirth(06,04, 2002);
+//        System.out.println(date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
 
 //        insertStudent("ST202", "Tharusha", "Jude", "jude@nude.com", date, "whotto");
-        deleteStudent("ST211");
+//        deleteStudent("ST211");
 //        try {
 //            String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
 //            assert sample != null;
