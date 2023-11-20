@@ -6,4 +6,9 @@ public class Meeting extends EventParent
     private String place;
     private String patform;
     private String link;
+
+    @Override
+    void createEvent() {
+
+    }
 }
