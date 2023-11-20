@@ -6,7 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -276,6 +278,7 @@ public class AddMember implements Member {
                 DateOfBirth dateOfBirth = new DateOfBirth(date, month, year);
                 Student student = new Student(studentId, studentFirstName, studentLastName, studentEmail,dateOfBirth, studentPassword);
                 studentList.add(student);
+                DBConnect.insertStudent(studentId, studentFirstName, studentLastName, studentEmail,dateOfBirth, studentPassword);
 
                 for (Object i: studentList){
                     System.out.println(student.getStudentId());
@@ -301,118 +304,6 @@ public class AddMember implements Member {
 
         }
     }
-
-//    @FXML
-//    private void onAdvisorRegButtonClicked() throws IOException{
-//        if (Objects.equals(advisorIdBox.getText(), "") || Objects.equals(advisorFnameBox.getText(), "") ||
-//                Objects.equals(advisorLnameBox.getText(), "") || Objects.equals(advisorEmailBox.getText(), "") ||
-//                Objects.equals(advisorPassBox1.getText(), "") || Objects.equals(advisorPassBox2.getText(), "")){
-//            studentRegLabel.setText("Please fill the above credentials");
-//        }
-//        else {
-//            System.out.println("test");
-//
-//            try {
-//                if (!Objects.equals(advisorIdBox.getText(), "")){
-//                    advisorId = advisorIdBox.getText();
-//                }else{
-//                    advisorRegLabel.setText("Enter your Advisor ID");
-//                    return;
-//                }
-//            }catch (InputMismatchException | NumberFormatException | NullPointerException e1){
-//                advisorRegLabel.setText("Invalid Advisor ID");
-//                return;
-//            }
-//
-//            try {
-//                if (!Objects.equals(advisorFnameBox.getText(), "")){
-//                    advisorFirstName = advisorFnameBox.getText();
-//                }else{
-//                    advisorRegLabel.setText("Enter your First Name");
-//                    return;
-//                }
-//            }catch (NullPointerException e2){
-//                advisorRegLabel.setText("Invalid First Name");
-//                return;
-//            }
-//
-//            try {
-//                if (!Objects.equals(advisorLnameBox.getText(), "")){
-//                    advisorLastName = advisorLnameBox.getText();
-//                }else{
-//                    advisorRegLabel.setText("Enter your Last Name");
-//                    return;
-//                }
-//            }catch (NullPointerException e3){
-//                advisorRegLabel.setText("Invalid Last Name");
-//                return;
-//            }
-//
-//            try {
-//                if (!Objects.equals(advisorEmailBox.getText(), "")){
-//                    advisorEmail = advisorEmailBox.getText();
-//                }else{
-//                    advisorRegLabel.setText("Enter your Email");
-//                    return;
-//                }
-//            }catch (NullPointerException e4){
-//                advisorRegLabel.setText("Invalid Email");
-//                return;
-//            }
-//
-//            try {
-//                if (!Objects.equals(advisorPassBox1.getText(), "")){
-//                    PassTemp1 = advisorPassBox1.getText();
-//                }else{
-//                    advisorRegLabel.setText("Enter a password");
-//                    return;
-//                }
-//            }catch (NullPointerException e5){
-//                advisorRegLabel.setText("Password must not be empty!");
-//                return;
-//            }
-//
-//            try {
-//                if (!Objects.equals(advisorPassBox2.getText(), "")){
-//                    PassTemp2 = advisorPassBox2.getText();
-//                }else{
-//                    advisorRegLabel.setText("Re-Enter your password");
-//                    return;
-//                }
-//            }catch (NullPointerException e6){
-//                advisorRegLabel.setText("Password must not be empty!");
-//                return;
-//            }
-//
-//            if (!(Objects.equals(PassTemp1, PassTemp2))){
-//                System.out.println("Password Mismatch");
-//                advisorRegLabel.setText("Password Mismatch");
-//                return;
-//            }else{
-//                advisorPassword = PassTemp1;
-//            }
-//
-//            try {
-//                Advisor advisor = new Advisor(advisorId, advisorFirstName, advisorLastName, advisorEmail, advisorPassword);
-//                advisorList.add(advisor);
-//
-//                for (Object i: advisorList){
-//                    System.out.println(advisor.getAdvisorId());
-//                    System.out.println(advisor.getAdvisorFirstName());
-//                    System.out.println(advisor.getAdvisorLastName());
-//                    System.out.println(advisor.getAdvisorEmail());
-//                    System.out.println(advisor.getAdvisorPassword());
-//                }
-//
-//                clearAdvisorFields();
-//                advisorRegLabel.setText("Registration Complete");
-//            }catch (Exception e7){
-//                System.out.println(e7.getMessage());
-//                advisorRegLabel.setText("Error Encountered");
-//            }
-//
-//        }
-//    }
 
     @FXML
     private void onAdvisorRegButtonClicked() throws IOException{
@@ -532,8 +423,26 @@ public class AddMember implements Member {
                 adpassLabel2.setText("*make sure your passwords match");
                 return;
             } else {
-                advisorPassword = PassTemp1;
+                if (Regex.passwordPatternMatches(PassTemp1)) {
+                    advisorPassword = PassTemp1;
+                }else {
+                    adpassLabel2.setText("*one UpperCase letter \n" +
+                            "*one lowerCase letter \n" +
+                            "*one number \n" +
+                            "*minimum 8 characters");
+                    advisorRegLabel.setText("Weak Password");
+                    return;
+                }
             }
+
+//            try {
+//                if (Regex.passwordPatternMatches(advisorPassword)){
+//                    adpassLabel2.setText("Strong Password");
+//                    adpassLabel2.setTextFill(Color.GREEN);
+//                }
+//            }catch (Exception g){
+//                g.printStackTrace();
+//            }
 
             try{
                 LocalDate doB = adDateOfBirthBox.getValue();
@@ -555,6 +464,7 @@ public class AddMember implements Member {
                 DateOfBirth dateOfBirth = new DateOfBirth(date, month, year);
                 Advisor advisor = new Advisor(advisorId, advisorFirstName, advisorLastName, advisorEmail, dateOfBirth, advisorPassword);
                 advisorList.add(advisor);
+                DBConnect.insertAdvisor(advisorId, advisorFirstName, advisorLastName, advisorEmail, dateOfBirth, advisorPassword);
 
                 for (Object i : advisorList) {
                     System.out.println(advisor.getAdvisorId());
@@ -606,6 +516,7 @@ public class AddMember implements Member {
         advisorEmailBox.clear();
         advisorPassBox1.clear();
         advisorPassBox2.clear();
+        adDateOfBirthBox.setValue(null);
 
         adfNameLabel.setText("");
         adlNameLabel.setText("");
@@ -617,7 +528,19 @@ public class AddMember implements Member {
     }
 
     @FXML
-    private void onPassCheckClicked(ActionEvent actionEvent) {
+    private void onPassCheckClicked() {
+    }
+
+    @FXML
+    private void backButton() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("UserReg.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600);
+        mainStage.setTitle("Registration");
+        mainStage.setScene(scene);
+        mainStage.show();
+        Stage prevStage = (Stage) backButton.getScene().getWindow();
+        prevStage.close();
     }
 
 

@@ -9,7 +9,7 @@ public class Regex {
     private static final String regexEmail = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
     private static final String regexName = "^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)";
     private static final String regexName2 = "^[A-Za-z]+$";
-    private static final String regexPass = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d).{8,}$";
+    private static final String regexPass = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[^\\s]{8,}$";
 
     public static boolean emailPatternMatches(String email) {
         return Pattern.compile(regexEmail)
@@ -30,7 +30,7 @@ public class Regex {
     }
 
     public static void main(String[] args) {
-        if(passwordPatternMatches("Sdsdfs3wq")){
+        if(passwordPatternMatches("ghjgjgxcfS4 jj")){
             System.out.println("Success");
         }else {
             System.out.println("nop");

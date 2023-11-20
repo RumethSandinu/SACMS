@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling&#10;Java Database Connectivity Sample Test Success">
+    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdvisorDetails.ser" beforeDir="false" afterPath="$PROJECT_DIR$/AdvisorDetails.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/AddMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/AddMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/DBConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/DateOfBirth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/DateOfBirth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/Regex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/Regex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegMainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewMembers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewMembers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/advisor-reg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/advisor-reg.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +113,7 @@
       <recent name="D:\IIT Docs\2nd Year\Semester 1\CM 2601 PRO - Object Oriented Development\CW\SACMS\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DBConnect">
+  <component name="RunManager" selected="Application.UserRegApplication">
     <configuration name="DBConnect" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sacms.DBConnect" />
       <module name="SACMS" />
@@ -157,9 +162,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DBConnect" />
-        <item itemvalue="Application.Regex" />
         <item itemvalue="Application.UserRegApplication" />
+        <item itemvalue="Application.Regex" />
+        <item itemvalue="Application.DBConnect" />
         <item itemvalue="Java Scratch.Scratch" />
       </list>
     </recent_temporary>
@@ -217,7 +222,7 @@
       <workItem from="1700380387456" duration="1283000" />
       <workItem from="1700392400653" duration="5355000" />
       <workItem from="1700485959815" duration="646000" />
-      <workItem from="1700496237373" duration="2096000" />
+      <workItem from="1700496237373" duration="6811000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -434,7 +439,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700414838841</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled">
+      <option name="closed" value="true" />
+      <created>1700499971555</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1700499971555</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +496,8 @@
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)" />
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling" />
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling&#10;Java Database Connectivity Sample Test Success" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling&#10;Java Database Connectivity Sample Test Success" />
+    <MESSAGE value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled" />
+    <option name="LAST_COMMIT_MESSAGE" value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -7,9 +7,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
+import java.sql.SQLOutput;
 import java.util.List;
 
 import static com.example.sacms.AddMember.studentList;
@@ -50,18 +49,29 @@ public class UserRegMainController {
     protected void loadStudentsFromFile() throws IOException {
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("StudentDetails.ser"))) {
             studentList = (List<Student>) objectInputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: StudentDetails.ser");
+        } catch (EOFException e) {
+            System.out.println("End of file reached unexpectedly. The file might be empty.");
+        } catch (Exception e) {
+            System.out.println("Error reading from StudentDetails.ser");
             e.printStackTrace();
         }
     }
 
     @FXML
-    protected void loadAdvisorsFromFile() throws IOException {
+    protected void loadAdvisorsFromFile() {
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("AdvisorDetails.ser"))) {
             advisorList = (List<Advisor>) objectInputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: AdvisorDetails.ser");
+        } catch (EOFException e) {
+            System.out.println("End of file reached unexpectedly. The file might be empty.");
+        } catch (Exception e) {
+            System.out.println("Error reading from AdvisorDetails.ser");
             e.printStackTrace();
         }
     }
+
 
 }

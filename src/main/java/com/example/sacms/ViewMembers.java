@@ -23,7 +23,6 @@ public class ViewMembers {
     private TableColumn dobColumn;
 
 
-
     @FXML
     private void backButton() throws IOException {
         AddMember.backButton(backButton);
