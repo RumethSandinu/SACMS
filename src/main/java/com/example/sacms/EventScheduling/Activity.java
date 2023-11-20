@@ -6,7 +6,8 @@ public class Activity extends EventParent
     private String link;
 
     @Override
-    void createEvent() {
+    void createEvent()
+    {
 
     }
 }

@@ -1,12 +1,17 @@
 package com.example.sacms.EventScheduling;
 
-public class EventValidator implements EventValidation {
+public class EventValidator implements EventValidation
+{
 
-    public String validateClubID(String clubID) {
+    public String validateClubID(String clubID)
+    {
+        System.out.println("clubid");
         return "Done";
     }
 
-    public String validateEventID(String eventID) {
+    public String validateEventID(String eventID)
+    {
+        System.out.println("eventid");
         return "Done";
     }
 
@@ -104,7 +109,7 @@ public class EventValidator implements EventValidation {
                 {
                     if (month == 2)
                     {
-                        if (month > 0 && month < 29)
+                        if (dayInt> 0 && dayInt < 29)
                         {
                             return true;
                         }
@@ -139,21 +144,27 @@ public class EventValidator implements EventValidation {
         return false;
     }
 
-    public void validateDateReturn(String year, String month, String day)
-    {
-        if(validateDate(year) && validateDate(year, month) && validateDate(year, month, day))
-        {
-            System.out.println(Integer.parseInt(year) + "/" + Integer.parseInt(month) + "/" + Integer.parseInt(day));
-        }
-    }
-
     public int validateHour(String hour)
     {
+        System.out.println("hour");
         return 0;
     }
     public int validateMinute(String minute)
     {
+        System.out.println("minute");
         return 0;
+    }
+
+    public synchronized boolean validateString(String str)
+    {
+        System.out.println("str");
+        return true;
+    }
+
+    public boolean validateLink(String link)
+    {
+        System.out.println("link");
+        return true;
     }
 }
 

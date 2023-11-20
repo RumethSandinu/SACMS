@@ -7,8 +7,9 @@ public interface EventValidation
     boolean validateDate(String year);
     boolean validateDate(String year, String month);
     boolean validateDate(String year, String month, String day);
-    void validateDateReturn(String year, String month, String day);
     int validateHour(String hour);
     int validateMinute(String minute);
+    boolean validateString(String str);
+    boolean validateLink(String link);
 
 }

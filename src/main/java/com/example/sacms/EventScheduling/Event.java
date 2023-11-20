@@ -6,7 +6,8 @@ public class Event extends EventParent
     private String type;
 
     @Override
-    void createEvent() {
+    void createEvent()
+    {
 
     }
 

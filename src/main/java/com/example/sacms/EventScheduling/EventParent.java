@@ -1,21 +1,19 @@
 package com.example.sacms.EventScheduling;
 
-abstract class EventParent
-{
-    private String clubID;
-    private String eventID;
-    private String year;
-    private String month;
-    private String day;
-    private String hour;
-    private String minute;
+abstract class EventParent {
+    protected String clubID;
+    protected String eventID;
+    protected String year;
+    protected String month;
+    protected String day;
+    protected String hour;
+    protected String minute;
 
-    private boolean validationCheckYear;
-    private boolean validationCheckMonth;
-    private boolean validationCheckDay;
-    public EventParent(){}
+    public EventParent() {
+    }
 
-    public EventParent(String clubID, String eventID, String year, String month, String day, String hour, String minute) {
+    public EventParent(String clubID, String eventID, String year, String month, String day,
+                       String hour, String minute) {
         this.clubID = clubID;
         this.eventID = eventID;
         this.year = year;
@@ -27,4 +25,5 @@ abstract class EventParent
 
 
     abstract void createEvent();
+
 }
