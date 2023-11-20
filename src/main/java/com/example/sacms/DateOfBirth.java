@@ -37,10 +37,6 @@ public class DateOfBirth implements Serializable {
 
     @Override
     public String toString() {
-        return "DateOfBirth{" +
-                "date=" + date +
-                ", month=" + month +
-                ", year=" + year +
-                '}';
+        return year + "-" + month + "-" + date;
     }
 }

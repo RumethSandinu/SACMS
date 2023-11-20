@@ -12,63 +12,50 @@ public class DBConnect {
         return DriverManager.getConnection(url, username, password);
     }
 
-    // CREATE (INSERT) operation for student
     public static void insertStudent(String studentId, String firstName, String lastName, String email, DateOfBirth dateOfBirth, String password) {
-        try (Connection connection = getConnection()) {
-            String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setString(1, studentId);
-                preparedStatement.setString(2, firstName);
-                preparedStatement.setString(3, lastName);
-                preparedStatement.setString(4, email);
-                preparedStatement.setString(5, dateOfBirth.getYear() + "-" + dateOfBirth.getMonth() + "-" + dateOfBirth.getDate());
-                preparedStatement.setString(6, password);
+        if (!isStudentExists(studentId)) {
+            try (Connection connection = getConnection()) {
+                String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setString(1, studentId);
+                    preparedStatement.setString(2, firstName);
+                    preparedStatement.setString(3, lastName);
+                    preparedStatement.setString(4, email);
+                    preparedStatement.setString(5, dateOfBirth.toString());
+                    preparedStatement.setString(6, password);
 
-                preparedStatement.executeUpdate();
+                    preparedStatement.executeUpdate();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("Student with ID " + studentId + " already exists.");
         }
     }
 
-//    public static void insertStudent(String studentId, String firstName, String lastName, String email, String dateOfBirth, String password) {
-//        try (Connection connection = getConnection()) {
-//            String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
-//            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-//                preparedStatement.setString(1, studentId);
-//                preparedStatement.setString(2, firstName);
-//                preparedStatement.setString(3, lastName);
-//                preparedStatement.setString(4, email);
-//                preparedStatement.setString(5, dateOfBirth);
-//                preparedStatement.setString(6, password);
-//
-//                preparedStatement.executeUpdate();
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    // CREATE (INSERT) operation for advisor
     public static void insertAdvisor(String advisorId, String firstName, String lastName, String email, DateOfBirth dateOfBirth, String password) {
-        try (Connection connection = getConnection()) {
-            String query = "INSERT INTO advisor (advisor_id, advisor_firstname, advisor_lastname, advisor_email, advisor_dateofbirth, advisor_password) VALUES (?, ?, ?, ?, ?, ?)";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setString(1, advisorId);
-                preparedStatement.setString(2, firstName);
-                preparedStatement.setString(3, lastName);
-                preparedStatement.setString(4, email);
-                preparedStatement.setString(5, dateOfBirth.getYear() + "-" + dateOfBirth.getMonth() + "-" + dateOfBirth.getDate());
-                preparedStatement.setString(6, password);
+        if (!isAdvisorExists(advisorId)) {
+            try (Connection connection = getConnection()) {
+                String query = "INSERT INTO advisor (advisor_id, advisor_firstname, advisor_lastname, advisor_email, advisor_dateofbirth, advisor_password) VALUES (?, ?, ?, ?, ?, ?)";
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setString(1, advisorId);
+                    preparedStatement.setString(2, firstName);
+                    preparedStatement.setString(3, lastName);
+                    preparedStatement.setString(4, email);
+                    preparedStatement.setString(5, dateOfBirth.toString());
+                    preparedStatement.setString(6, password);
 
-                preparedStatement.executeUpdate();
+                    preparedStatement.executeUpdate();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("Advisor with ID " + advisorId + " already exists.");
         }
     }
 
-    // READ operation for student
     public static void getStudentById(String studentId) {
         try (Connection connection = getConnection()) {
             String query = "SELECT * FROM student WHERE student_id = ?";
@@ -91,7 +78,6 @@ public class DBConnect {
         }
     }
 
-    // READ operation for advisor
     public static void getAdvisorById(String advisorId) {
         try (Connection connection = getConnection()) {
             String query = "SELECT * FROM advisor WHERE advisor_id = ?";
@@ -133,14 +119,14 @@ public class DBConnect {
 //        }
 //    }
 
-    public static void updateStudent(String studentId, String newFirstName, String newLastName, String newEmail, String newDateOfBirth, String newPassword) {
+    public static void updateStudent(String studentId, String newFirstName, String newLastName, String newEmail, DateOfBirth newDateOfBirth, String newPassword) {
         try (Connection connection = getConnection()) {
             String query = "UPDATE student SET student_firstname = ?, student_lastname = ?, student_email = ?, student_dateofbirth = ?, student_password = ? WHERE student_id = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 preparedStatement.setString(1, newFirstName);
                 preparedStatement.setString(2, newLastName);
                 preparedStatement.setString(3, newEmail);
-                preparedStatement.setString(4, newDateOfBirth);
+                preparedStatement.setString(4, newDateOfBirth.toString());
                 preparedStatement.setString(5, newPassword);
                 preparedStatement.setString(6, studentId);
 
@@ -151,7 +137,6 @@ public class DBConnect {
         }
     }
 
-    // UPDATE operation for advisor
     public static void updateAdvisor(String advisorId, String newFirstName, String newLastName, String newEmail, String newDateOfBirth, String newPassword) {
         try (Connection connection = getConnection()) {
             String query = "UPDATE advisor SET advisor_firstname = ?, advisor_lastname = ?, advisor_email = ?, advisor_dateofbirth = ?, advisor_password = ? WHERE advisor_id = ?";
@@ -170,7 +155,6 @@ public class DBConnect {
         }
     }
 
-    // DELETE operation for student
     public static void deleteStudent(String studentId) {
         try (Connection connection = getConnection()) {
             String query = "DELETE FROM student WHERE student_id = ?";
@@ -184,7 +168,6 @@ public class DBConnect {
         }
     }
 
-    // DELETE operation for advisor
     public static void deleteAdvisor(String advisorId) {
         try (Connection connection = getConnection()) {
             String query = "DELETE FROM advisor WHERE advisor_id = ?";
@@ -196,6 +179,42 @@ public class DBConnect {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private static boolean isStudentExists(String studentId) {
+        try (Connection connection = getConnection()) {
+            String query = "SELECT COUNT(*) FROM student WHERE student_id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, studentId);
+
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return resultSet.getInt(1) > 0;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private static boolean isAdvisorExists(String advisorId) {
+        try (Connection connection = getConnection()) {
+            String query = "SELECT COUNT(*) FROM advisor WHERE advisor_id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, advisorId);
+
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return resultSet.getInt(1) > 0;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -223,34 +242,11 @@ public class DBConnect {
             System.out.println("failed to connect");
         }
 
-        DateOfBirth AdDate = new DateOfBirth(04,9,2002);
-//        insertAdvisor("AD433", "Punde", "Anna", "punde@jp.com", AdDate, "hiAnnaa");
-//        System.out.println("Done");
+        DateOfBirth AdDate = new DateOfBirth(4,9,2002);
+        DateOfBirth StDate = new DateOfBirth(6, 3, 2002);
 
+//        insertStudent("ST553", "Mr", "Shutdown", "horopathaan@shutdown.com", StDate, "dhammissaragamma");
 
-        insertAdvisor("AD433", "Punde", "Anna", "punde@jp.com", AdDate, "hiAnnaa");
-
-        //        DateOfBirth date = new DateOfBirth(06,04, 2002);
-//        System.out.println(date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
-
-//        insertStudent("ST202", "Tharusha", "Jude", "jude@nude.com", date, "whotto");
-//        deleteStudent("ST211");
-//        try {
-//            String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
-//            assert sample != null;
-//            try (PreparedStatement preparedStatement = sample.prepareStatement(query)) {
-//                preparedStatement.setString(1, "ST211");
-//                preparedStatement.setString(2, "Praveen");
-//                preparedStatement.setString(3, "Peiris");
-//                preparedStatement.setString(4, "praveen@abc.com");
-//                preparedStatement.setString(5, date.getYear() + "-" + date.getMonth() + "-" + date.getDate());
-//                preparedStatement.setString(6, "heloo");
-//
-//                preparedStatement.executeUpdate();
-//            }
-//            System.out.println("Data Inserted");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        insertStudent("ST202", "Mr", "Shutdown", "horopathaan@shutdown.com", StDate, "dhammissaragamma");
     }
 }
