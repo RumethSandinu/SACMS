@@ -4,12 +4,27 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ClubMember {
+    private String id;
     private String fName;
     private String lName;
     private Date dob;
     private Date joinedDate;
     private ArrayList<Club> joinedClubs=new ArrayList<>();
     private String contactNumber;
+
+    public ClubMember(String id, String fName, String contactNumber){
+        this.id = id;
+        this.fName = fName;
+        this.contactNumber = contactNumber;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFName() {
         return fName;
@@ -53,6 +68,9 @@ public class ClubMember {
 
     public void viewClubDetails(){}
 
-
+    @Override
+    public String toString() {
+        return getFName();
+    }
 
 }

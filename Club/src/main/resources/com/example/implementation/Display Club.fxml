@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@StyleSheets/Main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.implementation.DisplayClub">
+   <children>
+      <Text fill="WHITE" layoutX="104.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club ID : " wrappingWidth="67.74167060852051">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="104.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Name :" wrappingWidth="103.58609199523926">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="104.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Advisor :" wrappingWidth="112.54719734191895">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="104.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum Participants :" wrappingWidth="177.83520698547363">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="104.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Participants :" wrappingWidth="202.15825080871582">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="104.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created Date :" wrappingWidth="118.94798469543457">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="104.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Members :" wrappingWidth="126.8521900177002">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="clubId" fill="WHITE" layoutX="498.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C001" wrappingWidth="75.14230346679688">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="clubName" fill="WHITE" layoutX="498.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C001" wrappingWidth="75.14230346679688">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="clubAdvisor" fill="WHITE" layoutX="498.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C001" wrappingWidth="75.14230346679688">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="maxParticipants" fill="WHITE" layoutX="498.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C001" wrappingWidth="75.14230346679688">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="currentParticipants" fill="WHITE" layoutX="498.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C001" wrappingWidth="75.14230346679688">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="createdDate" fill="WHITE" layoutX="498.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C001" wrappingWidth="75.14230346679688">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TableView fx:id="membersTbl" layoutX="497.0" layoutY="325.0" prefHeight="166.0" prefWidth="175.0">
+         <columns>
+            <TableColumn fx:id="members" prefWidth="173.99996948242188" text="Column X" />
+         </columns></TableView>
+   </children>
+</AnchorPane>

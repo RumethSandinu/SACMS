@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GenerateReport extends Storage implements Initializable {
+public class ViewClub extends Storage implements Initializable {
 
     public TableView<ReportClubs> report;
     public TableColumn<ReportClubs,String> clubId;
@@ -27,7 +28,6 @@ public class GenerateReport extends Storage implements Initializable {
     public TableColumn<ReportClubs,Integer> maxParticipants;
     public TableColumn<ReportClubs,Integer> currentParticipants;
     public TableColumn<ReportClubs,String> createdDate;
-    List<Club> reportClubs = new ArrayList<>(List.of());
     ObservableList<ReportClubs> reportTable= FXCollections.observableArrayList();
 
 
@@ -43,11 +43,57 @@ public class GenerateReport extends Storage implements Initializable {
         report.setItems(reportTable);
     }
 
-    public void appendList(){
-        for (Club club:getAvailableClubs()){
-            reportTable.add(new ReportClubs(club.getClubId(),club.getClubName(),club.getAdvisor(),
-                    club.getMaxNumber(),club.getCurrentNumber(),club.getCreatedDate().toString()));
+    public void appendList() {
+        for (Club club : getAvailableClubs()) {
+            club.setClubMembers(getAvailableClubMembers());
+            reportTable.add(new ReportClubs(club.getClubId(), club.getClubName(), club.getAdvisor(),
+                    club.getMaxNumber(), club.getCurrentNumber(), club.getCreatedDate().toString()));
         }
+        showMembers();
+    }
+    public void showMembers(){
+
+        report.setOnMouseClicked(event ->{
+            if (event.getClickCount()==2){
+                ReportClubs selectedClub = report.getSelectionModel().getSelectedItem();
+                if(selectedClub!=null){
+                    report.setOpacity(0.5);
+                    showClubMembers(selectedClub);
+                }
+            }
+        });
+
+    }
+
+    public void showClubMembers(ReportClubs selectedClub){
+        Stage clubMembersStage = new Stage();
+        TableView<ClubMember> membersTable = new TableView<>();
+        TableColumn<ClubMember, String> memberColumn = new TableColumn<>("Club Members");
+        memberColumn.setCellValueFactory(new PropertyValueFactory<>("fName"));
+
+        membersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        membersTable.getColumns().add(memberColumn);
+
+        ObservableList<ClubMember> clubMembers = FXCollections.observableArrayList(getAvailableClubMembers());
+        membersTable.setItems(clubMembers);
+
+        Scene membersScene = new Scene(membersTable, 200, 300);
+        clubMembersStage.setScene(membersScene);
+        clubMembersStage.setTitle(selectedClub.getClubName());
+        clubMembersStage.show();
+        clubMembersStage.setResizable(false);
+
+        report.setOnMouseClicked(mouseEvent -> {
+            if (clubMembersStage.isShowing()) {
+                clubMembersStage.close();
+                report.setOpacity(1);
+                showMembers();
+            }
+        });
+        clubMembersStage.setOnCloseRequest(event ->{
+            showMembers();
+        });
+
     }
 
     public void backBtn(ActionEvent actionEvent) throws IOException {

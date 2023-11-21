@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@StyleSheets/Main.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.implementation.UpdateProfile">
+    <TextField fx:id="clubId" layoutX="368.0" layoutY="57.0" prefHeight="0.0" prefWidth="320.0">
+        <font>
+            <Font size="16.0"/>
+        </font>
+    </TextField>
+    <Text fill="WHITE" layoutX="170.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club ID">
+        <font>
+            <Font size="20.0"/>
+        </font>
+    </Text>
+    <Text fill="WHITE" layoutX="164.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Name">
+        <font>
+            <Font size="20.0"/>
+        </font>
+    </Text>
+    <TextField fx:id="clubName" layoutX="367.0" layoutY="121.0" prefHeight="0.0" prefWidth="320.0">
+        <font>
+            <Font size="16.0"/>
+        </font>
+    </TextField>
+    <Text fill="WHITE" layoutX="154.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created Date">
+        <font>
+            <Font size="20.0"/>
+        </font>
+    </Text>
+    <DatePicker fx:id="createdDate" editable="false" layoutX="365.0" layoutY="306.0" prefHeight="31.0"
+                prefWidth="320.0"/>
+    <Button layoutX="368.0" layoutY="412.0" mnemonicParsing="false" onAction="#updateClub" prefHeight="49.0"
+            prefWidth="120.0" text="Update" textAlignment="CENTER" AnchorPane.leftAnchor="300.0"
+            AnchorPane.rightAnchor="300.0">
+        <font>
+            <Font size="23.0"/>
+        </font>
+    </Button>
+    <Button layoutX="-6.0" layoutY="-8.0" mnemonicParsing="false" onAction="#backBtn"
+            style="-fx-border-color: transparent;">
+        <graphic>
+            <ImageView fitHeight="60.0" fitWidth="68.0">
+                <Image url="@Icons/back_arrow.png"/>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Text fill="WHITE" layoutX="156.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Advisor">
+        <font>
+            <Font size="20.0"/>
+        </font>
+    </Text>
+    <Text fx:id="errorCall" fill="WHITE" layoutX="250.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          textAlignment="CENTER" wrappingWidth="329.2050799080512">
+        <font>
+            <Font size="16.0"/>
+        </font>
+    </Text>
+    <ComboBox fx:id="clubAdvisor" layoutX="367.0" layoutY="186.0" prefHeight="31.0" prefWidth="320.0"
+              promptText="Select Advisor" visibleRowCount="5"/>
+    <Text fill="WHITE" layoutX="115.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Max Number of Particpants">
+        <font>
+          <Font size="20.0"/>
+        </font>
+    </Text>
+    <TextField fx:id="maxParticipants" layoutX="365.0" layoutY="247.0" prefHeight="0.0" prefWidth="320.0">
+        <font>
+          <Font size="16.0"/>
+        </font>
+    </TextField>
+</AnchorPane>

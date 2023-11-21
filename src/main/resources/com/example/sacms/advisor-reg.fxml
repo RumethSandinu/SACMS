@@ -9,15 +9,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane fx:id="advisorAnchor" prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.AddMember">
+<AnchorPane fx:id="advisorAnchor" prefHeight="500.0" prefWidth="800.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.AddMember">
     <stylesheets>
         <URL value="@../../../Styles/MainPage.css" />
         <URL value="@../../../Styles/Buttons.css" />
     </stylesheets>
     <children>
-        <Button fx:id="backButton" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#backButton" prefHeight="27.0" prefWidth="35.0" styleClass="buttonBorder">
+        <Button id="backBtn" fx:id="backButton" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onAction="#backButton" onMouseClicked="#backButton" prefHeight="27.0" prefWidth="35.0" styleClass="buttonBorder">
             <graphic>
                 <FontIcon iconLiteral="ion4-ios-arrow-round-back" iconSize="40" />
             </graphic>

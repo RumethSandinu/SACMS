@@ -10,29 +10,57 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="429.0" prefWidth="552.0" styleClass="background" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.implementation.UpdateClub">
-   <children>
-      <Text fill="WHITE" layoutX="14.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Club Name to update">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <TextField fx:id="clubID" layoutX="243.0" layoutY="68.0" prefHeight="26.0" prefWidth="233.0" promptText="Toastemasters Club" />
-      <Button layoutX="223.0" layoutY="145.0" mnemonicParsing="false" onAction="#getDetails" prefHeight="38.0" prefWidth="82.0" text="Get Details" />
-      <TableView fx:id="clubsTable" layoutY="222.0" prefHeight="213.0" prefWidth="552.0" styleClass="codesTbl">
-        <columns>
-          <TableColumn fx:id="clubId" prefWidth="275.0" styleClass="tableColumn" text="Club ID" />
-          <TableColumn fx:id="clubName" prefWidth="276.0" styleClass="tableColumn" text="Club Name" />
-        </columns>
-      </TableView>
-      <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backBtn1" style="-fx-border-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="34.0" fitWidth="49.0">
-               <image>
-                  <Image url="@Icons/back_arrow.png" />
-               </image>
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@StyleSheets/Main.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.implementation.UpdateClub1">
+    <Text fill="WHITE" layoutX="34.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Enter Club Name to update">
+        <font>
+          <Font size="26.0"/>
+        </font>
+    </Text>
+    <TextField fx:id="clubID" layoutX="362.0" layoutY="66.0" prefHeight="31.0" prefWidth="401.0">
+        <font>
+          <Font size="25.0"/>
+        </font>
+    </TextField>
+    <Button layoutX="301.0" layoutY="150.0" mnemonicParsing="false" onAction="#getDetails" prefHeight="39.0"
+            prefWidth="165.0" text="Get Details">
+        <font>
+          <Font size="22.0"/>
+        </font>
+    </Button>
+    <TableView fx:id="clubsTable" layoutY="222.0" prefHeight="276.0" prefWidth="800.0" styleClass="codesTbl">
+      <columns>
+          <TableColumn fx:id="clubId" editable="false" prefWidth="396.46528512239456" resizable="false"
+                       styleClass="tableColumn">
+              <graphic>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Club ID">
+                      <font>
+                          <Font size="18.0"/>
+                      </font>
+                  </Text>
+              </graphic>
+          </TableColumn>
+          <TableColumn fx:id="clubName" editable="false" prefWidth="401.53472900390625" resizable="false"
+                       styleClass="tableColumn">
+
+              <graphic>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Name">
+                      <font>
+                          <Font size="18.0"/>
+                      </font>
+                  </Text>
+              </graphic>
+          </TableColumn>
+      </columns>
+    </TableView>
+    <Button layoutX="-4.0" layoutY="-6.0" mnemonicParsing="false" onAction="#backBtn"
+            style="-fx-border-color: transparent;">
+        <graphic>
+            <ImageView fitHeight="60.0" fitWidth="68.0">
+                <Image url="@Icons/back_arrow.png"/>
             </ImageView>
-         </graphic>
-      </Button>
-   </children>
+        </graphic>
+    </Button>
 </AnchorPane>

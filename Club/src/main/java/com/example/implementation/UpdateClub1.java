@@ -16,9 +16,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class DeleteClub extends Storage implements Initializable {
+public class UpdateClub1 extends Storage implements Initializable {
     @FXML
     public TextField clubID;
     @FXML
@@ -27,25 +29,34 @@ public class DeleteClub extends Storage implements Initializable {
     public TableColumn<AvailableClubs,String> clubId;
     @FXML
     public TableColumn<AvailableClubs,String> clubName;
-    ObservableList<AvailableClubs> availableClubsTbl = FXCollections.observableArrayList();
+    ObservableList<AvailableClubs> availableClubs = FXCollections.observableArrayList();
+    public static Club updList;
 
-    public void deleteClub(ActionEvent actionEvent) {
-        String clubCode=clubID.getText();
-        boolean found=false;
-        for(Club club: getAvailableClubs()){
-            if(club.getClubId().equals(clubCode)){
-                found=true;
-                availableClubs.remove(club);
-                availableClubsTbl.clear();
-                getList();
-                clubsTable.setItems(availableClubsTbl);
-                clubID.clear();
+
+
+    public Club getDetails(ActionEvent e) throws IOException {
+        String itemCodeUpd = clubID.getText();
+        boolean found = false;
+        for (Club club : getAvailableClubs()) {
+            if (club.getClubId().equals(itemCodeUpd)) {
+                found = true;
+                updList=club;
                 break;
             }
         }
-        if(!found){
-            clubID.setText("Not found");
+        if (found) {
+            Stage prevStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            prevStage.close();
+            Stage updateStage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Selection.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+            updateStage.setTitle("Update Club Details");
+            updateStage.setScene(scene);
+            updateStage.setResizable(false);
+            updateStage.show();
+
         }
+        return updList;
     }
 
     public void backBtn(ActionEvent actionEvent) throws IOException {
@@ -54,7 +65,7 @@ public class DeleteClub extends Storage implements Initializable {
         Stage prevStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Club.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        prevStage.setTitle("Update Club");
+        prevStage.setTitle("Club");
         prevStage.setScene(scene);
         prevStage.setResizable(false);
         prevStage.show();
@@ -65,12 +76,12 @@ public class DeleteClub extends Storage implements Initializable {
         clubId.setCellValueFactory(new PropertyValueFactory<>("clubId"));
         clubName.setCellValueFactory(new PropertyValueFactory<>("clubName"));
         getList();
-        clubsTable.setItems(availableClubsTbl);
+        clubsTable.setItems(availableClubs);
     }
 
     public void getList(){
         for(Club club: getAvailableClubs()){
-            availableClubsTbl.add(new AvailableClubs(club.getClubId(),club.getClubName()));
+            availableClubs.add(new AvailableClubs(club.getClubId(),club.getClubName()));
         }
         clubsTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
@@ -81,6 +92,8 @@ public class DeleteClub extends Storage implements Initializable {
             }
         });
     }
-
+    public static Club getUpdList(){
+        return updList;
+    }
 
 }

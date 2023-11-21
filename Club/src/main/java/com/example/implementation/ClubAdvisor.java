@@ -3,18 +3,30 @@ package com.example.implementation;
 import java.util.ArrayList;
 
 public class ClubAdvisor {
+    private String id;
     private String fName;
     private String lName;
     private String email;
     private String contactNumber;
     private ArrayList<Club> advisingClubs;
 
-    public ClubAdvisor(String fName, String lName, String contactNumber) {
+    public ClubAdvisor(String fName){
+        this.fName=fName;
+    }
+
+    public ClubAdvisor(String id, String fName, String lName, String contactNumber) {
+        this.id = id;
         this.fName = fName;
         this.lName = lName;
         this.contactNumber = contactNumber;
     }
 
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getfName() {
         return fName;
     }
@@ -59,4 +71,9 @@ public class ClubAdvisor {
 
     }
     public void removeClub(Club club){}
+
+    @Override
+    public String toString(){
+        return getfName();
+    }
 }

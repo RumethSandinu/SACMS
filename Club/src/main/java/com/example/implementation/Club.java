@@ -1,30 +1,37 @@
 package com.example.implementation;
 
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
 
-import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 public class Club {
     private String clubId;
     private String clubName;
-    private String createdDate;
     private ClubAdvisor advisor;
-    private ArrayList<Event> events=new ArrayList<>();
-    private ArrayList<ClubMember> clubMembers=new ArrayList<>();
+    private int maxNumber;
+    private int currentNumber;
+    private Button showMembers;
+    private LocalDate createdDate;
 
-    public Club(String clubId, String clubName, String createdDate, ClubAdvisor advisor) {
+    private List<ClubMember> clubMembers;
+
+    public Club(String clubId, String clubName,ClubAdvisor advisor,int maxNumber, LocalDate createdDate ) {
         this.clubId = clubId;
         this.clubName = clubName;
-        this.createdDate = createdDate;
         this.advisor = advisor;
+        this.maxNumber=maxNumber;
+        this.createdDate = createdDate;
+
+    }
+
+    public Button getShowMembers() {
+        return showMembers;
+    }
+
+    public void setShowMembers(Button showMembers) {
+        this.showMembers = showMembers;
     }
 
     public String getClubId() {
@@ -43,24 +50,43 @@ public class Club {
         this.clubName = clubName;
     }
 
-    public String getCreatedDate() {
+    public ClubAdvisor getAdvisor() {
+        return advisor;
+    }
+
+    public void setAdvisor(ClubAdvisor advisor) {
+        this.advisor = advisor;
+    }
+
+    public int getMaxNumber() {
+        return maxNumber;
+    }
+
+    public void setMaxNumber(int maxNumber) {
+        this.maxNumber = maxNumber;
+    }
+
+    public int getCurrentNumber() {
+        return clubMembers.size();
+    }
+
+    public void setCurrentNumber(int currentNumber) {
+        this.currentNumber = currentNumber;
+    }
+
+    public LocalDate getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(String createdDate) {
+    public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
     }
 
-    public void onClubClick(ActionEvent actionEvent) throws IOException {
-        Stage prevStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        prevStage.close();
-        Stage aidStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Main.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 800);
-        aidStage.setTitle("Add Item");
-        aidStage.setScene(scene);
-        aidStage.setResizable(false);
-        aidStage.show();
+    public List<ClubMember> getClubMembers() {
+        return clubMembers;
+    }
 
+    public void setClubMembers(List<ClubMember> clubMembers) {
+        this.clubMembers = clubMembers;
     }
 }
