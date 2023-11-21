@@ -1,11 +1,14 @@
 package com.example.sacms;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.sql.*;
 
@@ -27,7 +30,7 @@ public class ViewStudents {
     private TableColumn<Student, String> dobColumn;
 
     @FXML
-    private TableView<Student> membersTableView;
+    private TableView<Student> studentsTableView;
     @FXML
     private AnchorPane studentViewAnchor;
 
@@ -46,9 +49,9 @@ public class ViewStudents {
         try {
             List<Student> studentData = DBConnect.fetchStudentData();
 
-            membersTableView.getItems().clear();
+            studentsTableView.getItems().clear();
 
-            membersTableView.getItems().addAll(studentData);
+            studentsTableView.getItems().addAll(studentData);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -56,6 +59,13 @@ public class ViewStudents {
 
     @FXML
     private void backButton() throws IOException {
-        AddMember.backButton(backButton);
+        FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("view-members.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600);
+        mainStage.setTitle("Members Enrolled");
+        mainStage.setScene(scene);
+        mainStage.show();
+        Stage prevStage = (Stage) backButton.getScene().getWindow();
+        prevStage.close();
     }
 }

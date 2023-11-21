@@ -5,7 +5,7 @@
 
 
 .menuLabel {
-    -fx-text-fill: #00a7c5;
+    -fx-text-fill: #712377;
     -fx-font-weight: bold;
 }
 
@@ -15,6 +15,5 @@ TableView {
 }
 
 .tableColumnStyle {
-    -fx-background-color: rgb(230, 132, 255);
+    -fx-background-color: rgb(221, 179, 232);}
 
-}

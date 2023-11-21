@@ -19,7 +19,7 @@ public class UserRegMainController {
     @FXML
     private AnchorPane consoleAnchor;
     @FXML
-    private AnchorPane membersAnchor;
+    private AnchorPane viewMembersAnchor;
 
     @FXML
     private void studentRegister() throws IOException {
@@ -74,4 +74,27 @@ public class UserRegMainController {
     }
 
 
+    @FXML
+    private void viewStudents() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("show-students.fxml"));
+        Stage newStage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600);
+        newStage.setTitle("Students Enrolled");
+        newStage.setScene(scene);
+        newStage.show();
+        Stage prevStage = (Stage) viewMembersAnchor.getScene().getWindow();
+        prevStage.close();
+    }
+
+    @FXML
+    private void viewAdvisors() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("show-advisors.fxml"));
+        Stage newStage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load(), 950, 600);
+        newStage.setTitle("Advisors Enrolled");
+        newStage.setScene(scene);
+        newStage.show();
+        Stage prevStage = (Stage) viewMembersAnchor.getScene().getWindow();
+        prevStage.close();
+    }
 }

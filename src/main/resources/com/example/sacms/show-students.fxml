@@ -14,14 +14,14 @@
             <FontIcon iconLiteral="ion4-ios-arrow-round-back" iconSize="40" />
         </graphic>
     </Button>
-   <TableView editable="true" layoutX="63.0" layoutY="125.0" prefHeight="349.0" prefWidth="823.0" stylesheets="@../../../Styles/MainPage.css">
+   <TableView fx:id="studentsTableView" editable="true" layoutX="63.0" layoutY="125.0" prefHeight="349.0" prefWidth="823.0" stylesheets="@../../../Styles/MainPage.css">
      <columns>
        <TableColumn fx:id="studentIdColumn" prefWidth="75.0" text="ID">
             <styleClass>
                <String fx:value="tableColumnStyle" />
                <String fx:value="columnCorners1" />
             </styleClass></TableColumn>
-       <TableColumn fx:id="fnameColumn" prefWidth="75.0" styleClass="tableColumnStyle" text="First Name" />
+         <TableColumn fx:id="fnameColumn" prefWidth="75.0" styleClass="tableColumnStyle" text="First Name" />
          <TableColumn fx:id="lnameColumn" prefWidth="75.0" styleClass="tableColumnStyle" text="Last Name" />
          <TableColumn fx:id="emailColumn" prefWidth="75.0" styleClass="tableColumnStyle" text="Email" />
          <TableColumn fx:id="dobColumn" prefWidth="75.0" styleClass="tableColumnStyle" text="Date of Birth" />
