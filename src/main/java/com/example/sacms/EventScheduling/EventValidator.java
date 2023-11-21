@@ -1,18 +1,21 @@
 package com.example.sacms.EventScheduling;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class EventValidator implements EventValidation
 {
 
-    public String validateClubID(String clubID)
+    public boolean validateClubID(String clubID)
     {
         System.out.println("clubid");
-        return "Done";
+        return true;
     }
 
-    public String validateEventID(String eventID)
+    public boolean validateEventID(String eventID)
     {
         System.out.println("eventid");
-        return "Done";
+        return true;
     }
 
 
@@ -144,27 +147,34 @@ public class EventValidator implements EventValidation
         return false;
     }
 
-    public int validateHour(String hour)
+    public boolean validateHour(String hour)
     {
-        System.out.println("hour");
-        return 0;
+        double hourDouble = Double.parseDouble(hour);
+        int hourInt = Integer.parseInt(hour);
+        return (hourInt > -1) && (hourInt < 25) && (hourDouble - hourInt == 0.0);
     }
-    public int validateMinute(String minute)
+    public boolean validateMinute(String minute)
     {
-        System.out.println("minute");
-        return 0;
+        double minDouble = Double.parseDouble(minute);
+        int minInt = Integer.parseInt(minute);
+        return (minInt > -1) && (minInt < 61) && (minDouble - minInt == 0.0);
     }
 
     public synchronized boolean validateString(String str)
     {
-        System.out.println("str");
-        return true;
+        String regex = "^[a-zA-Z0-9]*$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(str);
+        return matcher.matches();
     }
 
     public boolean validateLink(String link)
     {
-        System.out.println("link");
-        return true;
+        String urlRegex = "^(https?|ftp)://[a-zA-Z0-9+&@#/%?=~_|!:,.;]*[a-zA-Z0-9+&@#/%=~_|]$";
+
+        Pattern pattern = Pattern.compile(urlRegex);
+        Matcher matcher = pattern.matcher(link);
+        return matcher.matches();
     }
 }
 

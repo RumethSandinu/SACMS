@@ -16,7 +16,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="273.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="113.0" styleClass="menu-item" text="Meeting" textFill="WHITE">
+      <Button layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickEventMeetingButton" prefHeight="27.0" prefWidth="113.0" styleClass="menu-item" text="Meeting" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
