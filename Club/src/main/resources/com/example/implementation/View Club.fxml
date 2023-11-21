@@ -20,7 +20,7 @@
             </ImageView>
         </graphic>
     </Button>
-    <TableView fx:id="report" layoutX="-2.0" layoutY="35.0" prefHeight="465.0" prefWidth="802.0" styleClass="codesTbl">
+    <TableView fx:id="report" layoutX="-2.0" layoutY="35.0" prefHeight="465.0" prefWidth="802.0" styleClass="tables">
         <columns>
             <TableColumn fx:id="clubId" editable="false" prefWidth="87.36598366498947" resizable="false"
                          styleClass="tableColumn">

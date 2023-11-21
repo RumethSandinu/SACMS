@@ -73,8 +73,13 @@ public class ViewClub extends Storage implements Initializable {
 
         membersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         membersTable.getColumns().add(memberColumn);
+        ObservableList<ClubMember> clubMembers = FXCollections.observableArrayList();
 
-        ObservableList<ClubMember> clubMembers = FXCollections.observableArrayList(getAvailableClubMembers());
+        for (Club club:getAvailableClubs()){
+            if(selectedClub.getClubId().equals(club.getClubId())){
+                clubMembers.addAll(club.getClubMembers());
+            }
+        }
         membersTable.setItems(clubMembers);
 
         Scene membersScene = new Scene(membersTable, 200, 300);
@@ -91,6 +96,7 @@ public class ViewClub extends Storage implements Initializable {
             }
         });
         clubMembersStage.setOnCloseRequest(event ->{
+            report.setOpacity(1);
             showMembers();
         });
 

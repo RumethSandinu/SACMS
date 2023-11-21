@@ -50,7 +50,7 @@ public class AvailableMembers{
 
     public static ObservableList<AvailableMembers> setList(){
         for (ClubMember member:members){
-            availableMembers.add(new AvailableMembers(member.getId(),member.getFName()));
+            availableMembers.add(new AvailableMembers(member.getMemberId(),member.getFName()));
         }
         return availableMembers;
     }

@@ -30,7 +30,7 @@
           <Font size="22.0"/>
         </font>
     </Button>
-    <TableView fx:id="clubsTable" layoutY="222.0" prefHeight="276.0" prefWidth="800.0" styleClass="codesTbl">
+    <TableView fx:id="clubsTable" layoutY="222.0" prefHeight="276.0" prefWidth="800.0" styleClass="tables">
       <columns>
           <TableColumn fx:id="clubId" editable="false" prefWidth="396.46528512239456" resizable="false"
                        styleClass="tableColumn">

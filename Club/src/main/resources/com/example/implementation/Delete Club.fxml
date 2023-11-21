@@ -25,7 +25,7 @@
          <font>
             <Font size="23.0" />
          </font></Button>
-      <TableView fx:id="clubsTable" layoutY="245.0" prefHeight="264.0" prefWidth="800.0" styleClass="codesTbl">
+      <TableView fx:id="clubsTable" layoutY="245.0" prefHeight="264.0" prefWidth="800.0" styleClass="tables">
          <columns>
             <TableColumn fx:id="clubId" editable="false" prefWidth="391.4578347206116" resizable="false" styleClass="tableColumn">
                <graphic>

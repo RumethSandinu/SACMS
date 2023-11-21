@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ClubMember {
-    private String id;
+    private String memberId;
     private String fName;
     private String lName;
     private Date dob;
@@ -13,17 +13,20 @@ public class ClubMember {
     private String contactNumber;
 
     public ClubMember(String id, String fName, String contactNumber){
-        this.id = id;
+        this.memberId = id;
         this.fName = fName;
         this.contactNumber = contactNumber;
     }
-
-    public String getId() {
-        return id;
+    public ClubMember(String fName){
+        this.fName = fName;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
     public String getFName() {

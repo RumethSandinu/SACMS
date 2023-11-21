@@ -13,23 +13,22 @@ Button:hover{
     -fx-effect: dropshadow(three-pass-box,black,30,0,10,10);
 }
 
-.codesTbl{
+.tables{
     -fx-background-color: rgba(17, 15, 38, 0.88);
 }
 
 .tableColumn{
-    -fx-background-color: rgb(39, 40, 45);
+    -fx-background-color: rgba(17, 15, 38, 0.88);
     -fx-text-fill: white;
     -fx-alignment: Center;
 }
 DatePicker{
     -fx-font-size: 14px;
 }
-.tableColumn:odd{
+
+.tableColumn{
     -fx-border-color: #696969;
-}
-.tableColumn:even{
-    -fx-border-color: #696969;
+
 }
 
 .table-row-cell:selected .tableColumn{
