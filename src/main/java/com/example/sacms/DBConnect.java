@@ -1,6 +1,11 @@
 package com.example.sacms;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+//import static com.example.sacms.AddMember.studentList;
+//import static com.example.sacms.AddMember.advisorList;
 
 public class DBConnect {
 
@@ -215,6 +220,65 @@ public class DBConnect {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static List<Student> fetchStudentData() throws SQLException {
+        List<Student> studentList = new ArrayList<>();
+
+        try (Connection connection = getConnection()) {
+            String query = "SELECT * FROM student";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    while (resultSet.next()) {
+                        String studentId = resultSet.getString("student_id");
+                        String firstName = resultSet.getString("student_firstname");
+                        String lastName = resultSet.getString("student_lastname");
+                        String email = resultSet.getString("student_email");
+                        DateOfBirth dateOfBirth = parseDateOfBirth(resultSet.getString("student_dateofbirth"));
+                        String password = resultSet.getString("student_password");
+
+                        Student student = new Student(studentId, firstName, lastName, email, dateOfBirth, password);
+                        studentList.add(student);
+                    }
+                }
+            }
+        }
+
+        return studentList;
+    }
+
+    public static List<Advisor> fetchAdvisorData() throws SQLException {
+        List<Advisor> advisorList = new ArrayList<>();
+
+        try (Connection connection = getConnection()) {
+            String query = "SELECT * FROM advisor";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    while (resultSet.next()) {
+                        String advisorId = resultSet.getString("advisor_id");
+                        String firstName = resultSet.getString("advisor_firstname");
+                        String lastName = resultSet.getString("advisor_lastname");
+                        String email = resultSet.getString("advisor_email");
+                        DateOfBirth dateOfBirth = parseDateOfBirth(resultSet.getString("advisor_dateofbirth"));
+                        String password = resultSet.getString("advisor_password");
+
+                        Advisor advisor = new Advisor(advisorId, firstName, lastName, email, dateOfBirth, password);
+                        advisorList.add(advisor);
+                    }
+                }
+            }
+        }
+
+        return advisorList;
+    }
+
+    private static DateOfBirth parseDateOfBirth(String dateString) {
+        String[] dateParts = dateString.split("-");
+        int year = Integer.parseInt(dateParts[0]);
+        int month = Integer.parseInt(dateParts[1]);
+        int day = Integer.parseInt(dateParts[2]);
+
+        return new DateOfBirth(day, month, year);
     }
 
     public static void main(String[] args) {

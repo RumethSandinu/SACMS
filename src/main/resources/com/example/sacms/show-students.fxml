@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane fx:id="membersAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.ViewMembers">
+<AnchorPane fx:id="studentViewAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.ViewStudents">
     <Button fx:id="backButton" layoutX="22.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#backButton" prefHeight="27.0" prefWidth="35.0" styleClass="buttonBorder">
         <graphic>
             <FontIcon iconLiteral="ion4-ios-arrow-round-back" iconSize="40" />
@@ -16,7 +16,7 @@
     </Button>
    <TableView editable="true" layoutX="63.0" layoutY="125.0" prefHeight="349.0" prefWidth="823.0" stylesheets="@../../../Styles/MainPage.css">
      <columns>
-       <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID">
+       <TableColumn fx:id="studentIdColumn" prefWidth="75.0" text="ID">
             <styleClass>
                <String fx:value="tableColumnStyle" />
                <String fx:value="columnCorners1" />
