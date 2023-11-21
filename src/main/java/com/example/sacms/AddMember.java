@@ -135,6 +135,7 @@ public class AddMember implements Member {
 
     @FXML
     private void onStudentRegButtonClicked() throws IOException{
+        clearStudentLabels();
         if (Objects.equals(studentIdBox.getText(), "") || Objects.equals(studentFnameBox.getText(), "") ||
         Objects.equals(studentLnameBox.getText(), "") || Objects.equals(studentEmailBox.getText(), "") ||
         Objects.equals(studentPassBox1.getText(), "") || Objects.equals(studentPassBox2.getText(), "")){
@@ -248,22 +249,43 @@ public class AddMember implements Member {
                 return;
             }
 
-            if (!(Objects.equals(PassTemp1, PassTemp2))){
+            if (!(Objects.equals(PassTemp1, PassTemp2))) {
                 System.out.println("Password Mismatch");
                 studentRegLabel.setText("Password Mismatch");
-                passLabel2.setText("*make sure your passwords matches");
+                passLabel2.setText("*make sure your passwords match");
                 return;
-            }else{
-                studentPassword = PassTemp1;
+            } else {
+                if (Regex.passwordPatternMatches(PassTemp1)) {
+                    studentPassword = PassTemp1;
+                }else {
+                    passLabel2.setText("*one UpperCase letter \n" +
+                            "*one lowerCase letter \n" +
+                            "*one number \n" +
+                            "*minimum 8 characters");
+                    studentRegLabel.setText("Weak Password");
+                    return;
+                }
             }
+
+            LocalDate currentDate = LocalDate.now();
+            LocalDate minAge = currentDate.minusYears(14);
 
             try{
                 LocalDate doB = dateOfBirthBox.getValue();
                 if(!Objects.equals(doB.getDayOfMonth(),0) || !Objects.equals(doB.getMonthValue(), 0)
-                || !Objects.equals(doB.getYear(), 0)){
-                    date = doB.getMonthValue();
-                    month = doB.getMonthValue();
-                    year = doB.getYear();
+                        || !Objects.equals(doB.getYear(), 0)){
+
+                    if (doB.isAfter(currentDate)){
+                        doBLabel.setText("*invalid date");
+                        return;
+                    }else  if(doB.isAfter(minAge)){
+                        doBLabel.setText("*minumum age is 14");
+                        return;
+                    } else {
+                        date = doB.getMonthValue();
+                        month = doB.getMonthValue();
+                        year = doB.getYear();
+                    }
                 }else {
                     studentRegLabel.setText("Enter your Date of Birth");
                     return;
@@ -290,6 +312,7 @@ public class AddMember implements Member {
                 }
 
                 clearStudentFields();
+                clearStudentLabels();
                 studentRegLabel.setText("Registration Complete");
             }catch (Exception e7){
                 System.out.println(e7.getMessage());
@@ -307,6 +330,7 @@ public class AddMember implements Member {
 
     @FXML
     private void onAdvisorRegButtonClicked() throws IOException{
+        clearAdvisorLabels();
         if (Objects.equals(advisorIdBox.getText(), "") || Objects.equals(advisorFnameBox.getText(), "") ||
                 Objects.equals(advisorLnameBox.getText(), "") || Objects.equals(advisorEmailBox.getText(), "") ||
                 Objects.equals(advisorPassBox1.getText(), "") || Objects.equals(advisorPassBox2.getText(), "")) {
@@ -444,13 +468,26 @@ public class AddMember implements Member {
 //                g.printStackTrace();
 //            }
 
+            LocalDate currentDate = LocalDate.now();
+            LocalDate minAge = currentDate.minusYears(21);
+
             try{
                 LocalDate doB = adDateOfBirthBox.getValue();
                 if(!Objects.equals(doB.getDayOfMonth(),0) || !Objects.equals(doB.getMonthValue(), 0)
                         || !Objects.equals(doB.getYear(), 0)){
-                    date = doB.getMonthValue();
-                    month = doB.getMonthValue();
-                    year = doB.getYear();
+
+                    if (doB.isAfter(currentDate)){
+                        addoBLabel.setText("*invalid date");
+                        return;
+                    }else  if(doB.isAfter(minAge)){
+                        addoBLabel.setText("*minumum age is 21");
+                        return;
+                    } else {
+                        date = doB.getMonthValue();
+                        month = doB.getMonthValue();
+                        year = doB.getYear();
+                    }
+
                 }else {
                     advisorRegLabel.setText("Enter your Date of Birth");
                     return;
@@ -476,6 +513,7 @@ public class AddMember implements Member {
                 }
 
                 clearAdvisorFields();
+                clearAdvisorLabels();
                 advisorRegLabel.setText("Registration Complete");
             } catch (Exception e7) {
                 System.out.println(e7.getMessage());
@@ -499,6 +537,9 @@ public class AddMember implements Member {
         studentPassBox2.clear();
         dateOfBirthBox.setValue(null);
 
+    }
+
+    private void clearStudentLabels(){
         fNameLabel.setText("");
         lNameLabel.setText("");
         stIdLabel.setText("");
@@ -506,7 +547,6 @@ public class AddMember implements Member {
         doBLabel.setText("");
         passLabel.setText("");
         passLabel2.setText("");
-
     }
 
     private void clearAdvisorFields() {
@@ -517,7 +557,9 @@ public class AddMember implements Member {
         advisorPassBox1.clear();
         advisorPassBox2.clear();
         adDateOfBirthBox.setValue(null);
+    }
 
+    private void clearAdvisorLabels(){
         adfNameLabel.setText("");
         adlNameLabel.setText("");
         adIdLabel.setText("");
