@@ -17,7 +17,7 @@ public class DBConnect {
     public static void insertStudent(String studentId, String firstName, String lastName, String email, DateOfBirth dateOfBirth, String password) {
         if (!isStudentExists(studentId)) {
             try (Connection connection = getConnection()) {
-                String query = "INSERT INTO student (student_id, student_firstname, student_lastname, student_email, student_dateofbirth, student_password) VALUES (?, ?, ?, ?, ?, ?)";
+                String query = "INSERT INTO student (student_id, first_name, last_name, email, dateOfBirth, password) VALUES (?, ?, ?, ?, ?, ?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                     preparedStatement.setString(1, studentId);
                     preparedStatement.setString(2, firstName);
@@ -39,7 +39,7 @@ public class DBConnect {
     public static void insertAdvisor(String advisorId, String firstName, String lastName, String email, DateOfBirth dateOfBirth, String password) {
         if (!isAdvisorExists(advisorId)) {
             try (Connection connection = getConnection()) {
-                String query = "INSERT INTO advisor (advisor_id, advisor_firstname, advisor_lastname, advisor_email, advisor_dateofbirth, advisor_password) VALUES (?, ?, ?, ?, ?, ?)";
+                String query = "INSERT INTO advisor (advisor_id, first_name, last_name, email, dateOfBirth, password) VALUES (?, ?, ?, ?, ?, ?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                     preparedStatement.setString(1, advisorId);
                     preparedStatement.setString(2, firstName);
@@ -67,11 +67,10 @@ public class DBConnect {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
                         System.out.println("Student ID: " + resultSet.getString("student_id"));
-                        System.out.println("First Name: " + resultSet.getString("student_firstname"));
-                        System.out.println("Last Name: " + resultSet.getString("student_lastname"));
-                        System.out.println("Email: " + resultSet.getString("student_email"));
-                        System.out.println("Date of Birth: " + resultSet.getString("student_dateofbirth"));
-                        // Do not print the password for security reasons
+                        System.out.println("First Name: " + resultSet.getString("first_name"));
+                        System.out.println("Last Name: " + resultSet.getString("last_name"));
+                        System.out.println("Email: " + resultSet.getString("email"));
+                        System.out.println("Date of Birth: " + resultSet.getString("dateOfBirth"));
                     }
                 }
             }
@@ -89,11 +88,10 @@ public class DBConnect {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
                         System.out.println("Advisor ID: " + resultSet.getString("advisor_id"));
-                        System.out.println("First Name: " + resultSet.getString("advisor_firstname"));
-                        System.out.println("Last Name: " + resultSet.getString("advisor_lastname"));
-                        System.out.println("Email: " + resultSet.getString("advisor_email"));
-                        System.out.println("Date of Birth: " + resultSet.getString("advisor_dateofbirth"));
-                        // Do not print the password for security reasons
+                        System.out.println("First Name: " + resultSet.getString("first_name"));
+                        System.out.println("Last Name: " + resultSet.getString("last_name"));
+                        System.out.println("Email: " + resultSet.getString("email"));
+                        System.out.println("Date of Birth: " + resultSet.getString("dateOfBirth"));
                     }
                 }
             }
@@ -228,11 +226,11 @@ public class DBConnect {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
                         String studentId = resultSet.getString("student_id");
-                        String firstName = resultSet.getString("student_firstname");
-                        String lastName = resultSet.getString("student_lastname");
-                        String email = resultSet.getString("student_email");
-                        DateOfBirth dateOfBirth = parseDateOfBirth(resultSet.getString("student_dateofbirth"));
-                        String password = resultSet.getString("student_password");
+                        String firstName = resultSet.getString("first_name");
+                        String lastName = resultSet.getString("last_name");
+                        String email = resultSet.getString("email");
+                        DateOfBirth dateOfBirth = parseDateOfBirth(resultSet.getString("dateOfBirth"));
+                        String password = resultSet.getString("password");
 
                         Student student = new Student(studentId, firstName, lastName, email, dateOfBirth, password);
                         studentList.add(student);
@@ -253,11 +251,11 @@ public class DBConnect {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
                         String advisorId = resultSet.getString("advisor_id");
-                        String firstName = resultSet.getString("advisor_firstname");
-                        String lastName = resultSet.getString("advisor_lastname");
-                        String email = resultSet.getString("advisor_email");
-                        DateOfBirth dateOfBirth = parseDateOfBirth(resultSet.getString("advisor_dateofbirth"));
-                        String password = resultSet.getString("advisor_password");
+                        String firstName = resultSet.getString("first_name");
+                        String lastName = resultSet.getString("last_name");
+                        String email = resultSet.getString("email");
+                        DateOfBirth dateOfBirth = parseDateOfBirth(resultSet.getString("dateOfBirth"));
+                        String password = resultSet.getString("password");
 
                         Advisor advisor = new Advisor(advisorId, firstName, lastName, email, dateOfBirth, password);
                         advisorList.add(advisor);

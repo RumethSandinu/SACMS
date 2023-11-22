@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (complete)">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/DBConnect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,41 +65,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "true",
-    "Repository.Attach.JavaDocs": "true",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Praveen__User__Reg__New",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_directory_selection": "D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS/src/main/java/com/example/sacms",
-    "last_opened_file_path": "D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS/lib",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "settings.editor.splitter.proportion": "0.24385448",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Praveen__User__Reg__New&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS/src/main/java/com/example/sacms&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS/lib&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24385448&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IIT Docs\2nd Year\Semester 1\CM 2601 PRO - Object Oriented Development\CW\SACMS\lib" />
@@ -111,7 +111,7 @@
       <recent name="D:\IIT Docs\2nd Year\Semester 1\CM 2601 PRO - Object Oriented Development\CW\SACMS\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserRegApplication">
+  <component name="RunManager" selected="Application.DBConnect">
     <configuration name="DBConnect" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sacms.DBConnect" />
       <module name="SACMS" />
@@ -160,9 +160,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DBConnect" />
         <item itemvalue="Application.UserRegApplication" />
         <item itemvalue="Application.Regex" />
-        <item itemvalue="Application.DBConnect" />
         <item itemvalue="Java Scratch.Scratch" />
       </list>
     </recent_temporary>
@@ -225,7 +225,8 @@
       <workItem from="1700570879221" duration="5183000" />
       <workItem from="1700581261058" duration="4013000" />
       <workItem from="1700621132802" duration="1819000" />
-      <workItem from="1700640926930" duration="5303000" />
+      <workItem from="1700640926930" duration="5323000" />
+      <workItem from="1700657306405" duration="4284000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -490,7 +491,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700645951203</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (complete)">
+      <option name="closed" value="true" />
+      <created>1700646821283</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1700646821283</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
