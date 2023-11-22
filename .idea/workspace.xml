@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (incomplete)">
+    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (complete)">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/DBConnect.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +225,7 @@
       <workItem from="1700570879221" duration="5183000" />
       <workItem from="1700581261058" duration="4013000" />
       <workItem from="1700621132802" duration="1819000" />
-      <workItem from="1700640926930" duration="3806000" />
+      <workItem from="1700640926930" duration="5303000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -482,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700586684430</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (complete)">
+      <option name="closed" value="true" />
+      <created>1700645951203</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1700645951203</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +541,8 @@
     <MESSAGE value="UI Design &amp; Classes&#10;Student Registration Test&#10;Advisor Reg Test&#10;Regex for email and name (testing)&#10;Inputs Error Handling&#10;Java Database Connectivity Sample Test Success" />
     <MESSAGE value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled" />
     <MESSAGE value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (incomplete)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (incomplete)" />
+    <MESSAGE value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (complete)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (complete)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
