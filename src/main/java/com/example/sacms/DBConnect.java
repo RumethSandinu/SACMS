@@ -4,9 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//import static com.example.sacms.AddMember.studentList;
-//import static com.example.sacms.AddMember.advisorList;
-
 public class DBConnect {
 
     private static final String url = "jdbc:mysql://localhost:3306/sacms";
