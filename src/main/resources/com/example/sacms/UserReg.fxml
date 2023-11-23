@@ -6,11 +6,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane fx:id="consoleAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.UserRegMainController">
    <children>
-      <FlowPane hgap="258.0" layoutX="225.0" layoutY="216.0" prefHeight="250.0" prefWidth="500.0">
+      <FlowPane hgap="258.0" layoutX="225.0" layoutY="267.0" prefHeight="250.0" prefWidth="500.0">
          <children>
             <Label styleClass="menuLabel" text="Student" textFill="WHITE" />
             <Label styleClass="menuLabel" text="Advisor" textFill="WHITE" />
@@ -19,11 +20,11 @@
             <Insets left="77.0" top="135.0" />
          </padding>
       </FlowPane>
-      <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="150.0" layoutX="225.0" layoutY="133.0" prefHeight="250.0" prefWidth="500.0">
+      <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="150.0" layoutX="225.0" layoutY="184.0" prefHeight="250.0" prefWidth="500.0">
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#studentRegister" prefHeight="150.0" prefWidth="150.0">
                <graphic>
-                  <FontIcon iconLiteral="fltfmz-people-community-24" iconSize="90" />
+                  <FontIcon iconLiteral="fltfmz-people-community-24" iconSize="100" />
                </graphic>
                <stylesheets>
                   <URL value="@../../../Styles/Buttons.css" />
@@ -32,7 +33,7 @@
             </Button>
             <Button mnemonicParsing="false" onMouseClicked="#advisorRegister" prefHeight="150.0" prefWidth="150.0">
                <graphic>
-                  <FontIcon iconLiteral="fltfmz-person-20" iconSize="80" />
+                  <FontIcon iconLiteral="fltfmz-person-20" iconSize="90" />
                </graphic>
                <stylesheets>
                   <URL value="@../../../Styles/Buttons.css" />
@@ -41,6 +42,11 @@
             </Button>
          </children>
       </FlowPane>
+      <Label layoutX="144.0" layoutY="79.0" styleClass="sacmsLabel" text="School Activity Club Management System" textFill="#712377">
+         <font>
+            <Font name="Calibri Bold" size="36.0" />
+         </font>
+      </Label>
    </children>
    <stylesheets>
       <URL value="@../../../Styles/MainPage.css" />

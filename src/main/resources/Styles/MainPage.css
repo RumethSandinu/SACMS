@@ -1,8 +1,11 @@
+@font-face{
+    -fx-font-family: "Poppins";
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rubik&display=swap');
+}
+
 .mainAnchor {
     -fx-background-color: white;
 }
-
-
 
 .menuLabel {
     -fx-text-fill: #712377;
@@ -17,3 +20,6 @@ TableView {
 .tableColumnStyle {
     -fx-background-color: rgb(221, 179, 232);}
 
+.sacmsLabel {
+    -fx-font-family: "Poppins", sans-serif;
+}

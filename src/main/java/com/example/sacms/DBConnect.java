@@ -100,61 +100,6 @@ public class DBConnect {
         }
     }
 
-    // UPDATE operation for student
-//    public static void updateStudent(String studentId, String newFirstName, String newLastName, String newEmail, String newDateOfBirth, String newPassword) {
-//        try (Connection connection = getConnection()) {
-//            String query = "UPDATE student SET student_firstname = ?, student_lastname = ?, student_email = ?, student_dateofbirth = ?, student_password = ? WHERE student_id = ?";
-//            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-//                preparedStatement.setString(1, newFirstName);
-//                preparedStatement.setString(2, newLastName);
-//                preparedStatement.setString(3, newEmail);
-//                preparedStatement.setString(4, newDateOfBirth);
-//                preparedStatement.setString(5, newPassword);
-//                preparedStatement.setString(6, studentId);
-//
-//                preparedStatement.executeUpdate();
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    public static void updateStudent(String studentId, String newFirstName, String newLastName, String newEmail, DateOfBirth newDateOfBirth, String newPassword) {
-//        try (Connection connection = getConnection()) {
-//            String query = "UPDATE student SET student_firstname = ?, student_lastname = ?, student_email = ?, student_dateofbirth = ?, student_password = ? WHERE student_id = ?";
-//            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-//                preparedStatement.setString(1, newFirstName);
-//                preparedStatement.setString(2, newLastName);
-//                preparedStatement.setString(3, newEmail);
-//                preparedStatement.setString(4, newDateOfBirth.toString());
-//                preparedStatement.setString(5, newPassword);
-//                preparedStatement.setString(6, studentId);
-//
-//                preparedStatement.executeUpdate();
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    public static void updateAdvisor(String advisorId, String newFirstName, String newLastName, String newEmail, String newDateOfBirth, String newPassword) {
-//        try (Connection connection = getConnection()) {
-//            String query = "UPDATE advisor SET advisor_firstname = ?, advisor_lastname = ?, advisor_email = ?, advisor_dateofbirth = ?, advisor_password = ? WHERE advisor_id = ?";
-//            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-//                preparedStatement.setString(1, newFirstName);
-//                preparedStatement.setString(2, newLastName);
-//                preparedStatement.setString(3, newEmail);
-//                preparedStatement.setString(4, newDateOfBirth);
-//                preparedStatement.setString(5, newPassword);
-//                preparedStatement.setString(6, advisorId);
-//
-//                preparedStatement.executeUpdate();
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     public static void deleteStudent(String studentId) {
         try (Connection connection = getConnection()) {
             String query = "DELETE FROM student WHERE student_id = ?";
