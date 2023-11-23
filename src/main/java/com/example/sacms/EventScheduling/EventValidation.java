@@ -4,14 +4,13 @@ import java.util.regex.Matcher;
 
 public interface EventValidation
 {
-    boolean validateClubID(String clubID);
-    boolean validateEventID(String eventID);
-    boolean validateDate(String year);
-    boolean validateDate(String year, String month);
-    boolean validateDate(String year, String month, String day);
+    void validateDate(String year);
+    void validateDate(String year, String month);
+    void validateDate(String year, String month, String day);
     boolean validateHour(String hour);
     boolean validateMinute(String minute);
+    boolean validateInt(String intValue);
     boolean validateString(String str);
-    boolean validateLink(String link);
+    void validateLink(String link);
 
 }
