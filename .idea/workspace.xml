@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Database connection done&#10;File generation started (incomplete)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/ReportGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/ReportGen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +240,7 @@
       <workItem from="1700621132802" duration="1819000" />
       <workItem from="1700640926930" duration="5323000" />
       <workItem from="1700657306405" duration="4954000" />
-      <workItem from="1700717632121" duration="2389000" />
+      <workItem from="1700717632121" duration="2492000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -539,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700719776826</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Database connection done&#10;File generation started (incomplete)">
+      <option name="closed" value="true" />
+      <created>1700720497569</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1700720497569</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
