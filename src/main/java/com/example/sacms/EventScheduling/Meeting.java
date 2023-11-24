@@ -35,7 +35,7 @@ public class Meeting extends EventParent
         Thread thread9 = new Thread(() -> validate.validateDate(this.year));
         Thread thread10 = new Thread(() -> validate.validateDate(this.year, this.month));
         Thread thread11 = new Thread(() -> validate.validateDate(this.year, this.month, this.day));
-        Thread thread12 = new Thread(() -> validate.validateMeetingNum(this.meetingNum));
+        Thread thread12 = new Thread(() -> validate.validateNum(this.meetingNum));
 
         thread1.start();
         thread2.start();

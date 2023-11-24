@@ -21,17 +21,17 @@
             <Font size="37.0" />
          </font>
       </Text>
-      <TableView layoutX="18.0" layoutY="75.0" prefHeight="347.0" prefWidth="767.0">
+      <TableView fx:id="eventTableView" layoutX="18.0" layoutY="75.0" prefHeight="347.0" prefWidth="767.0">
         <columns>
-            <TableColumn prefWidth="174.0" text="Event ID" />
-            <TableColumn prefWidth="186.0" text="Type" />
-          <TableColumn minWidth="0.0" prefWidth="184.0" text="Name" />
-            <TableColumn prefWidth="217.0" text="Flag" />
+            <TableColumn fx:id="eventIDColumn" prefWidth="174.0" text="Event ID" />
+            <TableColumn fx:id="clubIDColumn" prefWidth="217.0" text="Club ID" />
+            <TableColumn fx:id="typeColumn" prefWidth="186.0" text="Type" />
+            <TableColumn fx:id="startDateColumn" prefWidth="177.0" text="Start Date" />
         </columns>
       </TableView>
       <TextField layoutX="62.0" layoutY="458.0" promptText="Enter club ID" />
       <Button layoutX="147.0" layoutY="513.0" mnemonicParsing="false" text="Update" />
-      <Button layoutX="78.0" layoutY="513.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="78.0" layoutY="513.0" mnemonicParsing="false" onAction="#onClickViewEventButton" text="Delete" />
       <Button fx:id="addEventButton" layoutX="393.0" layoutY="458.0" mnemonicParsing="false" onAction="#onClickAddEventButton" prefHeight="26.0" prefWidth="127.0" styleClass="menu-item" text="Add new event" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -80,3 +80,7 @@
 .menu-item:hover::after{
     -fx-background-color: cornflowerblue;
 }
+
+.input{
+    -fx-background-radius: 15;
+}

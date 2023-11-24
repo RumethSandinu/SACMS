@@ -6,6 +6,7 @@ public class Activity extends EventParent
     private String link;
     private String activityName;
     private String activityNumber;
+    public String[] values;
 
     public Activity(){}
 
@@ -25,17 +26,17 @@ public class Activity extends EventParent
         EventValidator validate = new EventValidator();
         Thread thread1 = new Thread(() -> validate.validateClubID(this.clubID));
         Thread thread2 = new Thread(() -> validate.validateEventID(this.eventID));
-        Thread thread3 = new Thread(() -> validate.validateHour(this.startHour));
-        Thread thread4 = new Thread(() -> validate.validateMinute(this.startMinute));
-        Thread thread5 = new Thread(() -> validate.validateHour(this.endHour));
-        Thread thread6 = new Thread(() -> validate.validateMinute(this.endMinute));
-        Thread thread7 = new Thread(() -> validate.validatePlatform(this.type));
+        Thread thread3 = new Thread(() -> validate.validateStartHour(this.startHour));
+        Thread thread4 = new Thread(() -> validate.validateStartMinute(this.startMinute));
+        Thread thread5 = new Thread(() -> validate.validateEndHour(this.endHour));
+        Thread thread6 = new Thread(() -> validate.validateEndMinute(this.endMinute));
+        Thread thread7 = new Thread(() -> validate.validateType(this.type));
         Thread thread8 = new Thread(() -> validate.validateLink(this.link));
         Thread thread9 = new Thread(() -> validate.validateDate(this.year));
         Thread thread10 = new Thread(() -> validate.validateDate(this.year, this.month));
         Thread thread11 = new Thread(() -> validate.validateDate(this.year, this.month, this.day));
-        Thread thread12 = new Thread(() -> validate.validateString(this.activityName));
-        Thread thread13 = new Thread(() -> validate.validateInt(this.activityNumber));
+        Thread thread12 = new Thread(() -> validate.validateName(this.activityName));
+        Thread thread13 = new Thread(() -> validate.validateActivityNo(this.activityNumber));
         thread1.start();
         thread2.start();
         thread3.start();
@@ -72,6 +73,8 @@ public class Activity extends EventParent
             thread7.join();
             thread8.join();
             thread11.join();
+            thread12.join();
+            thread13.join();
         }
         catch
         (Exception e)

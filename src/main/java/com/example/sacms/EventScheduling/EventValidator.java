@@ -23,7 +23,9 @@ public class EventValidator implements EventValidation
     private static boolean validLink;
     private static boolean validEndHour;
     private static boolean validEndMin;
-    private static boolean validMeetingNum;
+    private static boolean validNum;
+    private static boolean validName;
+    private static boolean validActivityNo;
 
 
     public static boolean isValidClubID() {
@@ -74,14 +76,21 @@ public class EventValidator implements EventValidation
         return validEndMin;
     }
 
-    public static boolean isValidMeetingNum() {
-        return validMeetingNum;
+    public static boolean isValidNum() {
+        return validNum;
     }
 
     public static boolean isValidLink() {
         return validLink;
     }
 
+    public static boolean isValidName() {
+        return validName;
+    }
+
+    public static boolean isValidActivityNo() {
+        return validActivityNo;
+    }
 
     public synchronized boolean validateInt(String integer)
     {
@@ -100,6 +109,17 @@ public class EventValidator implements EventValidation
         }
     }
 
+    public void validateActivityNo(String activityNo)
+    {
+        if(validateInt(activityNo))
+        {
+            validActivityNo = true;
+        }
+        else
+        {
+            validActivityNo = false;
+        }
+    }
     public void validateClubID(String clubID)
     {
         if(validateInt(clubID))
@@ -124,15 +144,15 @@ public class EventValidator implements EventValidation
         }
     }
 
-    public void validateMeetingNum(String meetingNum)
+    public void validateNum(String num)
     {
-        if(validateInt(meetingNum))
+        if(validateInt(num))
         {
-            validMeetingNum = true;
+            validNum = true;
         }
         else
         {
-            validMeetingNum = false;
+            validNum = false;
         }
     }
     public void validateStartHour(String startHour)
@@ -185,40 +205,31 @@ public class EventValidator implements EventValidation
 
     public void validateDate(String year)
     {
-        if (year.isEmpty() || year.equals(" "))
+        if (validateInt(year))
         {
-            validYear = false;
-        }
-        else
-        {
-            try
+            int yearInt = Integer.parseInt(year);
+            if(yearInt >= 2023)
             {
-                int yearInt = Integer.parseInt(year);
-                if (year.equals(Integer.toString(yearInt)) && yearInt >= 2023)
-                {
-                    validYear = true;
-                }
-                else
-                {
-                    validYear = false;
-                }
+                validYear = true;
             }
-            catch (Exception e)
+            else
             {
                 validYear = false;
             }
+        }
+        else
+        {
+            validYear = false;
         }
     }
 
 
     public void validateDate(String year, String month)
     {
-        if (!month.isEmpty() || !month.equals(" "))
+        if(validateInt(month))
         {
-            try
-            {
                 int monthInt = Integer.parseInt(month);
-                if (month.equals(Integer.toString(monthInt)) && monthInt >= 1 && monthInt <= 12)
+                if (monthInt >= 1 && monthInt <= 12)
                 {
                     validMonth = true;
                 }
@@ -226,11 +237,6 @@ public class EventValidator implements EventValidation
                 {
                     validMonth = false;
                 }
-            }
-            catch (NumberFormatException em)
-            {
-                validMonth = false;
-            }
         }
         else
         {
@@ -239,14 +245,13 @@ public class EventValidator implements EventValidation
     }
     public void validateDate(String yearStr, String monthStr, String day)
     {
-        int year = Integer.parseInt(yearStr);
-        int month = Integer.parseInt(monthStr);
-
-        if (!day.isEmpty() || !day.equals(" "))
+        if(isValidYear() && isValidMonth())
         {
-            try {
+            int year = Integer.parseInt(yearStr);
+            int month = Integer.parseInt(monthStr);
+            if (validateInt(day))
+            {
                 int dayInt = Integer.parseInt(day);
-                day.equals(Integer.toString(dayInt));
                 {
                     if (year % 4 == 0) {
                         if (month == 2) {
@@ -272,49 +277,36 @@ public class EventValidator implements EventValidation
                         }
                     }
                 }
-            }
-            catch (NumberFormatException ed)
+            } else
             {
                 validDay = false;
             }
-        }//If the item purchase day is empty or space
-        else
-        {
-            validDay = false;
         }
     }
 
     public synchronized boolean validateHour(String hour)
     {
-        try
-        {
+        if(validateInt(hour)) {
             int hourInt = Integer.parseInt(hour);
-            if (hour.equals(Integer.toString(hourInt)) && (hourInt > -1) && (hourInt < 25))
+            if((hourInt > -1) && (hourInt < 25))
             {
                 return true;
             }
             return false;
         }
-        catch(Exception e)
-        {
-            return false;
-        }
+        return false;
     }
     public synchronized boolean validateMinute(String minute)
     {
-        try
-        {
+        if(validateInt(minute)) {
             int minInt = Integer.parseInt(minute);
-            if(minute.equals(Integer.toString(minInt)) && (minInt > -1) && (minInt < 61))
+            if((minInt > -1) && (minInt < 61))
             {
                 return true;
             }
             return false;
         }
-        catch(Exception e)
-        {
-            return false;
-        }
+        return false;
     }
 
     public synchronized boolean validateString(String str)
@@ -327,6 +319,18 @@ public class EventValidator implements EventValidation
             return true;
         }
         return false;
+    }
+
+    public void validateName(String name)
+    {
+        if(validateString(name))
+        {
+            validName = true;
+        }
+        else
+        {
+            validName = false;
+        }
     }
 
     public void validateType(String type)
