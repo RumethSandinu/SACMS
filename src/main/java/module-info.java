@@ -4,6 +4,7 @@ module com.example.sacms {
     requires java.sql;
     requires mysql.connector.j;
     requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
 
 
     opens com.example.sacms to javafx.fxml;

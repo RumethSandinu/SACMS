@@ -7,13 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Timer;
 
 public class ViewAdvisors {
 
@@ -68,5 +68,21 @@ public class ViewAdvisors {
         mainStage.show();
         Stage prevStage = (Stage) backButton.getScene().getWindow();
         prevStage.close();
+    }
+
+    @FXML
+    private void downloadAdvisorExcel() throws IOException{
+        try {
+            if (ReportGen.excelGenerateAdvisors()){
+                FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("excel-download.fxml"));
+                Stage newStage = new Stage();
+                Scene newScene = new Scene(fxmlLoader.load(), 950, 600);
+                newStage.setTitle("Excel Export");
+                newStage.setScene(newScene);
+                newStage.show();
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

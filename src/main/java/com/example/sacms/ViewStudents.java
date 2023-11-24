@@ -1,5 +1,6 @@
 package com.example.sacms;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -67,5 +68,14 @@ public class ViewStudents {
         mainStage.show();
         Stage prevStage = (Stage) backButton.getScene().getWindow();
         prevStage.close();
+    }
+
+    @FXML
+    private void downloadStudentExcel() throws IOException {
+        try {
+            ReportGen.excelGenerateStudents();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

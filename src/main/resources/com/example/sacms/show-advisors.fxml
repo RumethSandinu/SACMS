@@ -14,7 +14,7 @@
             <FontIcon iconLiteral="ion4-ios-arrow-round-back" iconSize="40" />
         </graphic>
     </Button>
-    <TableView fx:id="advisorTableView" editable="true" layoutX="63.0" layoutY="125.0" prefHeight="349.0" prefWidth="823.0" stylesheets="@../../../Styles/MainPage.css">
+    <TableView fx:id="advisorTableView" editable="true" layoutX="63.0" layoutY="108.0" prefHeight="349.0" prefWidth="823.0" stylesheets="@../../../Styles/MainPage.css">
         <columns>
             <TableColumn fx:id="advisorIdColumn" prefWidth="75.0" text="ID">
                 <styleClass>
@@ -30,6 +30,11 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
         </columnResizePolicy>
     </TableView>
+   <Button layoutX="454.0" layoutY="506.0" mnemonicParsing="false" onAction="#downloadAdvisorExcel">
+      <graphic>
+         <FontIcon iconLiteral="fas-file-download" iconSize="30" />
+      </graphic>
+   </Button>
     <stylesheets>
         <URL value="@../../../Styles/MainPage.css" />
         <URL value="@../../../Styles/Buttons.css" />
