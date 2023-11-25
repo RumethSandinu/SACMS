@@ -9,39 +9,39 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="main-pane" stylesheets="@../../../Styles/event-scheduling.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.EventController">
    <children>
-      <Line endX="-60.1712646484375" endY="-132.0" layoutX="256.0" layoutY="183.0" startX="-60.1712646484375" startY="-184.0" stroke="WHITE" strokeWidth="2.0" />
-      <Button fx:id="exitButton" layoutX="23.0" layoutY="11.0" mnemonicParsing="false" onAction="#onClickExitButton" styleClass="exit-button" stylesheets="@../../../Styles/event-scheduling.css" text="E" />
-      <Button layoutX="72.0" layoutY="11.0" mnemonicParsing="false" styleClass="main-menu-button" stylesheets="@../../../Styles/event-scheduling.css" text="M" />
-      <Button layoutX="127.0" layoutY="12.0" mnemonicParsing="false" styleClass="reset-button" stylesheets="@../../../Styles/event-scheduling.css" text="R" />
-      <Line endX="534.0" endY="-144.0" layoutX="265.0" layoutY="195.0" startX="-263.0" startY="-144.0" stroke="WHITE" strokeWidth="2.0" />
-      <Text fill="WHITE" layoutX="356.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Postpone Evenet">
+      <Line endX="-60.1712646484375" endY="-132.0" layoutX="256.0" layoutY="183.0" startX="-60.1712646484375" startY="-184.0" stroke="WHITE" strokeWidth="0.5" />
+      <Line endX="534.0" endY="-144.0" layoutX="265.0" layoutY="195.0" startX="-263.0" startY="-144.0" stroke="WHITE" strokeWidth="0.5" />
+      <Text fill="WHITE" layoutX="356.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-topic" text=" Postpone Evenet">
          <font>
             <Font size="37.0" />
          </font>
       </Text>
-      <TextField fx:id="eventYear" layoutX="409.0" layoutY="251.0" prefHeight="35.0" prefWidth="80.0" promptText="2024" styleClass="input">
+      <TextField fx:id="eventYear" layoutX="432.0" layoutY="253.0" prefHeight="35.0" prefWidth="80.0" promptText="2024" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="eventMonth" layoutX="498.0" layoutY="250.0" prefHeight="35.0" prefWidth="50.0" promptText="4" styleClass="input">
+      <TextField fx:id="eventMonth" layoutX="521.0" layoutY="252.0" prefHeight="35.0" prefWidth="50.0" promptText="4" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="eventDay" layoutX="558.0" layoutY="249.0" prefHeight="35.0" prefWidth="50.0" promptText="4" styleClass="input">
+      <TextField fx:id="eventDay" layoutX="581.0" layoutY="251.0" prefHeight="35.0" prefWidth="50.0" promptText="4" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="startHour" layoutX="409.0" layoutY="325.0" prefHeight="35.0" prefWidth="60.0" promptText="12" styleClass="input">
+      <TextField fx:id="startHour" layoutX="432.0" layoutY="328.0" prefHeight="35.0" prefWidth="60.0" promptText="12" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Text fill="WHITE" layoutX="253.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Time" wrappingWidth="140.08154296875">
+      <Text fill="WHITE" layoutX="235.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-topic" text="End Time" wrappingWidth="140.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Button layoutX="364.0" layoutY="495.0" mnemonicParsing="false" onAction="#onClickPostponeEventButton" prefHeight="26.0" prefWidth="107.0" styleClass="menu-item" text="Pospone" textFill="WHITE" />
-      <TextField fx:id="startMin" layoutX="479.0" layoutY="326.0" prefHeight="35.0" prefWidth="60.0" promptText="30" styleClass="input">
+      <Button layoutX="336.0" layoutY="492.0" mnemonicParsing="false" onAction="#onClickPostponeEventButton" prefHeight="30.0" prefWidth="107.0" styleClass="submit-button" text="Pospone" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <TextField fx:id="startMin" layoutX="502.0" layoutY="329.0" prefHeight="35.0" prefWidth="60.0" promptText="30" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
@@ -49,62 +49,77 @@
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="eventID" layoutX="432.0" layoutY="176.0" prefHeight="35.0" prefWidth="160.0" promptText="302" styleClass="input">
+      <TextField fx:id="eventID" layoutX="432.0" layoutY="177.0" prefHeight="35.0" prefWidth="160.0" promptText="302" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="endHour" layoutX="409.0" layoutY="394.0" prefHeight="36.0" prefWidth="60.0" promptText="18" styleClass="input">
+      <TextField fx:id="endHour" layoutX="432.0" layoutY="398.0" prefHeight="36.0" prefWidth="60.0" promptText="18" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <TextField fx:id="endMin" layoutX="479.0" layoutY="394.0" prefHeight="35.0" prefWidth="60.0" promptText="30" styleClass="input">
+      <TextField fx:id="endMin" layoutX="502.0" layoutY="398.0" prefHeight="35.0" prefWidth="60.0" promptText="30" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
-      <Text fill="WHITE" layoutX="243.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club ID" wrappingWidth="116.08154296875">
+      <Text fill="WHITE" layoutX="235.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-topic" text="Club ID" wrappingWidth="116.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="243.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event ID" wrappingWidth="125.08154296875">
+      <Text fill="WHITE" layoutX="235.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-topic" text="Event ID" wrappingWidth="125.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="253.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="87.08154296875">
+      <Text fill="WHITE" layoutX="235.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-topic" text="Date" wrappingWidth="87.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="253.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time" wrappingWidth="150.08154296875">
+      <Text fill="WHITE" layoutX="235.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-topic" text="Start Time" wrappingWidth="150.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="404.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
+      <Text fill="WHITE" layoutX="386.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="404.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
+      <Text fill="WHITE" layoutX="386.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="390.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
+      <Text fill="WHITE" layoutX="386.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="390.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
+      <Text fill="WHITE" layoutX="386.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="390.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
+      <Text fill="WHITE" layoutX="386.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="12.08154296875">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
+      <Button fx:id="exitButton" layoutX="23.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickExitButton" prefHeight="40.0" prefWidth="40.0" styleClass="exit-button" stylesheets="@../../../Styles/event-scheduling.css" text="⏻">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="72.0" layoutY="6.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="control-button" stylesheets="@../../../Styles/event-scheduling.css" text="M">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="127.0" layoutY="6.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="control-button" stylesheets="@../../../Styles/event-scheduling.css" text="↻">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
