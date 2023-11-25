@@ -8,10 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,27 +24,58 @@ import java.util.ResourceBundle;
 
 public class UpdateClub1 extends Storage implements Initializable {
     @FXML
-    public TextField clubID;
+    public TextField updClub;
     @FXML
-    public TableView<AvailableClubs> clubsTable;
+    public TableView<Club> clubsTable;
     @FXML
-    public TableColumn<AvailableClubs,String> clubId;
+    public TableColumn<Club,String> clubId;
     @FXML
-    public TableColumn<AvailableClubs,String> clubName;
-    ObservableList<AvailableClubs> availableClubs = FXCollections.observableArrayList();
+    public TableColumn<Club,String> clubName;
+    public Text errorCall;
+    ObservableList<Club> availableClubs = FXCollections.observableArrayList();
     public static Club updList;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Label label=new Label("No clubs were found");
+        label.setStyle("-fx-text-fill: white ");
+        clubsTable.setPlaceholder(label);
+        clubId.setCellValueFactory(new PropertyValueFactory<>("clubId"));
+        clubName.setCellValueFactory(new PropertyValueFactory<>("clubName"));
+        getList();
+        clubsTable.setItems(availableClubs);
 
+        FXCollections.sort(availableClubs);
+        clubsTable.setItems(availableClubs);
+        clubsTable.refresh();
+    }
+
+    public void getList(){
+        for(Club club: getAvailableClubs()){
+            availableClubs.add(new Club(club.getClubId(),club.getClubName()));
+        }
+        clubsTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                Club selectedCode = clubsTable.getSelectionModel().getSelectedItem();
+                if (selectedCode != null) {
+                    updClub.setText(selectedCode.getClubName());
+                }
+            }
+        });
+    }
 
     public Club getDetails(ActionEvent e) throws IOException {
-        String itemCodeUpd = clubID.getText();
+        String itemCodeUpd = updClub.getText();
         boolean found = false;
         for (Club club : getAvailableClubs()) {
-            if (club.getClubId().equals(itemCodeUpd)) {
+            if (club.getClubName().equalsIgnoreCase(itemCodeUpd) || club.getClubId().equals(itemCodeUpd)) {
                 found = true;
                 updList=club;
+                errorCall.setText("");
                 break;
             }
+        }if(!found){
+            errorCall.setText("Club not found");
         }
         if (found) {
             Stage prevStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -54,7 +87,6 @@ public class UpdateClub1 extends Storage implements Initializable {
             updateStage.setScene(scene);
             updateStage.setResizable(false);
             updateStage.show();
-
         }
         return updList;
     }
@@ -71,27 +103,6 @@ public class UpdateClub1 extends Storage implements Initializable {
         prevStage.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        clubId.setCellValueFactory(new PropertyValueFactory<>("clubId"));
-        clubName.setCellValueFactory(new PropertyValueFactory<>("clubName"));
-        getList();
-        clubsTable.setItems(availableClubs);
-    }
-
-    public void getList(){
-        for(Club club: getAvailableClubs()){
-            availableClubs.add(new AvailableClubs(club.getClubId(),club.getClubName()));
-        }
-        clubsTable.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2) {
-                AvailableClubs selectedCode = clubsTable.getSelectionModel().getSelectedItem();
-                if (selectedCode != null) {
-                    clubID.setText(selectedCode.getClubId().toString());
-                }
-            }
-        });
-    }
     public static Club getUpdList(){
         return updList;
     }

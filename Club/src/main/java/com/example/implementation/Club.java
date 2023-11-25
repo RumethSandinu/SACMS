@@ -1,38 +1,45 @@
 package com.example.implementation;
 
-import javafx.scene.control.Button;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class Club {
+public class Club implements Comparable<Club>{
     private String clubId;
     private String clubName;
-    private ClubAdvisor advisor;
-    private int maxNumber;
-    private int currentNumber;
-    private Button showMembers;
-    private LocalDate createdDate;
+    private String clubDescription;
+    private ClubAdvisor clubAdvisor;
+    private int maxParticipants;
+    private int currentParticipants;
+
+    private Date createdDate;
 
     private List<ClubMember> clubMembers;
 
-    public Club(String clubId, String clubName,ClubAdvisor advisor,int maxNumber, LocalDate createdDate ) {
+    public Club(String clubId, String clubName,String clubDescription,ClubAdvisor advisor,int maxNumber, Date createdDate ) {
         this.clubId = clubId;
         this.clubName = clubName;
-        this.advisor = advisor;
-        this.maxNumber=maxNumber;
+        this.clubDescription = clubDescription;
+        this.clubAdvisor = advisor;
+        this.maxParticipants =maxNumber;
         this.createdDate = createdDate;
-
     }
 
-    public Button getShowMembers() {
-        return showMembers;
+    public Club(String clubId, String clubName, String clubDescription, ClubAdvisor advisor, int maxNumber, int currentParticipants, Date createdDate) {
+        this.clubId = clubId;
+        this.clubName = clubName;
+        this.clubDescription = clubDescription;
+        this.clubAdvisor = advisor;
+        this.maxParticipants = maxNumber;
+        this.currentParticipants = currentParticipants;
+        this.createdDate = createdDate;
     }
 
-    public void setShowMembers(Button showMembers) {
-        this.showMembers = showMembers;
+    public Club(String clubId, String clubName) {
+        this.clubId=clubId;
+        this.clubName=clubName;
     }
+
 
     public String getClubId() {
         return clubId;
@@ -50,35 +57,43 @@ public class Club {
         this.clubName = clubName;
     }
 
-    public ClubAdvisor getAdvisor() {
-        return advisor;
+    public String getClubDescription() {
+        return clubDescription;
     }
 
-    public void setAdvisor(ClubAdvisor advisor) {
-        this.advisor = advisor;
+    public void setClubDescription(String clubDescription) {
+        this.clubDescription = clubDescription;
     }
 
-    public int getMaxNumber() {
-        return maxNumber;
+    public ClubAdvisor getClubAdvisor() {
+        return clubAdvisor;
     }
 
-    public void setMaxNumber(int maxNumber) {
-        this.maxNumber = maxNumber;
+    public void setClubAdvisor(ClubAdvisor clubAdvisor) {
+        this.clubAdvisor = clubAdvisor;
     }
 
-    public int getCurrentNumber() {
-        return clubMembers.size();
+    public int getMaxParticipants() {
+        return maxParticipants;
     }
 
-    public void setCurrentNumber(int currentNumber) {
-        this.currentNumber = currentNumber;
+    public void setMaxParticipants(int maxParticipants) {
+        this.maxParticipants = maxParticipants;
     }
 
-    public LocalDate getCreatedDate() {
+    public int getCurrentParticipants() {
+        return currentParticipants;
+    }
+    public void setCurrentParticipants(int currentParticipants){
+        this.currentParticipants = currentParticipants;
+    }
+
+
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -89,4 +104,16 @@ public class Club {
     public void setClubMembers(List<ClubMember> clubMembers) {
         this.clubMembers = clubMembers;
     }
+
+    @Override
+    public int compareTo(Club other) {
+        return this.clubId.compareTo(other.clubId);
+    }
+
+    @Override
+    public String toString() {
+        return getClubName();
+    }
+
+
 }

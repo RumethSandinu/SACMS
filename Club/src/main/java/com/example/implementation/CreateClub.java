@@ -5,12 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
+import java.sql.*;
 
 public class CreateClub extends ClubApplication {
     public TextField clubId;
@@ -19,28 +21,41 @@ public class CreateClub extends ClubApplication {
     public DatePicker createdDate;
     public Text errorCall;
     public TextField maxParticipants;
+    public TextArea clubDescription;
     Club list;
     List<ClubAdvisor> clubAdvisorList;
     List<Club> clubList;
+    Connection con;
+    Statement stmt;
 
-    public void initialize() {
+    public void initialize() throws SQLException {
+        String url= "jdbc:mysql://localhost:3306/Club_Management";
+        String user="root";
+        String password="";
+        con=DriverManager.getConnection(url,user,password);
+
         clubAdvisorList = Storage.getAvailableClubAdvisor();
         for(ClubAdvisor advisor : clubAdvisorList){
-            clubAdvisor.getItems().add(advisor.getfName());
+            clubAdvisor.getItems().add(advisor.getFName()+" "+advisor.getLName());
         }
     }
 
-
-    public void createClub(ActionEvent CreateClub) throws IOException {
+    public void createClub(ActionEvent CreateClub) throws IOException, SQLException {
         clubList=Storage.getAvailableClubs();
 
-        if (clubId.getText().equals("")) {
-            errorCall.setText("Fill Club ID");
-        } else if (clubName.getText().equals("")) {
-            errorCall.setText("Fill Club Name");
-        } else if(clubAdvisor.getValue()==null){
+        if (clubId.getText().equals("") ||clubId.getText().contains(";") ) {
+            errorCall.setText("Fill Club ID without ';'");
+        }
+        else if (clubName.getText().equals("") || clubName.getText().contains(";")) {
+            errorCall.setText("Fill Club Name without ';'");
+        }
+        else if(clubDescription.getText().equals("") || clubDescription.getText().contains(";")){
+            errorCall.setText("Fill Club Description without ';'");
+        }
+        else if(clubAdvisor.getValue()==null){
             errorCall.setText("Select Club Advisor");
-        } else if (createdDate.getValue() == null || createdDate.getValue().isAfter(LocalDate.now())) {
+        }
+        else if (createdDate.getValue() == null || createdDate.getValue().isAfter(LocalDate.now())) {
             errorCall.setText("Enter a valid date");
         } else {
             boolean clubExist=clubList.stream()
@@ -51,15 +66,23 @@ public class CreateClub extends ClubApplication {
                 }else{
                     try{
                         if(Integer.parseInt(maxParticipants.getText())>0){
-                    list = new Club(clubId.getText(), clubName.getText(),new ClubAdvisor(clubAdvisor.getValue()),Integer.parseInt(maxParticipants.getText()), LocalDate.parse(createdDate.getValue().toString()));
-                    clubList.add(list);
-                    errorCall.setText("");
+                            list = new Club(clubId.getText(), clubName.getText(),clubDescription.getText(),new ClubAdvisor(clubAdvisor.getValue().split("\\s+")[0],clubAdvisor.getValue().split("\\s+")[1]),
+                                    Integer.parseInt(maxParticipants.getText()), Date.valueOf(createdDate.getValue()));
 
-                    confirmation(CreateClub);
+                            stmt=con.createStatement();
+
+                            String sql="INSERT INTO Club "+
+                                    "Values("+"'"+list.getClubId()+"','"+list.getClubName()+"','"+list.getClubDescription()+
+                                    "','"+list.getClubAdvisor()+"','"+list.getMaxParticipants()+"','"+list.getCreatedDate()+"');";
+                            stmt.execute(sql);
+                            clubList.add(list);
+                            errorCall.setText("");
+                            confirmation(CreateClub);
+                            con.close();
                         }else{
                             errorCall.setText("Enter positive value");
                         }
-                    }catch(Exception e){
+                    }catch(NumberFormatException e){
                         errorCall.setText("Enter integer value for maximum participants");
                     }
                 }
@@ -68,14 +91,18 @@ public class CreateClub extends ClubApplication {
     public void confirmation(ActionEvent event) throws IOException {
 
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-        confirm.setTitle("Save the current data");
+        confirm.setTitle("Add Another item");
         confirm.setContentText("Do you want to add another item to the list? ");
 
         if (confirm.showAndWait().get() == ButtonType.OK) {
-            clubId.clear();
-            clubName.clear();
-            clubAdvisor.setValue(null);
-            createdDate.setValue(null);
+            Stage prevStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            prevStage.close();
+            Stage currentStage = new Stage();
+            FXMLLoader loader=new FXMLLoader(ClubApplication.class.getResource("Create Club.fxml"));
+            Scene scene = new Scene(loader.load(),800,500);
+            currentStage.setScene(scene);
+            currentStage.setTitle("Create Club");
+            currentStage.show();
 
         } else {
             event.consume();
@@ -103,4 +130,28 @@ public class CreateClub extends ClubApplication {
     }
 
 
+    public void idReleased() {
+        try {
+            clubId.setText(clubId.getText().substring(0,5));
+            clubId.positionCaret(5);
+        }catch (Exception ignored) {}
+
+    }
+    public void nameReleased() {
+        try {
+            clubName.setText(clubName.getText().substring(0,20));
+            clubName.positionCaret(20);
+        }catch (Exception ignored) {}
+    }
+    public void descReleased() {
+        try {
+            clubDescription.setText(clubDescription.getText().substring(0,80));
+            clubDescription.positionCaret(80);
+        }catch (Exception ignored) {}
+    } public void partReleased() {
+        try {
+            maxParticipants.setText(maxParticipants.getText().substring(0,3));
+            maxParticipants.positionCaret(3);
+        }catch (Exception ignored) {}
+    }
 }

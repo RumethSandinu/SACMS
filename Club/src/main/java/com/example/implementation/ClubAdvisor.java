@@ -10,14 +10,19 @@ public class ClubAdvisor {
     private String contactNumber;
     private ArrayList<Club> advisingClubs;
 
-    public ClubAdvisor(String fName){
+//    public ClubAdvisor(String fName){
+//        this.fName=fName;
+//    }
+    public ClubAdvisor(String fName,String lName){
         this.fName=fName;
+        this.lName=lName;
     }
 
-    public ClubAdvisor(String id, String fName, String lName, String contactNumber) {
+    public ClubAdvisor(String id, String fName, String lName,String email, String contactNumber) {
         this.id = id;
         this.fName = fName;
         this.lName = lName;
+        this.email=email;
         this.contactNumber = contactNumber;
     }
 
@@ -27,15 +32,15 @@ public class ClubAdvisor {
     public void setId(String id) {
         this.id = id;
     }
-    public String getfName() {
+    public String getFName() {
         return fName;
     }
 
-    public void setfName(String fName) {
+    public void setFName(String fName) {
         this.fName = fName;
     }
 
-    public String getlName() {
+    public String getLName() {
         return lName;
     }
 
@@ -74,6 +79,6 @@ public class ClubAdvisor {
 
     @Override
     public String toString(){
-        return getfName();
+        return getFName()+" "+getLName();
     }
 }

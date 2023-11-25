@@ -6,11 +6,16 @@ Button {
     -fx-background-color: transparent;
     -fx-border-color: #3a495e;
     -fx-border-radius: 8px;
+    -fx-cursor: hand;
 }
 
 Button:hover{
     -fx-background-color: #2c3c5d;
     -fx-effect: dropshadow(three-pass-box,black,30,0,10,10);
+}
+.homeBackBtn:hover{
+    -fx-background-color: #2c3c5d;
+    -fx-effect: none;
 }
 
 .tables{

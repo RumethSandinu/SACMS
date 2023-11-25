@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,25 +15,29 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class GenerateReport extends Storage implements Initializable {
 
-    public TableView<ReportClubs> report;
-    public TableColumn<ReportClubs,String> clubId;
-    public TableColumn<ReportClubs,String> clubName;
-    public TableColumn<ReportClubs,ClubAdvisor> clubAdvisor;
-    public TableColumn<ReportClubs,Integer> maxParticipants;
-    public TableColumn<ReportClubs,Integer> currentParticipants;
-    public TableColumn<ReportClubs,String> createdDate;
-    List<Club> reportClubs = new ArrayList<>(List.of());
-    ObservableList<ReportClubs> reportTable= FXCollections.observableArrayList();
+    public TableView<Club> report;
+    public TableColumn<Club,String> clubId;
+    public TableColumn<Club,String> clubName;
+    public TableColumn<Club,ClubAdvisor> clubAdvisor;
+    public TableColumn<Club,Integer> maxParticipants;
+    public TableColumn<Club,Integer> currentParticipants;
+    public TableColumn<Club, LocalDate> createdDate;
+    List<Club> Club = new ArrayList<>(List.of());
+    ObservableList<Club> reportTable= FXCollections.observableArrayList();
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Label label=new Label("No clubs were found");
+        report.setPlaceholder(label);
+
         clubId.setCellValueFactory(new PropertyValueFactory<>("clubId"));
         clubName.setCellValueFactory(new PropertyValueFactory<>("clubName"));
         clubAdvisor.setCellValueFactory(new PropertyValueFactory<>("clubAdvisor"));
@@ -44,9 +49,14 @@ public class GenerateReport extends Storage implements Initializable {
     }
 
     public void appendList(){
-        for (Club club:getAvailableClubs()){
-            reportTable.add(new ReportClubs(club.getClubId(),club.getClubName(),club.getAdvisor(),
-                    club.getMaxNumber(),club.getCurrentNumber(),club.getCreatedDate().toString()));
+        for (Club club : getAvailableClubs()) {
+            try {
+                reportTable.add(new Club(club.getClubId(), club.getClubName(),club.getClubDescription(),club.getClubAdvisor(),
+                        club.getMaxParticipants(), club.getClubMembers().size(), club.getCreatedDate()));
+            }catch(NullPointerException ignored){
+                reportTable.add(new Club(club.getClubId(),club.getClubName(),club.getClubDescription(), club.getClubAdvisor(),
+                        club.getMaxParticipants(), 0, club.getCreatedDate()));
+            }
         }
     }
 

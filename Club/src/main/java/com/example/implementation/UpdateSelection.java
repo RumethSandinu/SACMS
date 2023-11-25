@@ -10,20 +10,28 @@ import java.io.IOException;
 
 public class UpdateSelection {
     public void updateProfile(ActionEvent actionEvent) throws IOException {
-        Stage prevStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        prevStage.close();
-        Stage updateStage = new Stage();
+        Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+        Stage updateProfile = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Profile.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        updateStage.setTitle("Update Club Profile");
-        updateStage.setScene(scene);
-        updateStage.setResizable(false);
-        updateStage.show();
+        updateProfile.setTitle("Update Club Profile");
+        updateProfile.setScene(scene);
+        updateProfile.setResizable(false);
+        updateProfile.show();
 
     }
 
-    public void updateMembers(ActionEvent actionEvent) {
-
+    public void updateMembers(ActionEvent actionEvent) throws IOException {
+        Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+        Stage updateMembers = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Members.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        updateMembers.setTitle("Update Members");
+        updateMembers.setScene(scene);
+        updateMembers.setResizable(false);
+        updateMembers.show();
     }
 
     public void backBtn(ActionEvent actionEvent) throws IOException {
@@ -36,5 +44,17 @@ public class UpdateSelection {
         prevStage.setScene(scene);
         prevStage.setResizable(false);
         prevStage.show();
+    }
+
+    public void homeButton(ActionEvent actionEvent) throws IOException {
+        Stage currentStage =(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+        Stage homeStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Club.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        homeStage.setTitle("Club");
+        homeStage.setScene(scene);
+        homeStage.setResizable(false);
+        homeStage.show();
     }
 }

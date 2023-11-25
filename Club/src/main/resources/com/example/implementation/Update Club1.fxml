@@ -7,60 +7,65 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@StyleSheets/Main.css"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.implementation.UpdateClub1">
-    <Text fill="WHITE" layoutX="34.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0"
-          text="Enter Club Name to update">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@StyleSheets/Main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.implementation.UpdateClub1">
+    <Text fill="WHITE" layoutX="34.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Club Name to Update">
         <font>
-          <Font size="26.0"/>
+          <Font size="26.0" />
         </font>
     </Text>
-    <TextField fx:id="clubID" layoutX="362.0" layoutY="66.0" prefHeight="31.0" prefWidth="401.0">
+    <TextField fx:id="updClub" layoutX="380.0" layoutY="73.0" prefHeight="30.0" prefWidth="400.0">
         <font>
-          <Font size="25.0"/>
+          <Font size="25.0" />
         </font>
     </TextField>
-    <Button layoutX="301.0" layoutY="150.0" mnemonicParsing="false" onAction="#getDetails" prefHeight="39.0"
-            prefWidth="165.0" text="Get Details">
+    <Button layoutX="331.0" layoutY="179.0" mnemonicParsing="false" onAction="#getDetails" prefHeight="40.0" prefWidth="165.0" text="Get Details">
         <font>
-          <Font size="22.0"/>
+          <Font size="22.0" />
         </font>
     </Button>
-    <TableView fx:id="clubsTable" layoutY="222.0" prefHeight="276.0" prefWidth="800.0" styleClass="tables">
+    <TableView fx:id="clubsTable" layoutY="231.0" prefHeight="267.0" prefWidth="800.0" styleClass="tables">
       <columns>
-          <TableColumn fx:id="clubId" editable="false" prefWidth="396.46528512239456" resizable="false"
-                       styleClass="tableColumn">
+          <TableColumn fx:id="clubId" editable="false" prefWidth="400.8989690542221" resizable="false" styleClass="tableColumn">
               <graphic>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Club ID">
                       <font>
-                          <Font size="18.0"/>
+                          <Font size="18.0" />
                       </font>
                   </Text>
               </graphic>
           </TableColumn>
-          <TableColumn fx:id="clubName" editable="false" prefWidth="401.53472900390625" resizable="false"
-                       styleClass="tableColumn">
+          <TableColumn fx:id="clubName" editable="false" prefWidth="398.1011047363281" resizable="false" styleClass="tableColumn">
 
               <graphic>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Name">
                       <font>
-                          <Font size="18.0"/>
+                          <Font size="18.0" />
                       </font>
                   </Text>
               </graphic>
           </TableColumn>
       </columns>
     </TableView>
-    <Button layoutX="-4.0" layoutY="-6.0" mnemonicParsing="false" onAction="#backBtn"
-            style="-fx-border-color: transparent;">
+    <Button layoutX="-2.0" layoutY="-7.0" mnemonicParsing="false" onAction="#backBtn" style="-fx-border-color: transparent;" styleClass="homeBackBtn">
         <graphic>
-            <ImageView fitHeight="60.0" fitWidth="68.0">
-                <Image url="@Icons/back_arrow.png"/>
+            <ImageView fitHeight="50.0" fitWidth="55.0">
+                <Image url="@Icons/back_arrow.png" />
             </ImageView>
         </graphic>
     </Button>
+   <Text fx:id="errorCall" fill="WHITE" layoutX="256.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="319.18113708496094">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Text>
+   <Line endX="703.0000610351562" endY="-3.814697265625E-6" layoutX="97.0" layoutY="56.0" startX="-100.0" stroke="WHITE" />
+   <ImageView fitHeight="44.0" fitWidth="46.0" layoutX="381.0" layoutY="3.0">
+      <image>
+         <Image url="@Icons/Update club.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

@@ -1,9 +1,13 @@
 package com.example.implementation;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ClubMember {
+public class ClubMember implements Comparable<ClubMember>{
     private String memberId;
     private String fName;
     private String lName;
@@ -11,12 +15,18 @@ public class ClubMember {
     private Date joinedDate;
     private ArrayList<Club> joinedClubs=new ArrayList<>();
     private String contactNumber;
+    static ObservableList<ClubMember> availableMembers = FXCollections.observableArrayList();
 
-    public ClubMember(String id, String fName, String contactNumber){
+    public ClubMember(String id, String fName, String lName,Date dob,Date joinedDate, String contactNumber){
         this.memberId = id;
         this.fName = fName;
+        this.lName=lName;
+        this.dob=dob;
+        this.joinedDate=joinedDate;
         this.contactNumber = contactNumber;
     }
+
+
     public ClubMember(String fName){
         this.fName = fName;
     }
@@ -73,7 +83,11 @@ public class ClubMember {
 
     @Override
     public String toString() {
-        return getFName();
+        return getFName()+" "+getLName();
     }
 
+    @Override
+    public int compareTo(ClubMember other) {
+        return this.fName.compareTo(other.fName);
+    }
 }

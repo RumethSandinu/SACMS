@@ -44,23 +44,13 @@ public class ClubController {
         Stage deleteStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Delete Club.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        deleteStage.setTitle("Club");
+        deleteStage.setTitle("Delete Club");
         deleteStage.setScene(scene);
         deleteStage.setResizable(false);
         deleteStage.show();
     }
 
-    public void addMember(ActionEvent actionEvent) throws IOException {
-        Stage currentStage =(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        currentStage.close();
-        Stage addMemberStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Add Member.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        addMemberStage.setTitle("Add Members to club");
-        addMemberStage.setScene(scene);
-        addMemberStage.setResizable(false);
-        addMemberStage.show();
-    }
+
 
     public void generateReports(ActionEvent actionEvent) throws IOException {
         Stage currentStage =(Stage)((Node)actionEvent.getSource()).getScene().getWindow();

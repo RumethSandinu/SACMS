@@ -8,43 +8,78 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class DeleteClub extends Storage implements Initializable {
+public class DeleteClub extends Storage {
     @FXML
-    public TextField clubID;
+    public TextField getClubName;
     @FXML
-    public TableView<AvailableClubs> clubsTable;
+    public TableView<Club> clubsTable;
     @FXML
-    public TableColumn<AvailableClubs,String> clubId;
+    public TableColumn<Club,String> clubId;
     @FXML
-    public TableColumn<AvailableClubs,String> clubName;
-    ObservableList<AvailableClubs> availableClubsTbl = FXCollections.observableArrayList();
+    public TableColumn<Club,String> clubName;
+    public Text errorCall;
+    ObservableList<Club> availableClubsTbl = FXCollections.observableArrayList();
 
-    public void deleteClub(ActionEvent actionEvent) {
-        String clubCode=clubID.getText();
+    Connection con;
+    Statement stmt;
+
+    public void initialize() throws SQLException {
+        String url= "jdbc:mysql://localhost:3306/Club_Management";
+        String user="root";
+        String password="";
+        con= DriverManager.getConnection(url,user,password);
+        System.out.println("Connected successfully");
+
+
+        Label label=new Label("No clubs were found");
+        clubsTable.setPlaceholder(label);
+
+        clubId.setCellValueFactory(new PropertyValueFactory<>("clubId"));
+        clubName.setCellValueFactory(new PropertyValueFactory<>("clubName"));
+        getList();
+        clubsTable.setItems(availableClubsTbl);
+    }
+
+    public void deleteClub(ActionEvent actionEvent) throws SQLException {
+        String clubName=getClubName.getText();
         boolean found=false;
         for(Club club: getAvailableClubs()){
-            if(club.getClubId().equals(clubCode)){
+            if(club.getClubName().equalsIgnoreCase(clubName) || club.getClubId().equals(clubName)){
                 found=true;
+
+                stmt = con.createStatement();
+
+                String sql="DELETE FROM Club "+
+                        "WHERE `Club Id` = '"+club.getClubId()+"'";
+                stmt.execute(sql);
+
                 availableClubs.remove(club);
                 availableClubsTbl.clear();
                 getList();
                 clubsTable.setItems(availableClubsTbl);
-                clubID.clear();
+                getClubName.clear();
+                errorCall.setText("");
                 break;
             }
         }
         if(!found){
-            clubID.setText("Not found");
+            errorCall.setText("Club not found");
         }
     }
 
@@ -60,23 +95,17 @@ public class DeleteClub extends Storage implements Initializable {
         prevStage.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        clubId.setCellValueFactory(new PropertyValueFactory<>("clubId"));
-        clubName.setCellValueFactory(new PropertyValueFactory<>("clubName"));
-        getList();
-        clubsTable.setItems(availableClubsTbl);
-    }
+
 
     public void getList(){
         for(Club club: getAvailableClubs()){
-            availableClubsTbl.add(new AvailableClubs(club.getClubId(),club.getClubName()));
+            availableClubsTbl.add(new Club(club.getClubId(),club.getClubName()));
         }
         clubsTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
-                AvailableClubs selectedCode = clubsTable.getSelectionModel().getSelectedItem();
+                Club selectedCode = clubsTable.getSelectionModel().getSelectedItem();
                 if (selectedCode != null) {
-                    clubID.setText(selectedCode.getClubId().toString());
+                    getClubName.setText(selectedCode.getClubName());
                 }
             }
         });
