@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -104,5 +105,9 @@ public class UserRegMainController {
         newStage.show();
         Stage prevStage = (Stage) viewMembersAnchor.getScene().getWindow();
         prevStage.close();
+    }
+
+    @FXML
+    private void adminPage(MouseEvent mouseEvent) {
     }
 }
