@@ -30,7 +30,7 @@
         </columns>
       </TableView>
       <TextField fx:id="eventID" layoutX="62.0" layoutY="458.0" promptText="Enter club ID" />
-      <Button layoutX="147.0" layoutY="513.0" mnemonicParsing="false" text="Update" />
+      <Button layoutX="147.0" layoutY="513.0" mnemonicParsing="false" onAction="#onClickUpdateEventButton" text="Postpone" />
       <Button layoutX="78.0" layoutY="513.0" mnemonicParsing="false" onAction="#onClickDeleteEventButton" text="Delete" />
       <Button fx:id="addEventButton" layoutX="393.0" layoutY="458.0" mnemonicParsing="false" onAction="#onClickAddEventButton" prefHeight="26.0" prefWidth="127.0" styleClass="menu-item" text="Add new event" textFill="WHITE" />
    </children>

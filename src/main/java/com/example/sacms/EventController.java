@@ -725,8 +725,8 @@ public class EventController
 
     public void onClickDeleteEventButton(ActionEvent e) throws Exception
     {
-        EventValidator validateClunID = new EventValidator(eventID.getText());
-        if(validateClunID.isValidEventID()) {
+        EventValidator validateClubID = new EventValidator(eventID.getText());
+        if(validateClubID.isValidEventID()) {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection connection = DriverManager.getConnection(url, user, password);
@@ -761,4 +761,104 @@ public class EventController
             }
         }
     }
-}
+
+    public void onClickUpdateEventButton(ActionEvent e) throws Exception
+    {
+        PostponeEvent.eventID = eventID.getText();
+        EventValidator eventValidator = new EventValidator(eventID.getText());
+        if(eventValidator.isValidEventID()) {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection connection = DriverManager.getConnection(url, user, password);
+                Statement statement = connection.createStatement();
+                String query1 = "select event_id,club_id from EventParent";
+                ResultSet resultSet1 = statement.executeQuery(query1);
+                boolean eventIDMatch = false;
+                while (resultSet1.next()) {
+                    if (resultSet1.getString(1).equals(PostponeEvent.eventID)) {
+                        PostponeEvent.clubID = resultSet1.getString(2);
+                        resultSet1.close();
+                        eventIDMatch = true;
+                        break;
+                    }
+                }
+                if (eventIDMatch) {
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    Parent root = FXMLLoader.load(getClass().getResource("postpone-event-ui.fxml"));
+                    stage.setScene(new Scene(root, 800, 600));
+                    TextField eventIDTextField = (TextField) root.lookup("#eventID");
+                    eventIDTextField.setText(PostponeEvent.eventID);
+                    TextField clubIDTextField = (TextField) root.lookup("#clubID");
+                    clubIDTextField.setText(PostponeEvent.clubID);
+                }
+                connection.close();
+            } catch (Exception edb) {
+                edb.printStackTrace();
+            }
+        }
+    }
+
+    public void onClickPostponeEventButton(ActionEvent e) throws Exception
+    {
+
+        PostponeEvent postponeEvent = new PostponeEvent(eventYear.getText(), eventMonth.getText(), eventDay.getText(),
+                startHour.getText(), startMin.getText(), endHour.getText(), endMin.getText());
+        postponeEvent.values = new String[3];
+        postponeEvent.createEvent();
+        if (EventValidator.isValidYear() && EventValidator.isValidMonth() && EventValidator.isValidDay())
+            {
+                postponeEvent.values[0] = eventYear.getText() + "/" + eventMonth.getText() + "/" + eventDay.getText();
+                validPoints++;
+            } else {
+                eventYear.clear();
+                eventMonth.clear();
+                eventDay.clear();
+            }
+            if (EventValidator.isValidStartHour() && EventValidator.isValidStartMin())
+            {
+                postponeEvent.values[1] = startHour.getText() + ":" + startMin.getText();
+                validPoints++;
+            } else
+            {
+                startHour.clear();
+                startMin.clear();
+            }
+
+            if (EventValidator.isValidEndHour() && EventValidator.isValidEndMin())
+            {
+                if (Integer.parseInt(startHour.getText()) < Integer.parseInt(endHour.getText()) ||
+                        (Integer.parseInt(startHour.getText()) == Integer.parseInt(endHour.getText()) &&
+                                (Integer.parseInt(startMin.getText()) < Integer.parseInt(endMin.getText()))))
+                {
+                    postponeEvent.values[2] = endHour.getText() + ":" + endMin.getText();
+                    validPoints++;
+                } else
+                {
+                    endHour.clear();
+                    endMin.clear();
+                }
+            }
+            else
+            {
+                endHour.clear();
+                endMin.clear();
+            }
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection connection = DriverManager.getConnection(url, user, password);
+                String query2 = "UPDATE EventParent SET event_date = ?, start_time = ?, end_time = ? WHERE event_id = ?";
+                PreparedStatement preparedStatement1 = connection.prepareStatement(query2);
+                preparedStatement1.setString(4,eventID.getText());
+                for(int i = 0; i < 3; i++)
+                {
+                    preparedStatement1.setString(i + 1,postponeEvent.values[i]);
+                }
+                preparedStatement1.executeUpdate();
+                connection.close();
+            }
+            catch(Exception edb)
+            {
+                edb.printStackTrace();
+            }
+        }
+    }
