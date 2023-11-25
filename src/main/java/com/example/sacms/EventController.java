@@ -864,6 +864,5 @@ public class EventController
 
         public void onClickGenerateEventReportButton(ActionEvent e) throws Exception
         {
-
         }
     }
