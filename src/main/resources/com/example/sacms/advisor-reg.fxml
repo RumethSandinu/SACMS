@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane fx:id="advisorAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.AddMember">
+<AnchorPane fx:id="advisorAnchor" maxHeight="600.0" maxWidth="950.0" minHeight="600.0" minWidth="950.0" prefHeight="600.0" prefWidth="950.0" styleClass="mainAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sacms.AddMember">
     <stylesheets>
         <URL value="@../../../Styles/MainPage.css" />
         <URL value="@../../../Styles/Buttons.css" />

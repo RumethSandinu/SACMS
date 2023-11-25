@@ -246,11 +246,5 @@ public class DBConnect {
             System.out.println("failed to connect");
         }
 
-        DateOfBirth AdDate = new DateOfBirth(4,9,2002);
-        DateOfBirth StDate = new DateOfBirth(6, 3, 2002);
-
-//        insertStudent("ST553", "Mr", "Shutdown", "horopathaan@shutdown.com", StDate, "dhammissaragamma");
-
-        insertStudent("ST202", "Mr", "Shutdown", "horopathaan@shutdown.com", StDate, "dhammissaragamma");
     }
 }

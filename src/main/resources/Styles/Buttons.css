@@ -49,6 +49,17 @@ Button:hover FontIcon {
     -fx-background-color: #3b3b3b;
 }
 
+.loginButton:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #712377;
+}
+
+.loginButton {
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-background-color: #3b3b3b;
+}
+
 .fNameLabel {
     -fx-text-fill: red;
 }

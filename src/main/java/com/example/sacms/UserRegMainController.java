@@ -3,6 +3,8 @@ package com.example.sacms;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -19,6 +21,14 @@ public class UserRegMainController {
     private AnchorPane consoleAnchor;
     @FXML
     private AnchorPane viewMembersAnchor;
+    @FXML
+    private TextField adminLogin;
+    @FXML
+    private TextField adminLoginPass;
+    @FXML
+    private Label adminLogLabel;
+    @FXML
+    private Label adminPassLabel;
 
     @FXML
     private void studentRegister() throws IOException {
