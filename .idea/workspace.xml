@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Report Generation Complete">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/view-login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/DBConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/UserRegMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/MainPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/UserReg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/UserReg.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/advisor-reg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/advisor-reg.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +30,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN"
+    },
+    {
+      "searchQuery": "main"
+    },
+    {
+      "searchQuery": "main",
+      "state": "OPEN"
+    }
+  ],
+  "lastFilter": {
+    "searchQuery": "main",
+    "state": "OPEN"
   }
-}</component>
+}]]></component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -252,7 +259,7 @@
       <workItem from="1700798215504" duration="6059000" />
       <workItem from="1700820199533" duration="12186000" />
       <workItem from="1700890073658" duration="5458000" />
-      <workItem from="1700899544870" duration="6385000" />
+      <workItem from="1700899544870" duration="6802000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -605,7 +612,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700900405127</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Report Generation Complete">
+      <option name="closed" value="true" />
+      <created>1700912029749</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1700912029749</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
