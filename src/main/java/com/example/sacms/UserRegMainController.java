@@ -3,7 +3,6 @@ package com.example.sacms;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -72,7 +71,6 @@ public class UserRegMainController {
             e.printStackTrace();
         }
     }
-
 
     @FXML
     private void viewStudents() throws IOException{
