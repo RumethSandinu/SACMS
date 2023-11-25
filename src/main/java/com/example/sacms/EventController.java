@@ -861,4 +861,9 @@ public class EventController
                 edb.printStackTrace();
             }
         }
+
+        public void onClickGenerateEventReportButton(ActionEvent e) throws Exception
+        {
+
+        }
     }
