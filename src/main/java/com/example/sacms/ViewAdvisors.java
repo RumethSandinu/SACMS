@@ -8,12 +8,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 public class ViewAdvisors {
 
@@ -71,18 +74,37 @@ public class ViewAdvisors {
     }
 
     @FXML
-    private void downloadAdvisorExcel() throws IOException{
-        try {
-            if (ReportGen.excelGenerateAdvisors()){
+    private void downloadAdvisorExcel() throws IOException {
+
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Select Download Path");
+
+        Stage stage = (Stage) advisorViewAnchor.getScene().getWindow();
+
+        File selectedDirectory = directoryChooser.showDialog(stage.getOwner());
+        if (selectedDirectory != null) {
+            String path = selectedDirectory.getAbsolutePath();
+            try {
+                if (ReportGen.excelGenerateAdvisors(path)){
+                    FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("excel-download.fxml"));
+                    Stage newStage = new Stage();
+                    Scene newScene = new Scene(fxmlLoader.load(), 350, 180);
+                    newStage.setTitle("Excel Export");
+                    newStage.setScene(newScene);
+                    newStage.show();
+                }
+            }catch (SQLException e) {
+                e.printStackTrace();
                 FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("excel-download.fxml"));
                 Stage newStage = new Stage();
-                Scene newScene = new Scene(fxmlLoader.load(), 950, 600);
+                Scene newScene = new Scene(fxmlLoader.load(), 350, 180);
                 newStage.setTitle("Excel Export");
                 newStage.setScene(newScene);
                 newStage.show();
+                ReportGen.setLabel();
+
             }
-        }catch (SQLException e) {
-            e.printStackTrace();
+
         }
     }
 }

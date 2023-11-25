@@ -6,7 +6,7 @@ Button {
 
 Button:hover{
     -fx-background-color: #712377;
-    -fx-effect: dropshadow(three-pass-box,black,30,0,10,10);
+    /*-fx-effect: dropshadow(three-pass-box,black,30,0,10,10);*/
 }
 
 FontIcon {

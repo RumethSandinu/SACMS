@@ -9,8 +9,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.sql.*;
 
 import java.io.IOException;
@@ -72,10 +74,36 @@ public class ViewStudents {
 
     @FXML
     private void downloadStudentExcel() throws IOException {
-        try {
-            ReportGen.excelGenerateStudents();
-        }catch (SQLException e) {
-            e.printStackTrace();
+
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Select Download Path");
+
+        Stage stage = (Stage) studentViewAnchor.getScene().getWindow();
+
+        File selectedDirectory = directoryChooser.showDialog(stage.getOwner());
+        if (selectedDirectory != null) {
+            String path = selectedDirectory.getAbsolutePath();
+            try {
+                if (ReportGen.excelGenerateStudents(path)){
+                    FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("excel-download.fxml"));
+                    Stage newStage = new Stage();
+                    Scene newScene = new Scene(fxmlLoader.load(), 350, 180);
+                    newStage.setTitle("Excel Export");
+                    newStage.setScene(newScene);
+                    newStage.show();
+                }
+            }catch (SQLException e) {
+                e.printStackTrace();
+                FXMLLoader fxmlLoader = new FXMLLoader(UserRegApplication.class.getResource("excel-download.fxml"));
+                Stage newStage = new Stage();
+                Scene newScene = new Scene(fxmlLoader.load(), 350, 180);
+                newStage.setTitle("Excel Export");
+                newStage.setScene(newScene);
+                newStage.show();
+                ReportGen.setLabel();
+
+            }
+
         }
     }
 }

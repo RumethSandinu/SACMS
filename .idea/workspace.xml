@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Database connection done&#10;File generation started (incomplete)">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/excel-download.fxml" afterDir="false" />
+    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Report Generation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/ReportGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/ReportGen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewAdvisors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewAdvisors.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewStudents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/show-advisors.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/show-advisors.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/show-students.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/show-students.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/excel-download.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/excel-download.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,42 +69,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "git-widget-placeholder": "Praveen__User__Reg__New",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_directory_selection": "D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS/src/main/java/com/example/sacms",
-    "last_opened_file_path": "C:/Users/ASUS/Desktop",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "settings.editor.splitter.proportion": "0.24385448",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Praveen__User__Reg__New&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS/src/main/java/com/example/sacms&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/Desktop&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24385448&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IIT Docs\2nd Year\Semester 1\CM 2601 PRO - Object Oriented Development\CW\SACMS\lib" />
@@ -120,7 +116,7 @@
       <recent name="D:\IIT Docs\2nd Year\Semester 1\CM 2601 PRO - Object Oriented Development\CW\SACMS\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ReportGen">
+  <component name="RunManager" selected="Application.UserRegApplication">
     <configuration name="DBConnect" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sacms.DBConnect" />
       <module name="SACMS" />
@@ -182,8 +178,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReportGen" />
         <item itemvalue="Application.UserRegApplication" />
+        <item itemvalue="Application.ReportGen" />
         <item itemvalue="Application.DBConnect" />
         <item itemvalue="Application.Regex" />
         <item itemvalue="Java Scratch.Scratch" />
@@ -252,7 +248,8 @@
       <workItem from="1700657306405" duration="4954000" />
       <workItem from="1700717632121" duration="2492000" />
       <workItem from="1700798215504" duration="6059000" />
-      <workItem from="1700820199533" duration="11514000" />
+      <workItem from="1700820199533" duration="12186000" />
+      <workItem from="1700890073658" duration="3849000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -573,7 +570,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700808776421</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Report Generation">
+      <option name="closed" value="true" />
+      <created>1700846487838</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1700846487838</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +631,8 @@
     <MESSAGE value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (incomplete)" />
     <MESSAGE value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (complete)" />
     <MESSAGE value="Database connection done&#10;File generation started (incomplete)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database connection done&#10;File generation started (incomplete)" />
+    <MESSAGE value="Report Generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Report Generation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
