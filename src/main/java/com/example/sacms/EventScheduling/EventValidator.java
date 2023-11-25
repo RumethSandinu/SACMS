@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 public class EventValidator implements EventValidation
 {
 
+    private String eventID;
     private static boolean validClubID;
     private static boolean validEventID;
     protected static boolean validYear;
@@ -27,6 +28,13 @@ public class EventValidator implements EventValidation
     private static boolean validName;
     private static boolean validActivityNo;
 
+
+    public EventValidator(){}
+    public EventValidator(String eventID)
+    {
+        this.eventID = eventID;
+        validateEventID(eventID);
+    }
 
     public static boolean isValidClubID() {
         return validClubID;

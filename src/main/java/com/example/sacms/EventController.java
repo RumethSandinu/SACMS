@@ -722,4 +722,43 @@ public class EventController
                 edb.printStackTrace();
         }
     }
+
+    public void onClickDeleteEventButton(ActionEvent e) throws Exception
+    {
+        EventValidator validateClunID = new EventValidator(eventID.getText());
+        if(validateClunID.isValidEventID()) {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection connection = DriverManager.getConnection(url, user, password);
+                Statement statement = connection.createStatement();
+                String query1 = "select event_id from EventParent";
+                ResultSet resultSet1 = statement.executeQuery(query1);
+                while (resultSet1.next()) {
+                    if (resultSet1.getString(1).equals(eventID.getText())) {
+                        resultSet1.close();
+                        String query5 = "DELETE from EventParent WHERE event_id = ?";
+                        String query6 = "DELETE from Meeting WHERE event_id = ?";
+                        String query7 = "DELETE from Activity WHERE event_id = ?";
+                        String query8 = "DELETE from EventType WHERE event_id = ?;";
+                        PreparedStatement preparedStatement1 = connection.prepareStatement(query5);
+                        PreparedStatement preparedStatement2 = connection.prepareStatement(query6);
+                        PreparedStatement preparedStatement3 = connection.prepareStatement(query7);
+                        PreparedStatement preparedStatement4 = connection.prepareStatement(query8);
+                        preparedStatement1.setString(1, eventID.getText());
+                        preparedStatement2.setString(1, eventID.getText());
+                        preparedStatement3.setString(1, eventID.getText());
+                        preparedStatement4.setString(1, eventID.getText());
+                        preparedStatement1.executeUpdate();
+                        preparedStatement2.executeUpdate();
+                        preparedStatement3.executeUpdate();
+                        preparedStatement4.executeUpdate();
+                        connection.close();
+                        break;
+                    }
+                }
+            } catch (Exception edb) {
+                edb.printStackTrace();
+            }
+        }
+    }
 }
