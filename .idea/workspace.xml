@@ -33,19 +33,17 @@
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "history": [
     {
-      "state": "OPEN"
-    },
-    {
       "searchQuery": "main"
     },
     {
       "searchQuery": "main",
       "state": "OPEN"
+    },
+    {
+      "state": "OPEN"
     }
   ],
   "lastFilter": {
-    "searchQuery": "main",
-    "state": "OPEN"
   }
 }]]></component>
   <component name="GithubPullRequestsUISettings">
@@ -259,7 +257,7 @@
       <workItem from="1700798215504" duration="6059000" />
       <workItem from="1700820199533" duration="12186000" />
       <workItem from="1700890073658" duration="5458000" />
-      <workItem from="1700899544870" duration="6802000" />
+      <workItem from="1700899544870" duration="7128000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -620,7 +618,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700912029749</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Report Generation Complete">
+      <option name="closed" value="true" />
+      <created>1700912130714</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1700912130714</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
