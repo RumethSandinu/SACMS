@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Report Generation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/ReportGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/ReportGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewAdvisors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewAdvisors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sacms/ViewStudents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Styles/Buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sacms/excel-download.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sacms/excel-download.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Report Generation Complete" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -249,7 +242,7 @@
       <workItem from="1700717632121" duration="2492000" />
       <workItem from="1700798215504" duration="6059000" />
       <workItem from="1700820199533" duration="12186000" />
-      <workItem from="1700890073658" duration="3849000" />
+      <workItem from="1700890073658" duration="4655000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -578,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700846487838</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Report Generation Complete">
+      <option name="closed" value="true" />
+      <created>1700894099094</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1700894099094</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +633,8 @@
     <MESSAGE value="Java Database Connectivity Sample Test Success&#10;Duplicate Entries handled&#10;Password validation (complete)" />
     <MESSAGE value="Database connection done&#10;File generation started (incomplete)" />
     <MESSAGE value="Report Generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Report Generation" />
+    <MESSAGE value="Report Generation Complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Report Generation Complete" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
