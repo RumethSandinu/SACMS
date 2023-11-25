@@ -2,64 +2,40 @@
 {
     -fx-background-color: #070b14;
     -fx-border-color: #fff;
-    -fx-border-width: 2px;
+    -fx-border-width: 0.5px;
 }
 
-.menu-bar
+.exit-button
 {
-    -fx-background-color: rgb(169, 106, 205);
-    -fx-font-color: #fff;
-}
-
-.status-pane
-{
-
-}
-
-.controller-pane
-{
-    -fx-border-color: #fff;
-    -fx-border-width: 2px;
-}
-.exit-button {
     -fx-background-color:  #b22222;
     -fx-text-fill: white;
     -fx-background-radius:  28.28;
     -fx-border-radius:  28.28;
     -fx-background-insets: 0;
-    -fx-border-color: black;
-    -fx-border-width: 2px;
+    -fx-border-color: #fff;
+    -fx-border-width: 0.5px;
 }
 
-.reset-button{
+.control-button
+{
     -fx-background-color: #004db1;
     -fx-border-stule :none;
     -fx-background-radius: 28.28;
     -fx-background-insets: 0;
     -fx-text-fill: white;
-    -fx-border-color: black;
-    -fx-border-width: 2px;
+    -fx-border-color: #fff;
+    -fx-border-width: 0.5px;
     -fx-border-radius:  28.28;
 }
 
-.main-menu-button{
-    -fx-background-color: #004db1;
-    -fx-background-radius: 28.28;
-    -fx-text-fill: white;
-    -fx-border-radius:  28.28;
-    -fx-border-color: black;
-    -fx-border-width: 2px;
-    -fx-background-insets: 0;
-    
+
+.control-button:hover
+{
+    -fx-background-color: #108610;
 }
 
-.main-menu-button:hover {
-    -fx-background-color: #19a819;
-}
-.reset-button:hover {
-    -fx-background-color: #19a819;
-}
-.exit-button:hover {
+.exit-button:hover
+{
     -fx-background-color:rgb(230, 77, 50);
 }
 
@@ -69,18 +45,23 @@
     -fx-alignment:center;
 }
 
-.menu-item{
+.submit-button
+{
     -fx-background-color: #004db1;
     -fx-border-color: #fff;
-    -fx-border-width: 2px;
+    -fx-border-width: 0.5px;
 }
-.menu-item:hover{
-    -fx-background-color: cornflowerblue;
-}
-.menu-item:hover::after{
-    -fx-background-color: cornflowerblue;
+.submit-button:hover
+{
+    -fx-background-color: #108610;
 }
 
-.input{
+.input
+{
     -fx-background-radius: 15;
+}
+
+.text-topic
+{
+    -fx-effect: dropshadow(gaussian, #004db1,1, 1, 0, 0);
 }
