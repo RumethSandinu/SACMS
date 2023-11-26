@@ -820,4 +820,50 @@ public class ValidationTestor
         validationObj.validateLink(link);
         assertNotEquals(EventValidator.isValidLink(), expectedOut);
     }
+
+    @Test
+    void validateInt()
+    {
+        String integer = "1";
+        boolean expectedPut = true;
+        EventValidator validationObj = new EventValidator();
+        assertEquals(validationObj.validateInt(integer), expectedPut);
+    }
+
+    @Test
+    void validateIntDouble()
+    {
+        String integer = "1.1";
+        boolean expectedPut = true;
+        EventValidator validationObj = new EventValidator();
+        assertNotEquals(validationObj.validateInt(integer), expectedPut);
+    }
+
+     @Test
+    void validateIntStr()
+    {
+        String integer = "str";
+        boolean expectedPut = true;
+        EventValidator validationObj = new EventValidator();
+        assertNotEquals(validationObj.validateInt(integer), expectedPut);
+    }
+
+     @Test
+    void validateIntEmpty()
+    {
+        String integer = "";
+        boolean expectedPut = true;
+        EventValidator validationObj = new EventValidator();
+        assertNotEquals(validationObj.validateInt(integer), expectedPut);
+    }
+
+    @Test
+    void validateStr()
+    {
+        String str = "str";
+        boolean expectedOut = true;
+        EventValidator validationObj = new EventValidator();
+        assertEquals(validationObj.validateString(str), expectedOut);
+    }
+
 }
