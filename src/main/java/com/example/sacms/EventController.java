@@ -265,11 +265,15 @@ public class EventController
                 if(!dbClubIDMatch)
                 {
                     clubID.clear();
+                    clubID.setPromptText("IN");
+                    clubID.setStyle("-fx-prompt-text-fill: #b22222");
                 }
             }
             else
             {
                 clubID.clear();
+                clubID.setPromptText("IN");
+                clubID.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidEventID())
             {
@@ -286,6 +290,8 @@ public class EventController
                 if(dbEventIDMatch)
                 {
                     eventID.clear();
+                    eventID.setPromptText("IN");
+                    eventID.setStyle("-fx-prompt-text-fill: #b22222");
                 }
                 else
                 {
@@ -296,6 +302,8 @@ public class EventController
             else
             {
                 eventID.clear();
+                eventID.setPromptText("IN");
+                eventID.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidYear() && EventValidator.isValidMonth() && EventValidator.isValidDay())
             {
@@ -303,8 +311,14 @@ public class EventController
                 validPoints++;
             } else {
                 eventYear.clear();
+                eventYear.setPromptText("IN");
+                eventYear.setStyle("-fx-prompt-text-fill: #b22222");
                 eventMonth.clear();
+                eventMonth.setPromptText("IN");
+                eventMonth.setStyle("-fx-prompt-text-fill: #b22222");
                 eventDay.clear();
+                eventDay.setPromptText("IN");
+                eventDay.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidStartHour() && EventValidator.isValidStartMin())
             {
@@ -313,7 +327,11 @@ public class EventController
             } else
             {
                 startHour.clear();
+                startHour.setPromptText("IN");
+                startHour.setStyle("-fx-prompt-text-fill: #b22222");
                 startMin.clear();
+                startMin.setPromptText("IN");
+                startMin.setStyle("-fx-prompt-text-fill: #b22222");
             }
 
             if (EventValidator.isValidEndHour() && EventValidator.isValidEndMin())
@@ -327,13 +345,21 @@ public class EventController
                 } else
                 {
                     endHour.clear();
+                    endHour.setPromptText("IN");
+                    endHour.setStyle("-fx-prompt-text-fill: #b22222");
                     endMin.clear();
+                    endHour.setPromptText("IN");
+                    endHour.setStyle("-fx-prompt-text-fill: #b22222");
                 }
             }
             else
             {
                 endHour.clear();
+                endHour.setPromptText("IN");
+                endHour.setStyle("-fx-prompt-text-fill: #b22222");
                 endMin.clear();
+                endMin.setPromptText("IN");
+                endMin.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidNum())
             {
@@ -351,6 +377,8 @@ public class EventController
                 if(dbMeetingNoMatch)
                 {
                     meetingNum.clear();
+                    meetingNum.setPromptText("IN");
+                    meetingNum.setStyle("-fx-prompt-text-fill: #b22222");
                 }
                 else
                 {
@@ -361,6 +389,8 @@ public class EventController
             else
             {
                 meetingNum.clear();
+                meetingNum.setPromptText("IN");
+                meetingNum.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidPlatform())
             {
@@ -370,6 +400,8 @@ public class EventController
             else
             {
                 eventPlatform.clear();
+                eventPlatform.setPromptText("IN");
+                eventPlatform.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidLink())
             {
@@ -379,6 +411,8 @@ public class EventController
             else
             {
                 eventLink.clear();
+                eventLink.setPromptText("IN");
+                eventLink.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (validPoints == 8)
             {
@@ -399,6 +433,29 @@ public class EventController
                 }
                 preparedStatement2.executeUpdate();
                 System.out.println("Meeting data inserted successfully.");
+                Stage newStage = new Stage();
+                Stage previousStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                newStage.initOwner(previousStage);
+                Parent root = FXMLLoader.load(getClass().getResource("successful-ui.fxml"));
+                Scene scene = new Scene(root, 400, 73);
+                newStage.setScene(scene);
+                newStage.setResizable(false);
+                Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+                newStage.setX((primaryScreenBounds.getWidth() - scene.getWidth()) / 2);
+                newStage.setY((primaryScreenBounds.getHeight() - scene.getHeight()) / 2);
+                newStage.show();
+                clubID.clear();
+                eventID.clear();
+                meetingNum.clear();
+                eventPlatform.clear();
+                eventLink.clear();
+                eventYear.clear();
+                eventMonth.clear();
+                eventDay.clear();
+                endHour.clear();
+                endMin.clear();
+                startHour.clear();
+                startMin.clear();
             }
             connection.close();
         }
@@ -406,7 +463,6 @@ public class EventController
         {
             edb.printStackTrace();
         }
-
     }
 
     @FXML
@@ -450,11 +506,15 @@ public class EventController
                 if(!dbClubIDMatch)
                 {
                     clubID.clear();
+                    clubID.setPromptText("IN");
+                    clubID.setStyle("-fx-prompt-text-fill: #b22222");
                 }
             }
             else
             {
                 clubID.clear();
+                clubID.setPromptText("IN");
+                clubID.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidEventID())
             {
@@ -471,6 +531,8 @@ public class EventController
                 if(dbEventIDMatch)
                 {
                     eventID.clear();
+                    eventID.setPromptText("IN");
+                    eventID.setStyle("-fx-prompt-text-fill: #b22222");
                 }
                 else
                 {
@@ -481,6 +543,8 @@ public class EventController
             else
             {
                 eventID.clear();
+                eventID.setPromptText("IN");
+                eventID.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidYear() && EventValidator.isValidMonth() && EventValidator.isValidDay())
             {
@@ -488,8 +552,14 @@ public class EventController
                 validPoints++;
             } else {
                 eventYear.clear();
+                eventYear.setPromptText("IN");
+                eventYear.setStyle("-fx-prompt-text-fill: #b22222");
                 eventMonth.clear();
+                eventMonth.setPromptText("IN");
+                eventMonth.setStyle("-fx-prompt-text-fill: #b22222");
                 eventDay.clear();
+                eventDay.setPromptText("IN");
+                eventDay.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidStartHour() && EventValidator.isValidStartMin())
             {
@@ -498,7 +568,11 @@ public class EventController
             } else
             {
                 startHour.clear();
+                startHour.setPromptText("IN");
+                startHour.setStyle("-fx-prompt-text-fill: #b22222");
                 startMin.clear();
+                startMin.setPromptText("IN");
+                startMin.setStyle("-fx-prompt-text-fill: #b22222");
             }
 
             if (EventValidator.isValidEndHour() && EventValidator.isValidEndMin())
@@ -512,13 +586,21 @@ public class EventController
                 } else
                 {
                     endHour.clear();
+                    endHour.setPromptText("IN");
+                    endHour.setStyle("-fx-prompt-text-fill: #b22222");
                     endMin.clear();
+                    endMin.setPromptText("IN");
+                    endMin.setStyle("-fx-prompt-text-fill: #b22222");
                 }
             }
             else
             {
                 endHour.clear();
-                endMin.clear();
+                    endHour.setPromptText("IN");
+                    endHour.setStyle("-fx-prompt-text-fill: #b22222");
+                    endMin.clear();
+                    endMin.setPromptText("IN");
+                    endMin.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidName())
             {
@@ -528,6 +610,8 @@ public class EventController
             else
             {
                 eventName.clear();
+                eventName.setPromptText("IN");
+                eventName.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidPlace())
             {
@@ -536,6 +620,8 @@ public class EventController
             } else
             {
                 eventPlace.clear();
+                eventPlace.setPromptText("IN");
+                eventPlace.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (validPoints == 7)
             {
@@ -554,7 +640,28 @@ public class EventController
                         preparedStatement2.setString(i + 2, newEvent.values[i + 5]);
                     }
                     preparedStatement2.executeUpdate();
-                    System.out.println("Meeting data inserted successfully.");
+                    Stage newStage = new Stage();
+                    Stage previousStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    newStage.initOwner(previousStage);
+                    Parent root = FXMLLoader.load(getClass().getResource("successful-ui.fxml"));
+                    Scene scene = new Scene(root, 400, 73);
+                    newStage.setScene(scene);
+                    newStage.setResizable(false);
+                    Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+                    newStage.setX((primaryScreenBounds.getWidth() - scene.getWidth()) / 2);
+                    newStage.setY((primaryScreenBounds.getHeight() - scene.getHeight()) / 2);
+                    newStage.show();
+                    clubID.clear();
+                    eventID.clear();
+                    eventName.clear();
+                    eventPlace.clear();
+                    eventYear.clear();
+                    eventMonth.clear();
+                    eventDay.clear();
+                    endHour.clear();
+                    endMin.clear();
+                    startHour.clear();
+                    startMin.clear();
                 }
                 catch(Exception el)
                 {
@@ -779,14 +886,36 @@ public class EventController
                     preparedStatement2.setString(i + 2, newActivity.values[i + 5]);
                 }
                 preparedStatement2.executeUpdate();
-                System.out.println("Meeting data inserted successfully.");
-
+                Stage newStage = new Stage();
+                Stage previousStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                newStage.initOwner(previousStage);
+                Parent root = FXMLLoader.load(getClass().getResource("successful-ui.fxml"));
+                Scene scene = new Scene(root, 400, 73);
+                newStage.setScene(scene);
+                newStage.setResizable(false);
+                Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+                newStage.setX((primaryScreenBounds.getWidth() - scene.getWidth()) / 2);
+                newStage.setY((primaryScreenBounds.getHeight() - scene.getHeight()) / 2);
+                newStage.show();
+                clubID.clear();
+                eventID.clear();
+                activityNo.clear();
+                eventName.clear();
+                eventType.clear();
+                eventLink.clear();
+                eventYear.clear();
+                eventMonth.clear();
+                eventDay.clear();
+                endHour.clear();
+                endMin.clear();
+                startHour.clear();
+                startMin.clear();
             }
             connection.close();
         }
         catch(SQLException edb)
         {
-                edb.printStackTrace();
+            edb.printStackTrace();
         }
     }
 
@@ -820,6 +949,17 @@ public class EventController
                         preparedStatement3.executeUpdate();
                         preparedStatement4.executeUpdate();
                         connection.close();
+                        Stage newStage = new Stage();
+                        Stage previousStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                        newStage.initOwner(previousStage);
+                        Parent root = FXMLLoader.load(getClass().getResource("successful-ui.fxml"));
+                        Scene scene = new Scene(root, 400, 73);
+                        newStage.setScene(scene);
+                        newStage.setResizable(false);
+                        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+                        newStage.setX((primaryScreenBounds.getWidth() - scene.getWidth()) / 2);
+                        newStage.setY((primaryScreenBounds.getHeight() - scene.getHeight()) / 2);
+                        newStage.show();
                         break;
                     }
                 }
@@ -878,8 +1018,14 @@ public class EventController
                 validPoints++;
             } else {
                 eventYear.clear();
+                eventYear.setPromptText("IN");
+                eventYear.setStyle("-fx-prompt-text-fill: #b22222");
                 eventMonth.clear();
+                eventMonth.setPromptText("IN");
+                eventMonth.setStyle("-fx-prompt-text-fill: #b22222");
                 eventDay.clear();
+                eventDay.setPromptText("IN");
+                eventDay.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidStartHour() && EventValidator.isValidStartMin())
             {
@@ -888,7 +1034,11 @@ public class EventController
             } else
             {
                 startHour.clear();
+                startHour.setPromptText("IN");
+                startHour.setStyle("-fx-prompt-text-fill: #b22222");
                 startMin.clear();
+                startMin.setPromptText("IN");
+                startMin.setStyle("-fx-prompt-text-fill: #b22222");
             }
 
             if (EventValidator.isValidEndHour() && EventValidator.isValidEndMin())
@@ -902,30 +1052,49 @@ public class EventController
                 } else
                 {
                     endHour.clear();
+                    endHour.setPromptText("IN");
+                    endHour.setStyle("-fx-prompt-text-fill: #b22222");
                     endMin.clear();
+                    endMin.setPromptText("IN");
+                    endMin.setStyle("-fx-prompt-text-fill: #b22222");
                 }
             }
             else
             {
                 endHour.clear();
+                endHour.setPromptText("IN");
+                endHour.setStyle("-fx-prompt-text-fill: #b22222");
                 endMin.clear();
+                endMin.setPromptText("IN");
+                endMin.setStyle("-fx-prompt-text-fill: #b22222");
             }
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection connection = DriverManager.getConnection(url, user, password);
-                String query2 = "UPDATE EventParent SET event_date = ?, start_time = ?, end_time = ? WHERE event_id = ?";
-                PreparedStatement preparedStatement1 = connection.prepareStatement(query2);
-                preparedStatement1.setString(4,eventID.getText());
-                for(int i = 0; i < 3; i++)
-                {
-                    preparedStatement1.setString(i + 1,postponeEvent.values[i]);
+            if(validPoints == 3) {
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection connection = DriverManager.getConnection(url, user, password);
+                    String query2 = "UPDATE EventParent SET event_date = ?, start_time = ?, end_time = ? WHERE event_id = ?";
+                    PreparedStatement preparedStatement1 = connection.prepareStatement(query2);
+                    preparedStatement1.setString(4, eventID.getText());
+                    for (int i = 0; i < 3; i++) {
+                        preparedStatement1.setString(i + 1, postponeEvent.values[i]);
+                    }
+                    preparedStatement1.executeUpdate();
+                    connection.close();
+                    Stage newStage = new Stage();
+                    Stage previousStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    newStage.initOwner(previousStage);
+                    Parent root = FXMLLoader.load(getClass().getResource("successful-ui.fxml"));
+                    Scene scene = new Scene(root, 400, 73);
+                    newStage.setScene(scene);
+                    newStage.setResizable(false);
+                    Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+                    newStage.setX((primaryScreenBounds.getWidth() - scene.getWidth()) / 2);
+                    newStage.setY((primaryScreenBounds.getHeight() - scene.getHeight()) / 2);
+                    newStage.show();
+                    //
+                } catch (Exception edb) {
+                    edb.printStackTrace();
                 }
-                preparedStatement1.executeUpdate();
-                connection.close();
-            }
-            catch(Exception edb)
-            {
-                edb.printStackTrace();
             }
         }
 
