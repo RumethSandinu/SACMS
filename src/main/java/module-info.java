@@ -1,8 +1,10 @@
-module com.example.sacms {
+module com.example.implementation {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires java.desktop;
 
 
-    opens com.example.sacms to javafx.fxml;
-    exports com.example.sacms;
+    opens com.example.implementation to javafx.fxml;
+    exports com.example.implementation;
 }
