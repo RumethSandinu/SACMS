@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73bbc9e4-6441-4938-8d48-6b4dc3aa1baf" name="Changes" comment="Report Generation Complete">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4332fbcf-d3ff-4076-b978-264413230689.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4332fbcf-d3ff-4076-b978-264413230689.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdvisorDetails.ser" beforeDir="false" afterPath="$PROJECT_DIR$/AdvisorDetails.ser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +90,7 @@
     &quot;git-widget-placeholder&quot;: &quot;Praveen__User__Reg__New&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;D:/IIT Docs/2nd Year/Semester 1/CM 2601 PRO - Object Oriented Development/CW/SACMS/src/main/java/com/example/sacms&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/Desktop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IIT Docs/2nd Year/Semester 1/CM 2603 - Data Science Project/Data/Data Sources/plantvillage_deeplearning_paper_dataset-master&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -258,7 +258,10 @@
       <workItem from="1700820199533" duration="12186000" />
       <workItem from="1700890073658" duration="5458000" />
       <workItem from="1700899544870" duration="8546000" />
-      <workItem from="1700916348510" duration="3506000" />
+      <workItem from="1700916348510" duration="3632000" />
+      <workItem from="1700930042756" duration="1272000" />
+      <workItem from="1700980814294" duration="1363000" />
+      <workItem from="1701001288353" duration="1611000" />
     </task>
     <task id="LOCAL-00001" summary="gg">
       <option name="closed" value="true" />
@@ -635,7 +638,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700912524277</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Report Generation Complete">
+      <option name="closed" value="true" />
+      <created>1700919971349</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1700919971349</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
