@@ -73,7 +73,7 @@ public class CreateClub extends ClubApplication {
 
                             String sql="INSERT INTO Club "+
                                     "Values("+"'"+list.getClubId()+"','"+list.getClubName()+"','"+list.getClubDescription()+
-                                    "','"+list.getClubAdvisor()+"','"+list.getMaxParticipants()+"','"+list.getCreatedDate()+"');";
+                                    "','"+list.getClubAdvisor()+"','"+list.getMaxParticipants()+"','"+list.getCreatedDate()+"','"+"');";
                             stmt.execute(sql);
                             clubList.add(list);
                             errorCall.setText("");
@@ -145,8 +145,8 @@ public class CreateClub extends ClubApplication {
     }
     public void descReleased() {
         try {
-            clubDescription.setText(clubDescription.getText().substring(0,80));
-            clubDescription.positionCaret(80);
+            clubDescription.setText(clubDescription.getText().substring(0,60));
+            clubDescription.positionCaret(60);
         }catch (Exception ignored) {}
     } public void partReleased() {
         try {

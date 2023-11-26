@@ -26,9 +26,10 @@ public class ClubMember implements Comparable<ClubMember>{
         this.contactNumber = contactNumber;
     }
 
-
-    public ClubMember(String fName){
-        this.fName = fName;
+    public ClubMember(String memberId, String fName, String lName) {
+        this.memberId = memberId;
+        this.fName=fName;
+        this.lName = lName;
     }
 
     public String getMemberId() {
@@ -82,12 +83,21 @@ public class ClubMember implements Comparable<ClubMember>{
     public void viewClubDetails(){}
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        ClubMember that = (ClubMember) obj;
+
+        return fName.equals(that.fName) && lName.equals(that.lName);
+    }
+    @Override
     public String toString() {
         return getFName()+" "+getLName();
     }
 
     @Override
     public int compareTo(ClubMember other) {
-        return this.fName.compareTo(other.fName);
+        return this.memberId.compareTo(other.memberId);
     }
 }

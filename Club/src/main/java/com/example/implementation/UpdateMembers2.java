@@ -8,19 +8,22 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class UpdateMembers extends Storage{
+public class UpdateMembers2 extends Storage{
     public TableView<ClubMember> clubMemberTbl;
     public TableColumn<ClubMember,String> memberIdColumn;
     public TableColumn<ClubMember,String> fNameColumn;
@@ -31,9 +34,18 @@ public class UpdateMembers extends Storage{
     public Button backBtn;
     public Button homeBtn;
     ObservableList<ClubMember> memberList= FXCollections.observableArrayList();
-    Club updClub=UpdateClub1.updList;
+    Club updClub= UpdateMembers1.updList;
+    Connection con;
+    Statement stmt;
 
-    public void initialize(){
+    public void initialize() throws SQLException {
+
+        String url="jdbc:mysql://localhost:3306/Club_Management";
+        String user= "root";
+        String password= "";
+
+        con= DriverManager.getConnection(url,user,password);
+
         memberIdColumn.setCellValueFactory((new PropertyValueFactory<>("memberId")));
         fNameColumn.setCellValueFactory((new PropertyValueFactory<>("fName")));
         lNameColumn.setCellValueFactory((new PropertyValueFactory<>("lName")));
@@ -44,6 +56,7 @@ public class UpdateMembers extends Storage{
                 }catch (NullPointerException ignored){}
             }
         }
+        FXCollections.sort(memberList);
         clubMemberTbl.setItems(memberList);
     }
 
@@ -56,7 +69,10 @@ public class UpdateMembers extends Storage{
     public void addMember(ActionEvent actionEvent) {
 
         Stage addMembersStage = new Stage();
+        Label emptyLabel = new Label("No Members available");
         TableView<ClubMember> addMembersTable = new TableView<>();
+        emptyLabel.setStyle("-fx-text-fill: white");
+        addMembersTable.setPlaceholder(emptyLabel);
         TableColumn<ClubMember, String> memberFName = new TableColumn<>();
         TableColumn<ClubMember, String> memberLName = new TableColumn<>();
 
@@ -79,7 +95,6 @@ public class UpdateMembers extends Storage{
 
         memberFName.getStyleClass().add("tableColumn");
         memberLName.getStyleClass().add("tableColumn");
-
 
 
         for (ClubMember member : getAvailableClubMembers()) {
@@ -137,26 +152,33 @@ public class UpdateMembers extends Storage{
                     memberList.add(selectedMember);
                     try {
                         FXCollections.sort(memberList);
+                        clubMemberTbl.setItems(memberList);
+                        clubMemberTbl.refresh();
                     }catch(Exception ignored){}
-                    clubMemberTbl.setItems(memberList);
-                    clubMemberTbl.refresh();
+
                 }
             }
         });
 
     }
-    private void handleMouseClick(MouseEvent event, TableView table, Stage stage) {
 
-    }
+    public void updateMembers(ActionEvent actionEvent) throws IOException, SQLException {
 
-    public void updateMembers(ActionEvent actionEvent) throws IOException {
+        stmt=con.createStatement();
+        String sql="UPDATE Club "+
+                "SET `Club Members`= '"+String.valueOf(memberList).replaceAll("[\\[\\]]", "")
+                +"' "+ "WHERE `Club ID`= '"+updClub.getClubId()+"' ";
+
+        stmt.executeUpdate(sql);
+
+
         updClub.setClubMembers(memberList);
         Stage currentStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         currentStage.close();
         Stage homeStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Club.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Members1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        homeStage.setTitle("Club");
+        homeStage.setTitle("Select Club");
         homeStage.setScene(scene);
         homeStage.show();
     }
@@ -165,9 +187,9 @@ public class UpdateMembers extends Storage{
         Stage currentStage =(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         currentStage.close();
         Stage reportStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Club1.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Members1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        reportStage.setTitle("Club");
+        reportStage.setTitle("Select Club");
         reportStage.setScene(scene);
         reportStage.setResizable(false);
         reportStage.show();

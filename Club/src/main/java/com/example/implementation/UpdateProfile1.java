@@ -18,11 +18,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class UpdateClub1 extends Storage implements Initializable {
+public class UpdateProfile1 extends Storage implements Initializable {
     @FXML
     public TextField updClub;
     @FXML
@@ -81,9 +79,9 @@ public class UpdateClub1 extends Storage implements Initializable {
             Stage prevStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             prevStage.close();
             Stage updateStage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Selection.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Profile2.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-            updateStage.setTitle("Update Club Details");
+            updateStage.setTitle("Update Club Details of "+updList.getClubName());
             updateStage.setScene(scene);
             updateStage.setResizable(false);
             updateStage.show();
@@ -103,8 +101,5 @@ public class UpdateClub1 extends Storage implements Initializable {
         prevStage.show();
     }
 
-    public static Club getUpdList(){
-        return updList;
-    }
 
 }

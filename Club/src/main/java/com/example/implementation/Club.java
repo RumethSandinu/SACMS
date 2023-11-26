@@ -1,6 +1,7 @@
 package com.example.implementation;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,13 +17,14 @@ public class Club implements Comparable<Club>{
 
     private List<ClubMember> clubMembers;
 
-    public Club(String clubId, String clubName,String clubDescription,ClubAdvisor advisor,int maxNumber, Date createdDate ) {
+    public Club(String clubId, String clubName,String clubDescription,ClubAdvisor advisor,int maxNumber, Date createdDate, List<ClubMember> clubMembers ) {
         this.clubId = clubId;
         this.clubName = clubName;
         this.clubDescription = clubDescription;
         this.clubAdvisor = advisor;
         this.maxParticipants =maxNumber;
         this.createdDate = createdDate;
+        this.clubMembers=clubMembers;
     }
 
     public Club(String clubId, String clubName, String clubDescription, ClubAdvisor advisor, int maxNumber, int currentParticipants, Date createdDate) {
@@ -34,11 +36,21 @@ public class Club implements Comparable<Club>{
         this.currentParticipants = currentParticipants;
         this.createdDate = createdDate;
     }
+    public Club(String clubId, String clubName,String clubDescription,ClubAdvisor advisor,int maxNumber, Date createdDate ) {
+        this.clubId = clubId;
+        this.clubName = clubName;
+        this.clubDescription = clubDescription;
+        this.clubAdvisor = advisor;
+        this.maxParticipants = maxNumber;
+        this.createdDate = createdDate;
+    }
 
     public Club(String clubId, String clubName) {
         this.clubId=clubId;
         this.clubName=clubName;
     }
+
+
 
 
     public String getClubId() {
@@ -104,6 +116,31 @@ public class Club implements Comparable<Club>{
     public void setClubMembers(List<ClubMember> clubMembers) {
         this.clubMembers = clubMembers;
     }
+    public static List<ClubMember> parseClubMembers(String membersString) {
+        List<ClubMember> clubMembers = new ArrayList<>();
+
+        if (membersString != null && !membersString.isEmpty()) {
+            String[] memberNames = membersString.split(",");
+            for (String memberName : memberNames) {
+                String[] nameParts = memberName.trim().split("\\s+");
+                if (nameParts.length >= 2) {
+                    String fName = nameParts[0];
+                    String lName = nameParts[1];
+
+                    for(ClubMember member: Storage.availableMembers){
+                        if(member.getFName().equals(fName) && member.getLName().equals(lName)){
+                            ClubMember clubMember = new ClubMember(member.getMemberId(),fName, lName);
+                            clubMembers.add(clubMember);
+                        }
+                    }
+
+                }
+            }
+        }
+
+        return clubMembers;
+    }
+
 
     @Override
     public int compareTo(Club other) {

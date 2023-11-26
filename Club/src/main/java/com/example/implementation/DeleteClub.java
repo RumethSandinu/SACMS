@@ -44,7 +44,6 @@ public class DeleteClub extends Storage {
         String user="root";
         String password="";
         con= DriverManager.getConnection(url,user,password);
-        System.out.println("Connected successfully");
 
 
         Label label=new Label("No clubs were found");

@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@StyleSheets/Main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.implementation.UpdateProfile">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@StyleSheets/Main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.implementation.UpdateProfile2">
    <children>
-      <TextField fx:id="clubId" layoutX="93.0" layoutY="111.0" prefHeight="40.0" prefWidth="300.0">
+      <TextField fx:id="clubId" layoutX="93.0" layoutY="111.0" onKeyReleased="#idReleased" prefHeight="40.0" prefWidth="300.0">
          <font>
             <Font size="16.0" />
          </font>
@@ -29,7 +29,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="clubName" layoutX="93.0" layoutY="209.0" prefHeight="40.0" prefWidth="300.0">
+      <TextField fx:id="clubName" layoutX="93.0" layoutY="209.0" onKeyReleased="#nameReleased" prefHeight="40.0" prefWidth="300.0">
          <font>
             <Font size="16.0" />
          </font>
@@ -66,7 +66,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="errorCall" fill="WHITE" layoutX="417.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="330.65956294027774">
+      <Text fx:id="errorCall" fill="WHITE" layoutX="417.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="330.65956294027774">
          <font>
             <Font size="16.0" />
          </font>
@@ -77,7 +77,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="maxParticipants" layoutX="420.0" layoutY="208.0" prefHeight="40.0" prefWidth="300.0">
+      <TextField fx:id="maxParticipants" layoutX="420.0" layoutY="208.0" onKeyReleased="#partReleased" prefHeight="40.0" prefWidth="300.0">
          <font>
             <Font size="16.0" />
          </font>
@@ -87,7 +87,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TextArea fx:id="clubDescription" layoutX="93.0" layoutY="296.0" prefHeight="175.0" prefWidth="300.0" />
+      <TextArea fx:id="clubDescription" layoutX="93.0" layoutY="296.0" onKeyReleased="#descReleased" prefHeight="175.0" prefWidth="300.0" />
       <Line endX="800.0" layoutY="56.0" stroke="WHITE" />
       <Button layoutX="739.0" layoutY="2.0" mnemonicParsing="false" onAction="#homeButton" style="-fx-border-color: transparent;" styleClass="homeBackBtn">
          <graphic>

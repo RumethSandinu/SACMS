@@ -1,7 +1,5 @@
 package com.example.implementation;
 
-
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,11 +14,10 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.example.implementation.UpdateClub1.getUpdList;
-import static com.example.implementation.UpdateClub1.updList;
 
 
-public class UpdateProfile extends Storage{
+
+public class UpdateProfile2 extends Storage{
 
     @FXML
     public TextField clubId;
@@ -32,6 +29,7 @@ public class UpdateProfile extends Storage{
     public TextField maxParticipants;
     public TextArea clubDescription;
     List<ClubAdvisor> clubAdvisorList;
+    Club updList=UpdateProfile1.updList;
 
     Connection con;
     Statement stmt;
@@ -55,22 +53,24 @@ public class UpdateProfile extends Storage{
         maxParticipants.setText(String.valueOf(updList.getMaxParticipants()));
         createdDate.setValue(LocalDate.parse(updList.getCreatedDate().toString()));
 
-
-
-
     }
 
     public void updateClub(ActionEvent actionEvent) throws IOException,SQLException {
-        availableClubs.removeIf(club -> club.getClubId().equals(getUpdList().getClubId()));
-        if (clubId.getText().equals("")) {
-            errorCall.setText("Fill Club ID");
-        } else if (clubName.getText().equals("")) {
-            errorCall.setText("Fill Club Name");
-        } else if(clubAdvisor.getValue()==null) {
+
+        availableClubs.removeIf(club -> club.getClubId().equals(updList.getClubId()));
+        if (clubId.getText().equals("") ||clubId.getText().contains(";") ) {
+            errorCall.setText("Fill Club ID without ';'");
+        }
+        else if (clubName.getText().equals("") || clubName.getText().contains(";")) {
+            errorCall.setText("Fill Club Name without ';'");
+        }
+        else if(clubDescription.getText().equals("") || clubDescription.getText().contains(";")){
+            errorCall.setText("Fill Club Description without ';'");
+        }
+        else if(clubAdvisor.getValue()==null){
             errorCall.setText("Select Club Advisor");
-        } else if (maxParticipants.getText().equals("") ) {
-            errorCall.setText("Fill maximum participants");
-        } else if (createdDate.getValue() == null || createdDate.getValue().isAfter(LocalDate.now())) {
+        }
+        else if (createdDate.getValue() == null || createdDate.getValue().isAfter(LocalDate.now())) {
             errorCall.setText("Enter a valid date");
         } else {
             boolean clubExist=availableClubs.stream()
@@ -97,7 +97,7 @@ public class UpdateProfile extends Storage{
                     Stage currentStage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                     currentStage.close();
                     Stage homeStage=new Stage();
-                    FXMLLoader fxmlLoader=new FXMLLoader(ClubApplication.class.getResource("Update Club1.fxml"));
+                    FXMLLoader fxmlLoader=new FXMLLoader(ClubApplication.class.getResource("Update Profile1.fxml"));
                     Scene scene=new Scene(fxmlLoader.load(),800,500);
                     homeStage.setScene(scene);
                     homeStage.setTitle("Update Club");
@@ -113,36 +113,11 @@ public class UpdateProfile extends Storage{
         }
     }
 
-//    public void confirmation(ActionEvent event) throws IOException {
-//
-//        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-//        confirm.setTitle("Save the current data");
-//        confirm.setContentText("Do you want to add another item to the list? ");
-//
-//        if (confirm.showAndWait().get() == ButtonType.OK) {
-//            clubId.clear();
-//            clubName.clear();
-//            clubAdvisor.setValue("Please Select");
-//            maxParticipants.clear();
-//            createdDate.setValue(null);
-//
-//        } else {
-//            event.consume();
-//            Stage prevStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            prevStage.close();
-//            FXMLLoader homeFXML = new FXMLLoader(ClubApplication.class.getResource("Club.fxml"));
-//            Scene scene1 = new Scene(homeFXML.load(), 800, 500);
-//            Stage homePage = new Stage();
-//            homePage.setScene(scene1);
-//            homePage.show();
-//            homePage.centerOnScreen();
-//        }
-//    }
     public void backBtn(ActionEvent actionEvent) throws IOException {
         Stage currentStage =(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         currentStage.close();
         Stage prevStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Selection.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Profile1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         prevStage.setTitle("Update Club");
         prevStage.setScene(scene);
@@ -150,7 +125,40 @@ public class UpdateProfile extends Storage{
         prevStage.show();
     }
 
-    public void homeButton(ActionEvent actionEvent) {
+    public void homeButton(ActionEvent event) throws IOException {
+        Stage prevStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            prevStage.close();
+            FXMLLoader homeFXML = new FXMLLoader(ClubApplication.class.getResource("Club.fxml"));
+            Scene scene1 = new Scene(homeFXML.load(), 800, 500);
+            Stage homePage = new Stage();
+            homePage.setScene(scene1);
+            homePage.show();
+            homePage.centerOnScreen();
+    }
+
+    public void idReleased() {
+        try {
+            clubId.setText(clubId.getText().substring(0,5));
+            clubId.positionCaret(5);
+        }catch (Exception ignored) {}
+
+    }
+    public void nameReleased() {
+        try {
+            clubName.setText(clubName.getText().substring(0,20));
+            clubName.positionCaret(20);
+        }catch (Exception ignored) {}
+    }
+    public void descReleased() {
+        try {
+            clubDescription.setText(clubDescription.getText().substring(0,60));
+            clubDescription.positionCaret(60);
+        }catch (Exception ignored) {}
+    } public void partReleased() {
+        try {
+            maxParticipants.setText(maxParticipants.getText().substring(0,3));
+            maxParticipants.positionCaret(3);
+        }catch (Exception ignored) {}
     }
 }
 

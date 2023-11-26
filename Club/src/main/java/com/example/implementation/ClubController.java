@@ -30,7 +30,7 @@ public class ClubController {
         Stage currentStage =(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         currentStage.close();
         Stage updateStage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Club1.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Profile1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         updateStage.setTitle("Update Club");
         updateStage.setScene(scene);
@@ -75,5 +75,17 @@ public class ClubController {
         viewStage.setScene(scene);
         viewStage.setResizable(false);
         viewStage.show();
+    }
+
+    public void manageMembers(ActionEvent actionEvent) throws IOException {
+        Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+        Stage updateMembers = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(ClubApplication.class.getResource("Update Members1.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        updateMembers.setTitle("Update Members");
+        updateMembers.setScene(scene);
+        updateMembers.setResizable(false);
+        updateMembers.show();
     }
 }

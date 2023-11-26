@@ -85,7 +85,7 @@ public class ViewClub extends Storage implements Initializable {
         lName.setCellValueFactory(new PropertyValueFactory<>("lName"));
         memberList.clear();
         try{
-        currentParticipants.setText(String.valueOf(selectedClub.getCurrentParticipants()));
+        currentParticipants.setText(String.valueOf(selectedClub.getClubMembers().size()));
         memberList.addAll(selectedClub.getClubMembers());
         membersTbl.setItems(memberList);
 
