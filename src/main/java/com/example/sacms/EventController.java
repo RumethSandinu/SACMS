@@ -63,10 +63,40 @@ public class EventController
     protected TextField eventName;
     @FXML
     protected TextField activityNo;
+    @FXML
+    private Button resetButton;
     private int validPoints;
 
 
+    @FXML
+    public void onInputTextChanged()
+    {
+        resetButton.setDisable(false);
+    }
 
+    @FXML
+    public void onClickEventViewResetButton(ActionEvent e) throws Exception
+    {
+        eventID.clear();
+    }
+
+    @FXML
+    public void onClickCreateActivityResetButton(ActionEvent e) throws Exception
+    {
+        clubID.clear();
+        eventID.clear();
+        activityNo.clear();
+        eventName.clear();
+        eventType.clear();
+        eventLink.clear();
+        eventYear.clear();
+        eventMonth.clear();
+        eventDay.clear();
+        startHour.clear();
+        startMin.clear();
+        endHour.clear();
+        endMin.clear();
+    }
 
 
    @FXML
@@ -580,11 +610,15 @@ public class EventController
                 if(!dbClubIDMatch)
                 {
                     clubID.clear();
+                    clubID.setPromptText("IN");
+                    clubID.setStyle("-fx-prompt-text-fill: #b22222");
                 }
             }
             else
             {
                 clubID.clear();
+                clubID.setPromptText("IN");
+                clubID.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidEventID())
             {
@@ -601,6 +635,8 @@ public class EventController
                 if(dbEventIDMatch)
                 {
                     eventID.clear();
+                    eventID.setPromptText("IN");
+                    eventID.setStyle("-fx-prompt-text-fill: #b22222");
                 }
                 else
                 {
@@ -611,6 +647,8 @@ public class EventController
             else
             {
                 eventID.clear();
+                eventID.setPromptText("IN");
+                eventID.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidYear() && EventValidator.isValidMonth() && EventValidator.isValidDay())
             {
@@ -618,8 +656,14 @@ public class EventController
                 validPoints++;
             } else {
                 eventYear.clear();
+                eventYear.setPromptText("IN");
+                eventYear.setStyle("-fx-prompt-text-fill: #b22222");
                 eventMonth.clear();
+                eventMonth.setPromptText("IN");
+                eventMonth.setStyle("-fx-prompt-text-fill: #b22222");
                 eventDay.clear();
+                eventDay.setPromptText("IN");
+                eventDay.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidStartHour() && EventValidator.isValidStartMin())
             {
@@ -628,7 +672,11 @@ public class EventController
             } else
             {
                 startHour.clear();
+                startHour.setPromptText("IN");
+                startHour.setStyle("-fx-prompt-text-fill: #b22222");
                 startMin.clear();
+                startMin.setPromptText("IN");
+                startMin.setStyle("-fx-prompt-text-fill: #b22222");
             }
 
             if (EventValidator.isValidEndHour() && EventValidator.isValidEndMin())
@@ -642,13 +690,21 @@ public class EventController
                 } else
                 {
                     endHour.clear();
+                    endHour.setPromptText("IN");
+                    endHour.setStyle("-fx-prompt-text-fill: #b22222");
                     endMin.clear();
+                    endMin.setPromptText("IN");
+                    endMin.setStyle("-fx-prompt-text-fill: #b22222");
                 }
             }
             else
             {
                 endHour.clear();
+                endHour.setPromptText("IN");
+                endHour.setStyle("-fx-prompt-text-fill: #b22222");
                 endMin.clear();
+                endMin.setPromptText("IN");
+                endMin.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidType())
             {
@@ -657,14 +713,19 @@ public class EventController
             } else
             {
                 eventType.clear();
+                eventType.setPromptText("IN");
+                eventType.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidName())
             {
                 newActivity.values[6] = eventName.getText();
                 validPoints++;
-            } else
+            }
+            else
             {
                 eventName.clear();
+                eventName.setPromptText("IN");
+                eventName.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidActivityNo()) {
                 boolean dbActivityNoMatch = false;
@@ -677,6 +738,8 @@ public class EventController
                 dbResult.close();
                 if (dbActivityNoMatch) {
                     activityNo.clear();
+                    activityNo.setPromptText("IN");
+                    activityNo.setStyle("-fx-prompt-text-fill: #b22222");
                 } else {
                     newActivity.values[7] = activityNo.getText();
                     validPoints++;
@@ -685,6 +748,8 @@ public class EventController
             else
             {
                 activityNo.clear();
+                activityNo.setPromptText("IN");
+                activityNo.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (EventValidator.isValidLink())
             {
@@ -693,6 +758,8 @@ public class EventController
             } else
             {
                 eventLink.clear();
+                eventLink.setPromptText("IN");
+                eventLink.setStyle("-fx-prompt-text-fill: #b22222");
             }
             if (validPoints == 9)
             {

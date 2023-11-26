@@ -1,9 +1,5 @@
 package com.example.sacms.EventScheduling;
 
-import com.example.sacms.EventController;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -105,7 +101,7 @@ public class EventValidator implements EventValidation
         try
         {
             int integerInt = Integer.parseInt(integer);
-            if((integer.equals(Integer.toString(integerInt))))
+            if((integer.equals(Integer.toString(integerInt))) && integerInt > -1)
             {
                 return true;
             }
@@ -138,7 +134,6 @@ public class EventValidator implements EventValidation
         {
             validClubID = false;
         }
-
     }
 
     public void validateEventID(String eventID)
@@ -319,14 +314,22 @@ public class EventValidator implements EventValidation
 
     public synchronized boolean validateString(String str)
     {
-        String regex = "^[a-zA-Z]*$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(str);
-        if(matcher.matches())
+        try
         {
-            return true;
+            double strDouble = Double.parseDouble(str);
+            return false;
         }
-        return false;
+        catch(Exception e)
+        {
+            if(str.isEmpty() || str.equals(" ")) {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
     }
 
     public void validateName(String name)

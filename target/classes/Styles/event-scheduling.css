@@ -1,8 +1,6 @@
 .main-pane
 {
     -fx-background-color: #070b14;
-    -fx-border-color: #fff;
-    -fx-border-width: 0.5px;
 }
 
 .exit-button
@@ -36,7 +34,7 @@
 
 .exit-button:hover
 {
-    -fx-background-color:rgb(230, 77, 50);
+    -fx-background-color: rgb(230, 77, 50);
 }
 
 .image-view
@@ -59,6 +57,8 @@
 .input
 {
     -fx-background-radius: 15;
+    -fx-background-color: #fff;
+
 }
 
 .text-topic

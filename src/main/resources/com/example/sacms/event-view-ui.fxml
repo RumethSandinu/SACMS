@@ -26,7 +26,7 @@
             <TableColumn fx:id="startDateColumn" prefWidth="177.0" text="Start Date" />
         </columns>
       </TableView>
-      <TextField fx:id="eventID" focusTraversable="false" layoutX="105.0" layoutY="454.0" prefHeight="35.0" prefWidth="142.0" promptText="Enter club ID" styleClass="input">
+      <TextField fx:id="eventID" focusTraversable="false" layoutX="109.0" layoutY="454.0" onKeyTyped="#onInputTextChanged" prefHeight="35.0" prefWidth="142.0" promptText="Enter club ID" styleClass="input">
          <font>
             <Font size="18.0" />
          </font></TextField>
@@ -56,7 +56,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button disable="true" focusTraversable="false" layoutX="127.0" layoutY="6.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="control-button" stylesheets="@../../../Styles/event-scheduling.css" text="↻">
+      <Button fx:id="resetButton" disable="true" focusTraversable="false" layoutX="127.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickEventViewResetButton" prefHeight="40.0" prefWidth="40.0" styleClass="control-button" stylesheets="@../../../Styles/event-scheduling.css" text="↻">
          <font>
             <Font size="16.0" />
          </font>

@@ -14,6 +14,7 @@ public class Driver extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Driver.class.getResource("event-view-ui.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
