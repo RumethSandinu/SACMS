@@ -26,18 +26,14 @@ public class Storage {
         return Storage.availableMembers;
     }
     public static void allAvailables() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/Club_Management";
+        String url = "jdbc:mysql://localhost:3307/Club_Management";
         String user = "root";
         String password = "";
-        Connection con=null;
 
-        try {
-            con = DriverManager.getConnection(url, user, password);
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        Connection con = DriverManager.getConnection(url, user, password);
         Statement stmt = con.createStatement();
+
+
         String query = "SELECT * FROM Club_Members";
         ResultSet rs = stmt.executeQuery(query);
         while (rs.next()) {

@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -20,7 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UpdateProfile1 extends Storage implements Initializable {
+public class UpdateProfile1 extends Updating implements Initializable {
     @FXML
     public TextField updClub;
     @FXML
@@ -35,6 +36,7 @@ public class UpdateProfile1 extends Storage implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        clubsTable.addEventFilter(ScrollEvent.SCROLL, ScrollEvent::consume);
         Label label=new Label("No clubs were found");
         label.setStyle("-fx-text-fill: white ");
         clubsTable.setPlaceholder(label);
@@ -48,8 +50,9 @@ public class UpdateProfile1 extends Storage implements Initializable {
         clubsTable.refresh();
     }
 
+    @Override
     public void getList(){
-        for(Club club: getAvailableClubs()){
+        for(Club club: Storage.getAvailableClubs()){
             availableClubs.add(new Club(club.getClubId(),club.getClubName()));
         }
         clubsTable.setOnMouseClicked(event -> {
@@ -62,10 +65,12 @@ public class UpdateProfile1 extends Storage implements Initializable {
         });
     }
 
+
+    @Override
     public Club getDetails(ActionEvent e) throws IOException {
         String itemCodeUpd = updClub.getText();
         boolean found = false;
-        for (Club club : getAvailableClubs()) {
+        for (Club club : Storage.getAvailableClubs()) {
             if (club.getClubName().equalsIgnoreCase(itemCodeUpd) || club.getClubId().equals(itemCodeUpd)) {
                 found = true;
                 updList=club;
