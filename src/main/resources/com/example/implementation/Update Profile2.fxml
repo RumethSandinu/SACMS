@@ -40,7 +40,7 @@
          </font>
       </Text>
       <DatePicker fx:id="createdDate" editable="false" layoutX="420.0" layoutY="296.0" prefHeight="40.0" prefWidth="300.0" />
-      <Button layoutX="486.0" layoutY="409.0" mnemonicParsing="false" onAction="#updateClub" prefHeight="61.0" prefWidth="159.0" text="Update">
+      <Button layoutX="486.0" layoutY="409.0" mnemonicParsing="false" onAction="#updateClubBtn" prefHeight="61.0" prefWidth="159.0" text="Update">
          <font>
             <Font size="23.0" />
          </font>

@@ -11,10 +11,13 @@ public class ClubAdvisor {
     private String contactNumber;
     private List<Club> advisingClubs;
 
-
     public ClubAdvisor(String fName,String lName){
         this.fName=fName;
         this.lName=lName;
+    }
+
+    public ClubAdvisor(String advisorId){
+        this.advisorId=advisorId;
     }
 
     public ClubAdvisor(String advisorId, String fName, String lName, String email, String contactNumber) {
@@ -78,6 +81,6 @@ public class ClubAdvisor {
 
     @Override
     public String toString(){
-        return getFName()+" "+getLName();
+        return getAdvisorId();
     }
 }

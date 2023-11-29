@@ -1,12 +1,13 @@
 package com.example.implementation;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 // This is my Club
-public class Club implements Comparable<Club>{
+public class Club implements Comparable<Club> {
     private String clubId;
     private String clubName;
     private String clubDescription;
@@ -16,16 +17,15 @@ public class Club implements Comparable<Club>{
 
     private Date createdDate;
 
-    private List<ClubMember> clubMembers;
+    private List<ClubMember> clubMembers=new ArrayList<>();
 
-    public Club(String clubId, String clubName,String clubDescription,ClubAdvisor advisor,int maxNumber, Date createdDate, List<ClubMember> clubMembers ) {
+    public Club(String clubId, String clubName, String clubDescription, ClubAdvisor advisor, int maxNumber, Date createdDate, List<ClubMember> clubMembers) {
         this.clubId = clubId;
         this.clubName = clubName;
         this.clubDescription = clubDescription;
         this.clubAdvisor = advisor;
-        this.maxParticipants =maxNumber;
+        this.maxParticipants = maxNumber;
         this.createdDate = createdDate;
-        this.clubMembers=clubMembers;
     }
 
     public Club(String clubId, String clubName, String clubDescription, ClubAdvisor advisor, int maxNumber, int currentParticipants, Date createdDate) {
@@ -37,7 +37,8 @@ public class Club implements Comparable<Club>{
         this.currentParticipants = currentParticipants;
         this.createdDate = createdDate;
     }
-    public Club(String clubId, String clubName,String clubDescription,ClubAdvisor advisor,int maxNumber, Date createdDate ) {
+
+    public Club(String clubId, String clubName, String clubDescription, ClubAdvisor advisor, int maxNumber, Date createdDate) {
         this.clubId = clubId;
         this.clubName = clubName;
         this.clubDescription = clubDescription;
@@ -47,12 +48,13 @@ public class Club implements Comparable<Club>{
     }
 
     public Club(String clubId, String clubName) {
-        this.clubId=clubId;
-        this.clubName=clubName;
+        this.clubId = clubId;
+        this.clubName = clubName;
     }
 
-
-
+    public Club(String clubId) {
+        this.clubId=clubId;
+    }
 
     public String getClubId() {
         return clubId;
@@ -97,7 +99,8 @@ public class Club implements Comparable<Club>{
     public int getCurrentParticipants() {
         return currentParticipants;
     }
-    public void setCurrentParticipants(int currentParticipants){
+
+    public void setCurrentParticipants(int currentParticipants) {
         this.currentParticipants = currentParticipants;
     }
 
@@ -117,32 +120,11 @@ public class Club implements Comparable<Club>{
     public void setClubMembers(List<ClubMember> clubMembers) {
         this.clubMembers = clubMembers;
     }
-    public static List<ClubMember> parseClubMembers(String membersString) {
-        List<ClubMember> clubMembers = new ArrayList<>();
 
-        if (membersString != null && !membersString.isEmpty()) {
-            String[] memberNames = membersString.split(",");
-            for (String memberName : memberNames) {
-                String[] nameParts = memberName.trim().split("\\s+");
-                if (nameParts.length >= 2) {
-                    String fName = nameParts[0];
-                    String lName = nameParts[1];
 
-                    for(ClubMember member: Storage.availableMembers){
-                        if(member.getFName().equals(fName) && member.getLName().equals(lName)){
-                            ClubMember clubMember = new ClubMember(member.getMemberId(),fName, lName);
-                            clubMembers.add(clubMember);
-                        }
-                    }
-
-                }
-            }
-        }
-
-        return clubMembers;
+    public void addMember(ClubMember member) {
+        clubMembers.add(member);
     }
-
-
     @Override
     public int compareTo(Club other) {
         return this.clubId.compareTo(other.clubId);
@@ -152,6 +134,6 @@ public class Club implements Comparable<Club>{
     public String toString() {
         return getClubName();
     }
-
-
 }
+
+

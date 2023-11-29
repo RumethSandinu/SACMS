@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,7 +38,7 @@ public class UpdateProfile2 extends Storage{
 
         clubAdvisorList = getAvailableClubAdvisor();
         for(ClubAdvisor advisor : clubAdvisorList){
-            clubAdvisor.getItems().add(advisor.getFName()+" "+advisor.getLName());
+            clubAdvisor.getItems().add(advisor.getAdvisorId()+" "+advisor.getFName()+" "+advisor.getLName());
         }
         clubId.setText(updList.getClubId());
         clubName.setText(updList.getClubName());
@@ -48,7 +49,7 @@ public class UpdateProfile2 extends Storage{
 
     }
 
-    public void updateClub(ActionEvent actionEvent) throws IOException,SQLException {
+    public void updateClubBtn(ActionEvent actionEvent) throws IOException,SQLException {
 
         availableClubs.removeIf(club -> club.getClubId().equals(updList.getClubId()));
         if (clubId.getText().equals("") ||clubId.getText().contains(";") ) {
@@ -77,11 +78,16 @@ public class UpdateProfile2 extends Storage{
                     if(Integer.parseInt(maxParticipants.getText())>0){
                     errorCall.setText("");
 
+                    String advisorId=clubAdvisor.getValue().split("\\s")[0];
                     DBConnection.updateDatabaseClub(clubId.getText(),clubName.getText(),clubDescription.getText(),
-                                                    clubAdvisor.getValue(), Integer.parseInt(maxParticipants.getText()),Date.valueOf(createdDate.getValue()),updList.getClubId());
+                                                    advisorId, Integer.parseInt(maxParticipants.getText()),Date.valueOf(createdDate.getValue()),updList.getClubId());
 
-                    availableClubs.add(new Club(clubId.getText(), clubName.getText(),clubDescription.getText(), new ClubAdvisor(clubAdvisor.getValue().split("\\s+")[0],clubAdvisor.getValue().split("\\s+")[1]),
+                    availableClubs.add(new Club(clubId.getText(), clubName.getText(),clubDescription.getText(), new ClubAdvisor(clubAdvisor.getValue()),
                             Integer.parseInt(maxParticipants.getText()), Date.valueOf(createdDate.getValue())));
+                    for(Club club:availableClubs){
+                        club.setClubMembers(new ArrayList<>());
+                    }
+                    fillMembers();
                     Stage currentStage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                     currentStage.close();
                     Stage homeStage=new Stage();

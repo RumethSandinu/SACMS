@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,12 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ResourceBundle;
 
 public class DeleteClub extends Storage {
     @FXML
@@ -49,20 +43,20 @@ public class DeleteClub extends Storage {
         clubsTable.setItems(availableClubsTbl);
     }
 
-    public void deleteClub(ActionEvent actionEvent) throws SQLException {
+    public void deleteClubBtn(ActionEvent actionEvent) throws SQLException {
         String clubName=getClubName.getText();
         boolean found=false;
         for(Club club: getAvailableClubs()){
             if(club.getClubName().equalsIgnoreCase(clubName) || club.getClubId().equals(clubName)){
                 found=true;
-                DBConnection.deleteClubDatabaseClub(club.getClubId());
+                DBConnection.deleteDatabaseClub(club.getClubId());
 
                 availableClubs.remove(club);
                 availableClubsTbl.clear();
                 getList();
                 clubsTable.setItems(availableClubsTbl);
                 getClubName.clear();
-                errorCall.setText("");
+                errorCall.setText(club.getClubName()+" has been deleted");
                 break;
             }
         }
