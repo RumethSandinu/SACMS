@@ -83,7 +83,6 @@ public class DBConnection {
             System.out.println("deleted");
 
         }catch (SQLIntegrityConstraintViolationException e) {
-            e.printStackTrace();
             sql="UPDATE Club SET `club_Name`= '"+clubName+
                     "',`club_Description`= '"+clubDescription+"',`club_advisor_id`= '"+advisor+
                     "',`max_number`= '"+maxParticipants+"',`created_Date`= '"+createdDate+

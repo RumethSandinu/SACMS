@@ -40,7 +40,21 @@ public class DeleteClub extends Storage {
         clubId.setCellValueFactory(new PropertyValueFactory<>("clubId"));
         clubName.setCellValueFactory(new PropertyValueFactory<>("clubName"));
         getList();
+        FXCollections.sort(availableClubsTbl);
         clubsTable.setItems(availableClubsTbl);
+    }
+    public void getList(){
+        for(Club club: getAvailableClubs()){
+            availableClubsTbl.add(new Club(club.getClubId(),club.getClubName()));
+        }
+        clubsTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                Club selectedCode = clubsTable.getSelectionModel().getSelectedItem();
+                if (selectedCode != null) {
+                    getClubName.setText(selectedCode.getClubName());
+                }
+            }
+        });
     }
 
     public void deleteClubBtn(ActionEvent actionEvent) throws SQLException {
@@ -79,19 +93,7 @@ public class DeleteClub extends Storage {
 
 
 
-    public void getList(){
-        for(Club club: getAvailableClubs()){
-            availableClubsTbl.add(new Club(club.getClubId(),club.getClubName()));
-        }
-        clubsTable.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2) {
-                Club selectedCode = clubsTable.getSelectionModel().getSelectedItem();
-                if (selectedCode != null) {
-                    getClubName.setText(selectedCode.getClubName());
-                }
-            }
-        });
-    }
+
 
 
 }

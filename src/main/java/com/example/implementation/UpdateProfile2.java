@@ -51,7 +51,7 @@ public class UpdateProfile2 extends Storage{
 
     public void updateClubBtn(ActionEvent actionEvent) throws IOException,SQLException {
 
-        availableClubs.removeIf(club -> club.getClubId().equals(updList.getClubId()));
+
         if (clubId.getText().equals("") ||clubId.getText().contains(";") ) {
             errorCall.setText("Fill Club ID without ';'");
         }
@@ -67,6 +67,7 @@ public class UpdateProfile2 extends Storage{
         else if (createdDate.getValue() == null || createdDate.getValue().isAfter(LocalDate.now())) {
             errorCall.setText("Enter a valid date");
         } else {
+            availableClubs.removeIf(club -> club.getClubId().equals(updList.getClubId()));
             boolean clubExist=availableClubs.stream()
                     .anyMatch(club -> club.getClubId().equals(clubId.getText()) || club.getClubName().equals(clubName.getText()));
 
